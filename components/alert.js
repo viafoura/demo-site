@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-export default function Alert({ subscription }) {
+export default function Alert({ preview }) {
   return (
     <div className="text-center mb-1">
-      {subscription.preview ? (
+      {preview ? (
         <>
           Preview Mode{" "}
           <a

@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout subscription={pageProps.subscription}>
+    <Layout preview={pageProps.subscription}>
       <Component {...pageProps} />
     </Layout>
   );

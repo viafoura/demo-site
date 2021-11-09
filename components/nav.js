@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Nav({ subscription }) {
+export default function Nav({ preview }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -56,7 +56,7 @@ export default function Nav({ subscription }) {
                   </div>
                 </div>
                 <nav>
-                  {subscription.initialData.allPosts.map((post) => (
+                  {preview.initialData.allPosts.map((post) => (
                     <a
                       key={post.id}
                       href={`/posts/${post.slug}`}
