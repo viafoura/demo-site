@@ -50,6 +50,15 @@ export default function PostBody({ content }) {
               />
             );
           }
+          if (record.__typename === "ConversationStarterRecord") {
+            return (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: record.conversationStarter,
+                }}
+              />
+            );
+          }
 
           return (
             <>

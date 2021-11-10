@@ -51,6 +51,10 @@ export const postBySlug = gql`
             id
             liveStory
           }
+          ... on ConversationStarterRecord {
+            id
+            conversationStarter
+          }
         }
       }
       date
