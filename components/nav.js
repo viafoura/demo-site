@@ -6,7 +6,7 @@ export default function Nav({ preview }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-40 max-w-full h-16 px-4 py-3 bg-red-700">
+    <nav className="sticky z-10 top-0 max-w-full h-16 px-4 py-3 bg-red-700">
       <div className="grid grid-cols-6 items-center">
         <div className="col-span-1 text-left">
           <button
@@ -31,7 +31,7 @@ export default function Nav({ preview }) {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className="absolute top-3 left-3 w-72">
+            <div className="absolute z-20 top-3 left-3 w-72">
               <div className="px-4 py-3 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-xl ml-2 font-bold hover:text-red-700">
