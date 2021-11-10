@@ -23,11 +23,11 @@ export default function PostBody({ content }) {
               />
             );
           }
-          if (record.__typename === "LiveCommentRecord") {
+          if (record.__typename === "ConversationRecord") {
             return (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: record.liveComment,
+                  __html: record.conversation,
                 }}
               />
             );

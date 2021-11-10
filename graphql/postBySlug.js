@@ -39,9 +39,9 @@ export const postBySlug = gql`
             id
             contentRecirculation
           }
-          ... on LiveCommentRecord {
+          ... on ConversationRecord {
             id
-            liveComment
+            conversation
           }
           ... on LiveChatRecord {
             id
