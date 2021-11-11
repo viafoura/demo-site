@@ -22,20 +22,22 @@ export default function AvatarPost({ name, picture, date, postId }) {
             <vf-conversations-count vf-container-id={postId} /> comments
           </a>
         </div>
-        <div className="col-span-3 text-gray-800 text-base">
+        <div className="col-span-1 text-gray-800 text-base">
           <Date dateString={date} />
         </div>
-        <div className="viafoura col-span-1">
-          <vf-topic-follow
-            topic-id={name}
-            topic-name={name}
-            topic-type="author"
-            show-count="true"
-            minimum-count="0"
-          ></vf-topic-follow>
+        <div className="col-span-1 mt-[3px]">
+          <div className="viafoura">
+            <vf-topic-follow
+              topic-id={name}
+              topic-name={name}
+              topic-type="author"
+              show-count="true"
+              minimum-count="0"
+            ></vf-topic-follow>
+          </div>
         </div>
       </div>
-      <div className="mb-11">
+      <div className="mb-10">
         <div className="viafoura">
           <div
             className="vf-widget vf-share-bar-default"
