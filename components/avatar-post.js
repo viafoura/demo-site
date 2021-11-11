@@ -32,7 +32,7 @@ export default function AvatarPost({ name, picture, date, postId }) {
               topic-name={name}
               topic-type="author"
               show-count="true"
-              minimum-count="0"
+              minimum-count="5"
             ></vf-topic-follow>
           </div>
         </div>
