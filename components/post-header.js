@@ -1,4 +1,4 @@
-import Avatar from "@/components/avatar";
+import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
 
@@ -13,7 +13,7 @@ export default function PostHeader({
     <>
       <PostTitle>{title}</PostTitle>
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
-      <Avatar
+      <AvatarPost
         name={author.name}
         picture={author.picture}
         date={date}

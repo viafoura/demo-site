@@ -5,11 +5,11 @@ import Container from "@/components/container";
 import HeroPost from "@/components/hero-post";
 import MoreStories from "@/components/more-stories";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
-import { indexPosts } from "@/graphql/indexPosts";
+import { homePosts } from "@/graphql/homePosts";
 
 export async function getStaticProps({ preview }) {
   const graphqlRequest = {
-    query: indexPosts,
+    query: homePosts,
     preview,
   };
 

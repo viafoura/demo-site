@@ -2,7 +2,7 @@ import { metaTagsFragment, responsiveImageFragment } from "@/graphql/fragments";
 
 const gql = String.raw;
 
-export const indexPosts = gql`
+export const homePosts = gql`
   {
     site: _site {
       favicon: faviconMetaTags {
