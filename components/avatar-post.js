@@ -16,7 +16,7 @@ export default function AvatarPost({ name, picture, date, postId }) {
             layout="fixed"
           />
         </div>
-        <div className="col-span-3 text-gray-800 text-base font-semibold">
+        <div className="col-span-1 text-gray-800 text-base font-semibold">
           {name} |{" "}
           <a href="#vf-conversations" className="hover:underline">
             <vf-conversations-count vf-container-id={postId} /> comments
@@ -25,7 +25,7 @@ export default function AvatarPost({ name, picture, date, postId }) {
         <div className="col-span-3 text-gray-800 text-base">
           <Date dateString={date} />
         </div>
-        <div className="viafoura">
+        <div className="viafoura col-span-1">
           <vf-topic-follow
             topic-id={name}
             topic-name={name}
