@@ -35,16 +35,18 @@ export default function AvatarPost({ name, picture, date, postId }) {
           ></vf-topic-follow>
         </div>
       </div>
-      <div className="viafoura mb-11">
-        <div
-          className="vf-widget vf-share-bar-default"
-          data-widget="sharebar"
-          data-button-view="false"
-          data-show-labels="false"
-          data-show-counters="true"
-          data-show-total="true"
-          data-path="/"
-        ></div>
+      <div className="mb-11">
+        <div className="viafoura">
+          <div
+            className="vf-widget vf-share-bar-default"
+            data-widget="sharebar"
+            data-button-view="false"
+            data-show-labels="false"
+            data-show-counters="true"
+            data-show-total="true"
+            data-path="/"
+          ></div>
+        </div>
       </div>
     </>
   );
