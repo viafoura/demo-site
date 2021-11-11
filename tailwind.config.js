@@ -6,6 +6,7 @@ module.exports = {
   darkMode: false,
   theme: {
     colors: {
+      nav: "#3d3e39",
       transparent: "transparent",
       currentColor: "currentColor",
       black: colors.black,

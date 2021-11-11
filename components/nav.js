@@ -6,7 +6,7 @@ export default function Nav({ preview }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky z-10 top-0 max-w-full h-16 px-4 py-3 bg-red-700">
+    <nav className="sticky z-10 top-0 max-w-full h-16 px-4 py-3 bg-nav">
       <div className="grid grid-cols-6 items-center">
         <div className="col-span-1 text-left">
           <button
