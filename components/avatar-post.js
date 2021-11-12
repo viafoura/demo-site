@@ -6,7 +6,7 @@ import Date from "@/components/date";
 export default function AvatarPost({ name, picture, date, postId }) {
   return (
     <>
-      <div className="grid grid-cols-7 w-96">
+      <div className="grid grid-cols-5 w-80">
         <div className="col-span-1">
           <Image
             className="rounded-full"
@@ -17,7 +17,7 @@ export default function AvatarPost({ name, picture, date, postId }) {
             layout="fixed"
           />
         </div>
-        <div className="col-span-6">
+        <div className="col-span-4">
           <div className="flex text-gray-800">
             <div className="font-semibold">{name} |</div>
             <div className="text-base ml-1">
