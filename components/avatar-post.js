@@ -19,19 +19,19 @@ export default function AvatarPost({ name, picture, date, postId }) {
         </div>
         <div className="col-span-4">
           <div className="flex text-gray-800">
-            <div className="font-semibold">{name} |</div>
+            <div className="font-semibold ml-[1px]">{name} |</div>
             <div className="text-base ml-1">
               <Date dateString={date} />
             </div>
           </div>
-          <div className="flex text-gray-800">
+          <div className="flex text-gray-800 font-semibold">
             <a
               className="flex mr-3 hover:underline"
               href="#vf-conversations"
               alt="Join the Conversation"
               title="Join the Conversation"
             >
-              <BiCommentDetail className="w-5 h-5 mt-[3px] mr-[3px]" />{" "}
+              <BiCommentDetail className="w-5 h-5 mt-[3px] mr-1" />{" "}
               <vf-conversations-count vf-container-id={postId} />
             </a>
             <div className="mt-[3px] ml-1">
