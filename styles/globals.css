@@ -34,6 +34,20 @@ nav .viafoura .vf-tray-trigger:focus {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+.vf-topic-follow-button {
+  font-size: 10px !important;
+  padding: 2px !important;
+  min-width: 65px !important;
+  line-height: normal !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+.vf-topic-unfollow-button {
+  font-size: 10px !important;
+  padding: 2px !important;
+  min-width: 85px !important;
+  line-height: normal !important;
+}
 .prose .viafoura ul,
 .prose .viafoura ol > li {
   padding: 0;
@@ -43,7 +57,6 @@ nav .viafoura .vf-tray-trigger:focus {
 .prose .viafoura ol > li::before {
   display: none;
 }
-
 .prose .viafoura img {
   margin: 0;
 }
