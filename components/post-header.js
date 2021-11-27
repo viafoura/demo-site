@@ -1,6 +1,7 @@
 import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
+import ShareBar from "@/components/sharebar";
 
 export default function PostHeader({
   title,
@@ -12,13 +13,16 @@ export default function PostHeader({
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
       <AvatarPost
         name={author.name}
         picture={author.picture}
         date={date}
         postId={postId}
       />
+      <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
+
+      <ShareBar showTotal={ true } responsiveImage={coverImage.responsiveImage} />
+
     </>
   );
 }

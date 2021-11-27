@@ -15,6 +15,14 @@
   h3 {
     @apply text-gray-800 text-2xl font-semibold;
   }
+
+  svg {
+    @apply inline align-baseline;
+  }
+}
+
+.viafoura {
+  --reserved-space-top: 62px !important;
 }
 
 nav .viafoura,

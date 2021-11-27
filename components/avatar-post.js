@@ -6,24 +6,39 @@ import Date from "@/components/date";
 export default function AvatarPost({ name, picture, date, postId }) {
   return (
     <>
-      <div className="grid grid-cols-5 w-80">
-        <div className="col-span-1">
-          <Image
-            className="rounded-full"
-            src={picture.url}
-            alt={name}
-            width={48}
-            height={48}
-            layout="fixed"
-          />
-        </div>
-        <div className="col-span-4">
-          <div className="flex text-gray-800">
-            <div className="font-semibold ml-[1px]">{name} |</div>
-            <div className="text-base ml-1">
-              <Date dateString={date} />
-            </div>
+      <div className="flex items-center mb-5 flex-wrap md:flex-nowrap">
+        <div className="flex items-center space-x-3">
+          <div>
+            <Image
+              className="rounded-full"
+              src={picture.url}
+              alt={name}
+              width={48}
+              height={48}
+              layout="fixed"
+            />
           </div>
+          <div className="font-semibold ml-[1px]">
+            {name}
+          </div>
+          <div className="md:border-r md:border-gray-300 pr-3">
+            <div className="viafoura">
+              <vf-topic-follow
+                topic-id={name}
+                topic-name={name}
+                topic-type="author"
+                show-count="false"
+                minimum-count="5"
+              ></vf-topic-follow>
+            </div>
+          </div> 
+        </div>
+
+        <div className="flex items-center">
+          <div className="border-r border-gray-300 px-3 mr-3">
+            <Date dateString={date} />
+          </div>
+
           <div className="flex text-gray-800 font-semibold">
             <a
               className="flex mr-3 hover:underline"
@@ -34,32 +49,7 @@ export default function AvatarPost({ name, picture, date, postId }) {
               <BiCommentDetail className="w-5 h-5 mt-[3px] mr-1" />{" "}
               <vf-conversations-count vf-container-id={postId} />
             </a>
-            <div className="mt-[3px] ml-1">
-              <div className="viafoura">
-                <vf-topic-follow
-                  topic-id={name}
-                  topic-name={name}
-                  topic-type="author"
-                  show-count="false"
-                  minimum-count="5"
-                ></vf-topic-follow>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-
-      <div className="mb-10">
-        <div className="viafoura">
-          <div
-            className="vf-widget vf-share-bar-default"
-            data-widget="sharebar"
-            data-button-view="false"
-            data-show-labels="false"
-            data-show-counters="false"
-            data-show-total="true"
-            data-path="/"
-          ></div>
         </div>
       </div>
     </>

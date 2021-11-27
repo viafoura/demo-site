@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@zephr/sdk": "^1.1.0",
     "date-fns": "2.25.0",
     "next": "^12.0.3",
     "react": "^17.0.2",
