@@ -1,5 +1,5 @@
 import Head from "next/head";
-const Zephr = require('@zephr/sdk').build('viafoura-viafoura.cdn.zephr.com');
+// const Zephr = require('@zephr/sdk').build('viafoura-viafoura.cdn.zephr.com');
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
 
 import Container from "@/components/container";
