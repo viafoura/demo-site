@@ -21,8 +21,7 @@ export default function PostHeader({
       />
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      <ShareBar showTotal={ true } responsiveImage={coverImage.responsiveImage} />
-
+      <ShareBar showTotal={true} />
     </>
   );
 }
