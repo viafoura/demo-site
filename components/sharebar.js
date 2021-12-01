@@ -1,14 +1,25 @@
-export default function ShareBar({ showTotal }) {
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 1100);
+import React, { useEffect, useState } from "react";
 
-  const updateMedia = () => {
-    setDesktop(window.innerWidth > 1100);
-  };
+export default function ShareBar({ showTotal }) {
+  const [isDesktop, setDesktop] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  });
+    if (window.innerWidth > 1450) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 1450) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
   
   return (
     <div className="viafoura">
