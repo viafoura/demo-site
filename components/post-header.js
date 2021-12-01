@@ -19,9 +19,10 @@ export default function PostHeader({
         date={date}
         postId={postId}
       />
+      <ShareBar showTotal={true} />
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      <ShareBar showTotal={true} />
+      
     </>
   );
 }

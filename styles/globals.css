@@ -73,3 +73,12 @@ nav .viafoura .vf-tray-trigger:focus {
 .prose .viafoura img {
   margin: 0;
 }
+
+.vf-share-bar-vertical {
+  position: absolute !important;
+  left: -70px !important;
+}
+
+.vf-share-bar-vertical ul {
+  position: fixed !important;
+}
