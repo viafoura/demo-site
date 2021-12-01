@@ -16,7 +16,7 @@
     @apply text-gray-800 text-2xl font-semibold;
   }
   svg {
-    @apply inline align-baseline;
+    @apply inline align-baseline; 
   }
 }
 
