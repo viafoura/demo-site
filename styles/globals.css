@@ -20,15 +20,14 @@
   }
 }
 
-.viafoura {
-  --reserved-space-top: 62px !important;
-}
-
 nav .viafoura,
 nav .viafoura .vf-tray-trigger:hover,
 nav .viafoura .vf-tray-trigger:focus {
   color: white !important;
   background-color: transparent;
+}
+.viafoura {
+  --reserved-space-top: 62px !important;
 }
 .viafoura .vf-trending-articles .vf-content__icon {
   margin-top: 5px !important;
@@ -54,6 +53,13 @@ nav .viafoura .vf-tray-trigger:focus {
   padding: 2px !important;
   min-width: 85px !important;
   line-height: normal !important;
+}
+#vf-conversations::before {
+  content: "";
+  display: block;
+  height: 70px;
+  margin-top: -70px;
+  visibility: hidden;
 }
 .prose .viafoura ul,
 .prose .viafoura ol > li {

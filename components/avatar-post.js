@@ -19,23 +19,20 @@ export default function AvatarPost({ name, picture, date, postId }) {
             />
           </div>
           <div className="font-semibold ml-[1px]">{name}</div>
-          <div className="sm:pr-3 sm:border-r border-gray-300">
-            <div className="viafoura">
-              <vf-topic-follow
-                topic-id={name}
-                topic-name={name}
-                topic-type="author"
-                show-count="false"
-                minimum-count="5"
-              ></vf-topic-follow>
-            </div>
+          <div className="viafoura">
+            <vf-topic-follow
+              topic-id={name}
+              topic-name={name}
+              topic-type="author"
+              show-count="false"
+              minimum-count="5"
+            ></vf-topic-follow>
           </div>
         </div>
-        <div className="flex items-center">
-          <div className="border-r border-gray-300 sm:pl-3 pr-3 mr-3">
+        <div className="flex items-center sm:pl-4">
+          <div className="sm:border-l border-r border-gray-300 sm:pl-3 pr-3 mr-3">
             <Date dateString={date} />
           </div>
-
           <div className="flex text-gray-800 font-semibold">
             <a
               className="flex mr-3 hover:underline"
