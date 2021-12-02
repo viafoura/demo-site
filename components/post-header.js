@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
 import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
 import ShareBar from "@/components/sharebar";
-import React, { useEffect, useState } from "react";
 
 export default function PostHeader({
   title,
