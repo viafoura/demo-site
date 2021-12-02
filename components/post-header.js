@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
