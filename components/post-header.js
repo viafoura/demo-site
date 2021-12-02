@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
@@ -43,7 +43,7 @@ export default function PostHeader({
       {isDesktop &&
         <ShareBar showTotal={true} className="vf-share-bar-vertical" />
       }
-      
+
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
       {!isDesktop &&
