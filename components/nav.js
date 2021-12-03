@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { BiMenuAltLeft, BiX } from "react-icons/bi";
 
-export default function Nav({ preview }) {
+export default function Nav({ allPosts }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ export default function Nav({ preview }) {
                   </div>
                 </div>
                 <nav>
-                  {preview.initialData.allPosts.map((post) => (
+                  {allPosts.map((post) => (
                     <a
                       key={post.id}
                       href={`/posts/${post.slug}`}

@@ -13,6 +13,9 @@ export const postBySlug = gql`
       id
       slug
       menuName
+      topic {
+        name
+      }
     }
     post(filter: { slug: { eq: $slug } }) {
       id

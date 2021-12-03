@@ -16,7 +16,7 @@
     @apply text-gray-800 text-2xl font-semibold;
   }
   svg {
-    @apply inline align-baseline; 
+    @apply inline align-baseline;
   }
 }
 
@@ -25,6 +25,13 @@ nav .viafoura .vf-tray-trigger:hover,
 nav .viafoura .vf-tray-trigger:focus {
   color: white !important;
   background-color: transparent;
+}
+#vf-conversations::before {
+  content: "";
+  display: block;
+  height: 70px;
+  margin-top: -70px;
+  visibility: hidden;
 }
 .viafoura {
   --reserved-space-top: 62px !important;
@@ -54,12 +61,12 @@ nav .viafoura .vf-tray-trigger:focus {
   min-width: 85px !important;
   line-height: normal !important;
 }
-#vf-conversations::before {
-  content: "";
-  display: block;
-  height: 70px;
-  margin-top: -70px;
-  visibility: hidden;
+.vf-share-bar-vertical {
+  position: absolute !important;
+  left: -45px !important;
+}
+.vf-share-bar-vertical ul {
+  position: fixed !important;
 }
 .prose .viafoura ul,
 .prose .viafoura ol > li {
@@ -72,17 +79,4 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 .prose .viafoura img {
   margin: 0;
-}
-
-.vf-share-bar-vertical {
-  position: absolute !important;
-  left: -45px !important;
-}
-
-.vf-share-bar-vertical ul {
-  position: fixed !important;
-}
-
-.vf-share-bar-horizontal {
-
 }

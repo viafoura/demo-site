@@ -17,10 +17,8 @@ export const homePosts = gql`
     allPosts(orderBy: menuName_DESC) {
       id
       slug
-      menuName
       title
       excerpt
-      date
       coverImage {
         responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }) {
           ...responsiveImageFragment
@@ -28,9 +26,6 @@ export const homePosts = gql`
       }
       author {
         name
-        picture {
-          url(imgixParams: { fm: jpg, fit: crop, w: 48, h: 48 })
-        }
       }
     }
   }

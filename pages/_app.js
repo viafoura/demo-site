@@ -1,10 +1,19 @@
 import "@/styles/globals.css";
 
 import Layout from "@/components/layout";
+import { fetchGraphQL } from "@/graphql/fetchGraphQL";
+import { menuAndTopics } from "@/graphql/menuAndTopics";
 
-function MyApp({ Component, pageProps }) {
+MyApp.getInitialProps = async () => {
+  const initialProps = await fetchGraphQL({
+    query: menuAndTopics,
+  });
+  return { initialProps };
+};
+
+function MyApp({ Component, pageProps, initialProps }) {
   return (
-    <Layout preview={pageProps.subscription}>
+    <Layout initialProps={initialProps} preview={pageProps}>
       <Component {...pageProps} />
     </Layout>
   );
