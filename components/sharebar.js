@@ -1,8 +1,8 @@
 
 
-export default function ShareBar({ showTotal, className }) {
+export default function ShareBar({ showTotal, className, visibility }) {
   return (
-    <div className="viafoura">
+    <div className="viafoura" style={`visibility: ${visibility}`}>
       <div
         className={`vf-widget vf-share-bar-circle ${className}`}
         data-widget="sharebar"
