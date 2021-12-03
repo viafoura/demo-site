@@ -26,8 +26,10 @@ export default function PostHeader({
     const updateMedia = () => {
       if (window.innerWidth > 1100) {
         setDesktop(true);
+        vf.context.reset();
       } else {
         setDesktop(false);
+        vf.context.reset();
       }
     };
     window.addEventListener("resize", updateMedia);
