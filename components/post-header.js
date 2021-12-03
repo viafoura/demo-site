@@ -41,13 +41,15 @@ export default function PostHeader({
         date={date}
         postId={postId}
       />
-      
-      <ShareBar showTotal={true} className={isDesktop ? 'vf-share-bar-vertical visible' : 'vf-share-bar-vertical invisible'} />
+      {isDesktop &&
+        <ShareBar showTotal={true} className="vf-share-bar-vertical" />
+      }
 
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      <ShareBar showTotal={true} className={!isDesktop ? 'vf-share-bar-horizontal visible' : 'vf-share-bar-horizontal invisible'} />
-
+      {!isDesktop &&
+        <ShareBar showTotal={true} className="vf-share-bar-horizontal" />
+      }
     </>
   );
 }

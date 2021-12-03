@@ -61,6 +61,9 @@ nav .viafoura .vf-tray-trigger:focus {
   min-width: 85px !important;
   line-height: normal !important;
 }
+.vf-share-bar.vf-share-bar-horizontal {
+  margin: -20px 0 20px -10px !important;
+}
 .vf-share-bar-vertical {
   position: absolute !important;
   left: -45px !important;
