@@ -9,21 +9,18 @@ export const postBySlug = gql`
         ...metaTagsFragment
       }
     }
-    allPosts(orderBy: menuName_DESC) {
-      id
-      slug
-      menuName
-      topic {
-        name
-      }
-    }
     post(filter: { slug: { eq: $slug } }) {
       id
       seo: _seoMetaTags {
         ...metaTagsFragment
       }
+      topic {
+        id
+        name
+      }
       title
       slug
+      date
       content {
         value
         blocks {
@@ -60,7 +57,6 @@ export const postBySlug = gql`
           }
         }
       }
-      date
       ogImage: coverImage {
         url(imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 })
       }

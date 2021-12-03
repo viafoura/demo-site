@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
+import PostTopics from "@/components/post-topics";
 import ShareBar from "@/components/sharebar";
 
 export default function PostHeader({
@@ -11,6 +12,7 @@ export default function PostHeader({
   date,
   author,
   postId,
+  topics,
 }) {
   const [isDesktop, setDesktop] = useState(false);
 
@@ -28,12 +30,13 @@ export default function PostHeader({
         setDesktop(false);
       }
     };
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
   }, []);
 
   return (
     <>
+      <PostTopics topics={topics} />
       <PostTitle>{title}</PostTitle>
       <AvatarPost
         name={author.name}
@@ -41,15 +44,15 @@ export default function PostHeader({
         date={date}
         postId={postId}
       />
-      {isDesktop &&
+      {isDesktop && (
         <ShareBar showTotal={true} className="vf-share-bar-vertical" />
-      }
+      )}
 
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      {!isDesktop &&
+      {!isDesktop && (
         <ShareBar showTotal={true} className="vf-share-bar-horizontal" />
-      }
+      )}
     </>
   );
 }

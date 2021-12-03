@@ -62,6 +62,7 @@ export default function Post({ subscription }) {
             date={post.date}
             author={post.author}
             postId={post.id}
+            topics={post.topic}
           />
           <PostBody content={post.content} />
         </article>
