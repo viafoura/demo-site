@@ -42,11 +42,11 @@ export default function PostHeader({
         postId={postId}
       />
       
-      <ShareBar showTotal={true} className="vf-share-bar-vertical" visibility={isDesktop ? 'visible' : 'hidden' } />
+      <ShareBar showTotal={true} className={isDesktop ? 'vf-share-bar-vertical visible' : 'vf-share-bar-vertical invisible'} />
 
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      <ShareBar showTotal={true} className="vf-share-bar-horizontal" visibility={!isDesktop ? 'visible' : 'hidden' } />
+      <ShareBar showTotal={true} className={!isDesktop ? 'vf-share-bar-horizontal visible' : 'vf-share-bar-horizontal invisible'} />
 
     </>
   );
