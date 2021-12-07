@@ -23,13 +23,23 @@ export default function PostHeader({
       setDesktop(false);
     }
 
+    const resetVf = (() => {
+      let executed = false;
+      return function() {
+          if (!executed) {
+              executed = true;
+              vf.context.reset();
+          }
+      };
+    })();
+
     const updateMedia = () => {
       if (window.innerWidth > 1100) {
         setDesktop(true);
-        setTimeout(() => { vf.context.reset(); }, 3000);
+        resetVf();
       } else {
         setDesktop(false);
-        setTimeout(() => { vf.context.reset(); }, 3000);
+        resetVf();
       }
     };
     window.addEventListener("resize", updateMedia);
