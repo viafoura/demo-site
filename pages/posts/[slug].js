@@ -55,7 +55,7 @@ export default function Post({ subscription }) {
         <meta name="vf:container_id" content={post.id} />
       </Head>
       <Container>
-        <article>
+        <article className="relative">
           <PostHeader
             title={post.title}
             coverImage={post.coverImage}
