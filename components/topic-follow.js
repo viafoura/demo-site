@@ -10,7 +10,7 @@ export default function TopicFollow({ topics }) {
           "span"
         )[1].innerText = `+ ${topic.name}`;
       });
-    }, 4000);
+    }, 3000);
   }, [topics]);
 
   return (

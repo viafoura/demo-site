@@ -29,6 +29,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ConversationRecord") {
             return (
               <>
+                <div id="vf-conversations"></div>
                 <AuthorFollow picture={author.picture} name={author.name} />
                 <TopicFollow topics={topics} />
                 <div
