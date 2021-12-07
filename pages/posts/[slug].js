@@ -55,7 +55,7 @@ export default function Post({ subscription }) {
         <meta name="vf:container_id" content={post.id} />
       </Head>
       <Container>
-        <article className="relative">
+        <article>
           <PostHeader
             title={post.title}
             coverImage={post.coverImage}
@@ -64,7 +64,11 @@ export default function Post({ subscription }) {
             postId={post.id}
             topics={post.topic}
           />
-          <PostBody content={post.content} />
+          <PostBody
+            content={post.content}
+            author={post.author}
+            topics={post.topic}
+          />
         </article>
       </Container>
     </>

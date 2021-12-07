@@ -26,12 +26,20 @@ nav .viafoura .vf-tray-trigger:focus {
   color: white !important;
   background-color: transparent;
 }
-#vf-conversations::before {
+/* #vf-conversations::before {
   content: "";
   display: block;
   height: 70px;
   margin-top: -70px;
   visibility: hidden;
+} */
+#vf-btn-topics .vf-topic-follow-button {
+  border-color: #ccc !important;
+  background-color: #fafafa !important;
+  color: rgb(22, 22, 22) !important;
+  min-width: auto !important;
+  padding: 8px 12px 8px 12px !important;
+  font-size: 12px !important;
 }
 .viafoura {
   --reserved-space-top: 62px !important;

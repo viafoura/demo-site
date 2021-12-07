@@ -1,6 +1,9 @@
 import { Image, StructuredText } from "react-datocms";
 
-export default function PostBody({ content }) {
+import AuthorFollow from "@/components/author-follow";
+import TopicFollow from "@/components/topic-follow";
+
+export default function PostBody({ content, author, topics }) {
   return (
     <div className="prose prose-md prose-sky max-w-4xl">
       <StructuredText
@@ -25,11 +28,15 @@ export default function PostBody({ content }) {
           }
           if (record.__typename === "ConversationRecord") {
             return (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: record.conversation,
-                }}
-              />
+              <>
+                <AuthorFollow picture={author.picture} name={author.name} />
+                <TopicFollow topics={topics} />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: record.conversation,
+                  }}
+                />
+              </>
             );
           }
           if (record.__typename === "LiveChatRecord") {
