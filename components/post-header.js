@@ -24,12 +24,12 @@ export default function PostHeader({
     }
 
     const updateMedia = () => {
-      if (window.innerWidth > 1100 && !setDesktop) {
+      if (window.innerWidth > 1100) {
         setDesktop(true);
-        vf.context.reset();
-      } else if (window.innerWidth < 1100 && setDesktop) {
+        setTimeout(() => { vf.context.reset(); }, 3000);
+      } else {
         setDesktop(false);
-        vf.context.reset();
+        setTimeout(() => { vf.context.reset(); }, 3000);
       }
     };
     window.addEventListener("resize", updateMedia);
