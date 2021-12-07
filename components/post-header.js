@@ -24,10 +24,10 @@ export default function PostHeader({
     }
 
     const updateMedia = () => {
-      if (window.innerWidth > 1100) {
+      if (window.innerWidth > 1100 && !setDesktop) {
         setDesktop(true);
         vf.context.reset();
-      } else {
+      } else if (window.innerWidth < 1100 && setDesktop) {
         setDesktop(false);
         vf.context.reset();
       }
