@@ -41,6 +41,11 @@ nav .viafoura .vf-tray-trigger:focus {
   padding: 8px 12px 8px 12px !important;
   font-size: 12px !important;
 }
+#vf-btn-topics .vf-topic-unfollow-button {
+  font-size: 12px !important;
+  min-width: auto !important;
+  padding: 8px 12px 8px 12px !important;
+}
 .viafoura {
   --reserved-space-top: 62px !important;
 }
