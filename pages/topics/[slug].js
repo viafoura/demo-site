@@ -2,25 +2,42 @@ import Head from "next/head";
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
 
 import Container from "@/components/container";
-import HeroPost from "@/components/hero-post";
 import MoreStories from "@/components/more-stories";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
-import { homePosts } from "@/graphql/homePosts";
+import { postsByTopic } from "@/graphql/postsByTopic";
 
-export async function getStaticProps({ preview }) {
+export async function getStaticPaths() {
+  const { allTopics } = await fetchGraphQL({
+    query: `{ allTopics { id slug } }`,
+  });
+
+  return {
+    paths: allTopics.map((topic) => `/topics/${topic.slug}`),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params, preview = false }) {
+  const { topic } = await fetchGraphQL({
+    query: `{ topic(filter: {slug: {eq: ${params.slug}}}) { id name } }`,
+  });
+
   const graphqlRequest = {
-    query: homePosts,
+    query: postsByTopic,
     preview,
+    variables: {
+      topicId: topic.id,
+    },
   };
 
   return {
     props: {
+      topic: topic.name,
       subscription: preview
         ? {
             ...graphqlRequest,
             initialData: await fetchGraphQL(graphqlRequest),
             token: process.env.GRAPHQL_API_TOKEN,
-            environment: process.env.DATOCMS_ENVIRONMENT || null,
           }
         : {
             enabled: false,
@@ -30,32 +47,19 @@ export async function getStaticProps({ preview }) {
   };
 }
 
-export default function Index({ subscription }) {
+export default function Topic({ subscription, topic }) {
   const {
     data: { allPosts, site, blog },
   } = useQuerySubscription(subscription);
 
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
   const metaTags = blog.seo.concat(site.favicon);
 
   return (
     <>
       <Head>{renderMetaTags(metaTags)}</Head>
       <Container>
-        {heroPost && (
-          <HeroPost
-            id={heroPost.id}
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        {morePosts.length > 0 && (
-          <MoreStories title="More Stories" posts={morePosts} />
+        {allPosts.length > 0 && (
+          <MoreStories title={`Topic: ${topic}`} posts={allPosts} />
         )}
       </Container>
     </>

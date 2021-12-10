@@ -2,7 +2,7 @@ import { BiCommentDetail } from "react-icons/bi";
 
 export default function AvatarHome({ name, postId, slug }) {
   return (
-    <div className="w-50 mb-11">
+    <div className="w-50">
       <div className="flex text-gray-800 text-base font-semibold">
         {name}
         <a

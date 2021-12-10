@@ -1,10 +1,10 @@
 import PostPreview from "@/components/post-preview";
 
-export default function MoreStories({ posts }) {
+export default function MoreStories({ title, posts }) {
   return (
-    <section>
-      <h2 className="mb-8">More Stories</h2>
-      <div className="grid sm:grid-cols-2 gap-x-16 gap-y-2">
+    <section className="pb-6">
+      <h2 className="my-6">{title}</h2>
+      <div className="grid sm:grid-cols-2 gap-x-16 gap-y-10">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}

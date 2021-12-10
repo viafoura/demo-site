@@ -5,13 +5,12 @@ export default function HeroPost({
   id,
   title,
   coverImage,
-  date,
   excerpt,
   author,
   slug,
 }) {
   return (
-    <section>
+    <section className="pb-4">
       <div className="my-8">
         <CoverImage
           title={title}
@@ -19,7 +18,7 @@ export default function HeroPost({
           slug={slug}
         />
       </div>
-      <div className="grid sm:grid-cols-2 gap-x-6 mb-2">
+      <div className="grid sm:grid-cols-2 gap-x-6">
         <h1>
           <a href={`/posts/${slug}`} className="hover:underline">
             {title}
