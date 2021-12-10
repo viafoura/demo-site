@@ -20,18 +20,23 @@
   }
 }
 
+/* HTML */
 nav .viafoura,
 nav .viafoura .vf-tray-trigger:hover,
 nav .viafoura .vf-tray-trigger:focus {
   color: white !important;
   background-color: transparent;
 }
-#vf-conversations::before {
-  content: "";
-  display: block;
-  height: 75px;
-  margin-top: -75px;
-  visibility: hidden;
+
+/* Identifiers */
+#vf-content-recirculation-container {
+  min-height: 338.84px !important;
+}
+#vf-conversation-starter-container {
+  min-height: 275.19px !important;
+}
+#vf-conversations-container {
+  min-height: 800px !important;
 }
 #vf-btn-topics .vf-topic-follow-button {
   border-color: #ccc !important;
@@ -46,6 +51,8 @@ nav .viafoura .vf-tray-trigger:focus {
   min-width: auto !important;
   padding: 8px 12px 8px 12px !important;
 }
+
+/* Classes */
 .viafoura {
   --reserved-space-top: 62px !important;
 }
@@ -84,6 +91,8 @@ nav .viafoura .vf-tray-trigger:focus {
 .vf-share-bar-vertical ul {
   position: fixed !important;
 }
+
+/* Prose Plugin */
 .prose .viafoura ul,
 .prose .viafoura ol > li {
   padding: 0;

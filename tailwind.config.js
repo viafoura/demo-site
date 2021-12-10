@@ -1,9 +1,10 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false,
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     colors: {
       nav: "#3d3e39",
@@ -25,6 +26,5 @@ module.exports = {
       sans: ["Roboto", "sans-serif"],
     },
   },
-  variants: {},
   plugins: [require("@tailwindcss/typography")],
 };

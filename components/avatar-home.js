@@ -7,7 +7,7 @@ export default function AvatarHome({ name, postId, slug }) {
         {name}
         <a
           className="flex mr-3 hover:underline"
-          href={`/posts/${slug}#vf-conversations`}
+          href={`/posts/${slug}#vf-conversations-container`}
           alt="Join the Conversation"
           title="Join the Conversation"
         >

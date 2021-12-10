@@ -20,6 +20,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ContentRecirculationRecord") {
             return (
               <div
+                id="vf-content-recirculation-container"
                 dangerouslySetInnerHTML={{
                   __html: record.contentRecirculation,
                 }}
@@ -29,14 +30,15 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ConversationRecord") {
             return (
               <>
-                <div id="vf-conversations"></div>
-                <AuthorFollow picture={author.picture} name={author.name} />
-                <TopicFollow topics={topics} />
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: record.conversation,
-                  }}
-                />
+                <div id="vf-conversations-container" className="scroll-mt-20">
+                  <AuthorFollow picture={author.picture} name={author.name} />
+                  <TopicFollow topics={topics} />
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: record.conversation,
+                    }}
+                  />
+                </div>
               </>
             );
           }
@@ -61,6 +63,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ConversationStarterRecord") {
             return (
               <div
+                id="vf-conversation-starter-container"
                 dangerouslySetInnerHTML={{
                   __html: record.conversationStarter,
                 }}

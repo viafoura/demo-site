@@ -14,7 +14,7 @@ export default function AvatarPost({ name, picture, date, postId }) {
         <div className="flex text-gray-800 font-semibold">
           <a
             className="flex mr-3 hover:underline"
-            href="#vf-conversations"
+            href="#vf-conversations-container"
             alt="Join the Conversation"
             title="Join the Conversation"
           >
