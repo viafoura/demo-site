@@ -24,7 +24,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
-    },
+    }
   },
   plugins: [require("@tailwindcss/typography")],
 };

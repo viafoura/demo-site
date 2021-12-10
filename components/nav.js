@@ -65,7 +65,7 @@ export default function Nav({ allPosts }) {
             />
           </a>
         </div>
-        <div className="viafoura col-span-1 h-10 flex justify-end">
+        <div className="viafoura col-span-1 h-10 flex justify-end bg-gray-300">
           <vf-tray-trigger />
         </div>
       </div>

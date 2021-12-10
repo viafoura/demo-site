@@ -6,6 +6,7 @@
   body {
     @apply font-sans;
   }
+  
   h1 {
     @apply text-gray-800 text-4xl font-bold antialiased;
   }
@@ -26,6 +27,11 @@ nav .viafoura .vf-tray-trigger:hover,
 nav .viafoura .vf-tray-trigger:focus {
   color: white !important;
   background-color: transparent;
+}
+
+.vf-tray-trigger-widget .vf-tray-trigger {
+  border-radius: 30px !important;
+  @apply bg-gray-500 hover:bg-gray-600 !important;
 }
 
 /* Identifiers */
@@ -69,7 +75,7 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 .vf-topic-follow-button {
   font-size: 10px !important;
-  padding: 2px !important;
+  padding: 4px 2px !important;
   min-width: 65px !important;
   line-height: normal !important;
   border-color: #0284c7 !important;
@@ -93,6 +99,11 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 
 /* Prose Plugin */
+
+.prose {
+  @apply sm:text-base md:text-lg md:leading-8;
+}
+
 .prose .viafoura ul,
 .prose .viafoura ol > li {
   padding: 0;

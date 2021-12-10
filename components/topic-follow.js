@@ -14,7 +14,7 @@ export default function TopicFollow({ topics }) {
   }, [topics]);
 
   return (
-    <div className="border-t-[1px] border-b-[1px] border-gray-300 pt-4 pb-5 mt-3 mb-8">
+    <div className="border-t border-b border-gray-300 pt-4 pb-5 mt-3 mb-8">
       <div className="text-xs font-semibold mb-3">Follow Article Topics</div>
       <div id="vf-btn-topics" className="flex">
         {topics.map((topic, i) => (
