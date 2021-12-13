@@ -31,7 +31,7 @@ nav .viafoura .vf-tray-trigger:focus {
 
 .vf-tray-trigger-widget .vf-tray-trigger {
   border-radius: 30px !important;
-  @apply bg-gray-500 hover:bg-gray-600 !important;
+  @apply bg-neutral-600 hover:bg-neutral-700 !important;
 }
 
 /* Identifiers */
