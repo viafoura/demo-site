@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
 
 import Container from "@/components/container";
@@ -48,11 +49,15 @@ export default function Post({ subscription }) {
 
   const metaTags = post.seo.concat(site.favicon);
 
+  const router = useRouter();
+  const { adfree } = router.query;
+
   return (
     <>
       <Head>
         {renderMetaTags(metaTags)}
         <meta name="vf:container_id" content={post.id} />
+        {adfree && <meta property="vf:ads-disabled" />}
       </Head>
       <Container>
         <article className="relative">
