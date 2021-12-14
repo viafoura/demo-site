@@ -57,6 +57,7 @@ export default function Post({ subscription }) {
       <Head>
         {renderMetaTags(metaTags)}
         <meta name="vf:container_id" content={post.id} />
+        <meta property="vf:author" content="viafoura-id:6157500021214" />
         {adfree && <meta property="vf:ads-disabled" />}
       </Head>
       <Container>
