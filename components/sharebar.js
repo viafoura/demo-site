@@ -1,5 +1,3 @@
-
-
 export default function ShareBar({ showTotal, className }) {
   return (
     <div className="viafoura">
@@ -9,7 +7,7 @@ export default function ShareBar({ showTotal, className }) {
         data-button-view="false"
         data-show-labels="false"
         data-show-counters="false"
-        data-show-total={ showTotal }
+        data-show-total={showTotal}
         data-path="/"
       ></div>
     </div>

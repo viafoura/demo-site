@@ -5,7 +5,7 @@ import TopicFollow from "@/components/topic-follow";
 
 export default function PostBody({ content, author, topics }) {
   return (
-    <div className="prose prose-md prose-sky max-w-4xl">
+    <div className="max-w-4xl prose prose-md prose-sky">
       <StructuredText
         data={content}
         renderBlock={({ record }) => {

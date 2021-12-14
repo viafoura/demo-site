@@ -5,7 +5,7 @@ export default function TopicNavigation({ allTopics }) {
         <a
           key={topic.id}
           href={`/topics/${topic.slug}`}
-          className="hover:underline ml-5 font-semibold text-gray-600"
+          className="ml-5 font-semibold text-gray-600 hover:underline"
         >
           {topic.name}
         </a>

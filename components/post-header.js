@@ -25,11 +25,11 @@ export default function PostHeader({
 
     const resetVf = (() => {
       let executed = false;
-      return function() {
-          if (!executed) {
-              executed = true;
-              vf.context.reset();
-          }
+      return function () {
+        if (!executed) {
+          executed = true;
+          vf.context.reset();
+        }
       };
     })();
 

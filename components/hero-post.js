@@ -25,7 +25,7 @@ export default function HeroPost({
           </a>
         </h1>
         <div>
-          <p className="text-gray-700 antialiased text-base mt-4 sm:mt-0 mb-4">
+          <p className="mt-4 mb-4 text-base antialiased text-gray-700 sm:mt-0">
             {excerpt}
           </p>
           <AvatarHome name={author.name} postId={id} slug={slug} />

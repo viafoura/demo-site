@@ -5,13 +5,13 @@ import Date from "@/components/date";
 
 export default function AvatarPost({ name, picture, date, postId }) {
   return (
-    <div className="sm:flex mb-5">
+    <div className="mb-5 sm:flex">
       <AuthorFollow name={name} picture={picture} />
       <div className="flex items-center sm:pl-4">
-        <div className="sm:border-l border-r border-gray-300 sm:pl-3 pr-3 mr-3">
+        <div className="pr-3 mr-3 border-r border-gray-300 sm:border-l sm:pl-3">
           <Date dateString={date} />
         </div>
-        <div className="flex text-gray-800 font-semibold">
+        <div className="flex font-semibold text-gray-800">
           <a
             className="flex mr-3 hover:underline"
             href="#vf-conversations-container"

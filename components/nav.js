@@ -7,8 +7,8 @@ export default function Nav({ allPosts }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky z-10 top-0 max-w-full h-16 px-4 py-3 bg-neutral-800">
-      <div className="grid grid-cols-6 items-center">
+    <nav className="sticky top-0 z-10 h-16 max-w-full px-4 py-3 bg-neutral-800">
+      <div className="grid items-center grid-cols-6">
         <div className="col-span-1 text-left">
           <button
             className="flex items-center"
@@ -22,7 +22,7 @@ export default function Nav({ allPosts }) {
             <div className="absolute z-20 top-3 left-3 w-72">
               <div className="p-3 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-xl ml-2 font-bold hover:text-red-700">
+                  <div className="ml-2 text-xl font-bold hover:text-red-700">
                     <a href="/" aria-label="Viafoura" title="Viafoura">
                       Viafoura
                     </a>
@@ -34,7 +34,7 @@ export default function Nav({ allPosts }) {
                       className="flex items-center justify-center w-8 h-8 rounded hover:bg-gray-200 focus:bg-gray-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <BiX className="w-7 h-7 text-center text-gray-700" />
+                      <BiX className="text-center text-gray-700 w-7 h-7" />
                     </button>
                   </div>
                 </div>
@@ -45,7 +45,7 @@ export default function Nav({ allPosts }) {
                       href={`/posts/${post.slug}`}
                       title={post.menuName}
                       aria-label={post.menuName}
-                      className="block cursor-pointer font-medium px-3 py-2 rounded tracking-wide text-gray-800 transition-colors duration-200 hover:bg-gray-100 hover:text-red-700"
+                      className="block px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 rounded cursor-pointer hover:bg-gray-100 hover:text-red-700"
                     >
                       {post.menuName}
                     </a>
@@ -55,7 +55,7 @@ export default function Nav({ allPosts }) {
             </div>
           )}
         </div>
-        <div className="col-span-4 mx-auto w-40 h-8">
+        <div className="w-40 h-8 col-span-4 mx-auto">
           <a href="/" title="Viafoura" aria-label="Viafoura">
             <Image
               width={160}
@@ -65,7 +65,7 @@ export default function Nav({ allPosts }) {
             />
           </a>
         </div>
-        <div className="viafoura col-span-1 h-10 flex justify-end bg-gray-300">
+        <div className="flex justify-end h-10 col-span-1 bg-gray-300 viafoura">
           <vf-tray-trigger />
         </div>
       </div>

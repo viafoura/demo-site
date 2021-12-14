@@ -22,7 +22,7 @@ export default function PostPreview({
           {title}
         </a>
       </h3>
-      <p className="text-gray-700 antialiased text-base mb-4">{excerpt}</p>
+      <p className="mb-4 text-base antialiased text-gray-700">{excerpt}</p>
       <AvatarHome name={author.name} postId={id} slug={slug} />
     </div>
   );

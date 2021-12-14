@@ -6,15 +6,14 @@
   body {
     @apply font-sans;
   }
-  
   h1 {
-    @apply text-gray-800 text-4xl font-bold antialiased;
+    @apply text-4xl antialiased font-bold text-gray-800;
   }
   h2 {
-    @apply text-gray-800 text-3xl font-bold;
+    @apply text-3xl font-bold text-gray-800;
   }
   h3 {
-    @apply text-gray-800 text-2xl font-semibold;
+    @apply text-2xl font-semibold text-gray-800;
   }
   svg {
     @apply inline align-baseline;
@@ -27,11 +26,6 @@ nav .viafoura .vf-tray-trigger:hover,
 nav .viafoura .vf-tray-trigger:focus {
   color: white !important;
   background-color: transparent;
-}
-
-.vf-tray-trigger-widget .vf-tray-trigger {
-  border-radius: 30px !important;
-  @apply bg-neutral-600 hover:bg-neutral-700 !important;
 }
 
 /* Identifiers */
@@ -61,6 +55,10 @@ nav .viafoura .vf-tray-trigger:focus {
 /* Classes */
 .viafoura {
   --reserved-space-top: 62px !important;
+}
+.vf-tray-trigger-widget .vf-tray-trigger {
+  border-radius: 30px !important;
+  @apply bg-neutral-600 hover:bg-neutral-700 !important;
 }
 .viafoura .vf-trending-articles .vf-content__icon {
   margin-top: 5px !important;
@@ -99,11 +97,9 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 
 /* Prose Plugin */
-
 .prose {
   @apply sm:text-base md:text-lg md:leading-8;
 }
-
 .prose .viafoura ul,
 .prose .viafoura ol > li {
   padding: 0;

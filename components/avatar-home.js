@@ -3,7 +3,7 @@ import { BiCommentDetail } from "react-icons/bi";
 export default function AvatarHome({ name, postId, slug }) {
   return (
     <div className="w-50">
-      <div className="flex text-gray-800 text-base font-semibold">
+      <div className="flex text-base font-semibold text-gray-800">
         {name}
         <a
           className="flex mr-3 hover:underline"
