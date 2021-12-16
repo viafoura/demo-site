@@ -78,7 +78,10 @@ export default function Post({ subscription }) {
               topics={post.topic}
             />
           </article>
-          <Sidebar />
+          <Sidebar
+            showLiveChat={post.showLivechat}
+            liveChatHeader={post.livechatHeader}
+          />
         </div>
       </Container>
     </>

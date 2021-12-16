@@ -1,21 +1,27 @@
-export default function Sidebar() {
+export default function Sidebar({ showLiveChat, liveChatHeader }) {
   return (
     <div className="w-[310px] ml-8 hidden lg:block">
-      <div className="viafoura">
-        <vf-standalone-ad></vf-standalone-ad>
-      </div>
-      <div>
-        <div className="border-b-[1px] border-b-neutral-300 mt-6 mb-4 pb-1 text-lg font-bold">
-          Talk Politics
-        </div>
-        <div
-          id="livechat-wrapper"
-          style={{ height: "550px" }}
-          className="viafoura"
-        >
-          <vf-livechat></vf-livechat>
+      <div className="min-w-[300px] h-[275px]">
+        <div className="viafoura">
+          <vf-standalone-ad></vf-standalone-ad>
         </div>
       </div>
+      {showLiveChat && (
+        <>
+          <div className="border-b-[1px] border-b-neutral-300 mt-6 mb-4 pb-1 text-lg font-bold">
+            {liveChatHeader}
+          </div>
+          <div className="min-w-[300px] min-h-[550px]">
+            <div
+              id="livechat-wrapper"
+              style={{ height: "550px" }}
+              className="viafoura"
+            >
+              <vf-livechat></vf-livechat>
+            </div>
+          </div>
+        </>
+      )}
       <div className="mt-7">
         <div className="viafoura">
           <vf-trending-articles
