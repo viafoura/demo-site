@@ -63,6 +63,9 @@ nav .viafoura .vf-tray-trigger:focus {
 .viafoura .vf-trending-articles .vf-content__icon {
   margin-top: 5px !important;
 }
+.viafoura .vf-trending-articles__header {
+  @apply text-lg font-bold pb-2 capitalize !important;
+}
 .viafoura .vf-expanding-hover-light::before {
   border-width: 0 0 3px 0 !important;
 }
@@ -98,7 +101,7 @@ nav .viafoura .vf-tray-trigger:focus {
 
 /* Prose Plugin */
 .prose {
-  @apply sm:text-base md:text-lg md:leading-8;
+  @apply sm:text-sm md:text-base md:leading-8;
 }
 .prose .viafoura ul,
 .prose .viafoura ol > li {

@@ -5,6 +5,7 @@ import { renderMetaTags, useQuerySubscription } from "react-datocms";
 import Container from "@/components/container";
 import PostBody from "@/components/post-body";
 import PostHeader from "@/components/post-header";
+import Sidebar from "@/components/sidebar";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { postBySlug } from "@/graphql/postBySlug";
 
@@ -61,21 +62,24 @@ export default function Post({ subscription }) {
         {adfree && <meta property="vf:ads-disabled" />}
       </Head>
       <Container>
-        <article className="relative">
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-            postId={post.id}
-            topics={post.topic}
-          />
-          <PostBody
-            content={post.content}
-            author={post.author}
-            topics={post.topic}
-          />
-        </article>
+        <div className="flex">
+          <article className="relative">
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              author={post.author}
+              postId={post.id}
+              topics={post.topic}
+            />
+            <PostBody
+              content={post.content}
+              author={post.author}
+              topics={post.topic}
+            />
+          </article>
+          <Sidebar />
+        </div>
       </Container>
     </>
   );
