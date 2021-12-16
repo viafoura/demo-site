@@ -56,10 +56,6 @@ nav .viafoura .vf-tray-trigger:focus {
 .viafoura {
   --reserved-space-top: 62px !important;
 }
-.vf-tray-trigger-widget .vf-tray-trigger {
-  border-radius: 30px !important;
-  @apply bg-neutral-600 hover:bg-neutral-700 !important;
-}
 .viafoura .vf-trending-articles .vf-content__icon {
   margin-top: 5px !important;
 }
@@ -100,9 +96,6 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 
 /* Prose Plugin */
-.prose {
-  @apply sm:text-sm md:text-base md:leading-8;
-}
 .prose .viafoura ul,
 .prose .viafoura ol > li {
   padding: 0;

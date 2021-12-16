@@ -1,11 +1,11 @@
 export default function Sidebar() {
   return (
-    <div className="w-[310px] ml-8">
+    <div className="w-[310px] ml-8 hidden lg:block">
       <div className="viafoura">
         <vf-standalone-ad></vf-standalone-ad>
       </div>
       <div>
-        <div className="border-b-[1px] border-b-neutral-300 mt-6 mb-4 pb-1 text-lg font-bold ">
+        <div className="border-b-[1px] border-b-neutral-300 mt-6 mb-4 pb-1 text-lg font-bold">
           Talk Politics
         </div>
         <div

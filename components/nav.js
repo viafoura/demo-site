@@ -8,20 +8,20 @@ export default function Nav({ allPosts }) {
 
   return (
     <nav className="sticky top-0 z-10 h-16 max-w-full px-4 py-3 bg-neutral-800">
-      <div className="grid items-center grid-cols-6">
-        <div className="col-span-1 text-left">
+      <div className="flex items-center max-w-6xl mx-auto">
+        <div className="flex w-10 h-10">
           <button
             className="flex items-center"
             aria-label="Open Menu"
             title="Open Menu"
             onClick={() => setIsMenuOpen(true)}
           >
-            <BiMenuAltLeft className="text-white w-7 h-7" />
+            <BiMenuAltLeft className="w-8 h-8 text-white" />
           </button>
           {isMenuOpen && (
-            <div className="absolute z-20 top-3 left-3 w-72">
-              <div className="p-3 bg-white border rounded shadow-sm">
-                <div className="flex items-center justify-between mb-4">
+            <div className="relative z-20 top-2 -left-[30px]">
+              <div className="p-3 pb-5 bg-white border rounded shadow-sm w-80">
+                <div className="flex items-center justify-between mb-2">
                   <div className="ml-2 text-xl font-bold hover:text-red-700">
                     <a href="/" aria-label="Viafoura" title="Viafoura">
                       Viafoura
@@ -31,7 +31,7 @@ export default function Nav({ allPosts }) {
                     <button
                       aria-label="Close Menu"
                       title="Close Menu"
-                      className="flex items-center justify-center w-8 h-8 rounded hover:bg-gray-200 focus:bg-gray-200"
+                      className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 focus:bg-gray-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <BiX className="text-center text-gray-700 w-7 h-7" />
@@ -55,18 +55,20 @@ export default function Nav({ allPosts }) {
             </div>
           )}
         </div>
-        <div className="w-40 h-8 col-span-4 mx-auto">
+        <div className="w-40 h-8 mx-auto">
           <a href="/" title="Viafoura" aria-label="Viafoura">
             <Image
-              width={160}
-              height={32}
+              width={150}
+              height={30}
               src="/images/white-logo.svg"
               alt="Viafoura"
             />
           </a>
         </div>
-        <div className="flex justify-end h-10 col-span-1 bg-gray-300 viafoura">
-          <vf-tray-trigger />
+        <div className="w-10 h-10 rounded-full bg-neutral-700 hover:bg-neutral-600">
+          <div className="viafoura">
+            <vf-tray-trigger />
+          </div>
         </div>
       </div>
     </nav>
