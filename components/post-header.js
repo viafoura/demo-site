@@ -13,6 +13,7 @@ export default function PostHeader({
   author,
   postId,
   topics,
+  vfConversation,
 }) {
   const [isDesktop, setDesktop] = useState(false);
 
@@ -51,10 +52,12 @@ export default function PostHeader({
       <PostTopics topics={topics} />
       <PostTitle>{title}</PostTitle>
       <AvatarPost
-        name={author.name}
-        picture={author.picture}
-        date={date}
+        authorId={author.id}
+        authorName={author.name}
+        authorPicture={author.picture}
+        postDate={date}
         postId={postId}
+        vfConversation={vfConversation}
       />
       {isDesktop && (
         <ShareBar showTotal={true} className="vf-share-bar-vertical" />

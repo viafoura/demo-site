@@ -31,7 +31,11 @@ export default function PostBody({ content, author, topics }) {
             return (
               <>
                 <div id="vf-conversations-container" className="scroll-mt-20">
-                  <AuthorFollow picture={author.picture} name={author.name} />
+                  <AuthorFollow
+                    authorId={author.id}
+                    authorName={author.name}
+                    authorPicture={author.picture}
+                  />
                   <TopicFollow topics={topics} />
                   <div
                     dangerouslySetInnerHTML={{

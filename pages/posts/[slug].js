@@ -53,6 +53,10 @@ export default function Post({ subscription }) {
   const router = useRouter();
   const { adfree } = router.query;
 
+  const vfConversation = post.content.blocks.find(
+    (block) => block.__typename === "ConversationRecord"
+  );
+
   return (
     <>
       <Head>
@@ -71,6 +75,7 @@ export default function Post({ subscription }) {
               author={post.author}
               postId={post.id}
               topics={post.topic}
+              vfConversation={vfConversation}
             />
             <PostBody
               content={post.content}
