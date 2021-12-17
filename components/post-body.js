@@ -21,6 +21,7 @@ export default function PostBody({ content, author, topics }) {
             return (
               <div
                 id="vf-content-recirculation-container"
+                className="not-prose"
                 dangerouslySetInnerHTML={{
                   __html: record.contentRecirculation,
                 }}
@@ -30,7 +31,10 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ConversationRecord") {
             return (
               <>
-                <div id="vf-conversations-container" className="scroll-mt-20">
+                <div
+                  id="vf-conversations-container"
+                  className="not-prose scroll-mt-20"
+                >
                   <AuthorFollow
                     authorId={author.id}
                     authorName={author.name}
@@ -49,6 +53,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "LiveChatRecord") {
             return (
               <div
+                className="not-prose"
                 dangerouslySetInnerHTML={{
                   __html: record.liveChat,
                 }}
@@ -58,6 +63,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "LiveStoryRecord") {
             return (
               <div
+                className="not-prose"
                 dangerouslySetInnerHTML={{
                   __html: record.liveStory,
                 }}
@@ -68,6 +74,7 @@ export default function PostBody({ content, author, topics }) {
             return (
               <div
                 id="vf-conversation-starter-container"
+                className="not-prose"
                 dangerouslySetInnerHTML={{
                   __html: record.conversationStarter,
                 }}

@@ -94,17 +94,3 @@ nav .viafoura .vf-tray-trigger:focus {
 .vf-share-bar-vertical ul {
   position: fixed !important;
 }
-
-/* Prose Plugin */
-.prose .viafoura ul,
-.prose .viafoura ol > li {
-  padding: 0;
-  margin: 0;
-}
-.prose .viafoura ul > li::before,
-.prose .viafoura ol > li::before {
-  display: none;
-}
-.prose .viafoura img {
-  margin: 0;
-}
