@@ -22,7 +22,6 @@ export const postBySlug = gql`
       slug
       date
       showLivechat
-      livechatHeader
       content {
         value
         blocks {

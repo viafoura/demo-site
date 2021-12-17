@@ -80,7 +80,8 @@ export default function Post({ subscription }) {
           </article>
           <Sidebar
             showLiveChat={post.showLivechat}
-            liveChatHeader={post.livechatHeader}
+            topicId={post.topic[0].id}
+            topicName={post.topic[0].name}
           />
         </div>
       </Container>

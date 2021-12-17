@@ -3,6 +3,7 @@ import { renderMetaTags, useQuerySubscription } from "react-datocms";
 
 import Container from "@/components/container";
 import MoreStories from "@/components/more-stories";
+import Sidebar from "@/components/sidebar";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { postsByTopic } from "@/graphql/postsByTopic";
 
@@ -32,7 +33,8 @@ export async function getStaticProps({ params, preview = false }) {
 
   return {
     props: {
-      topic: topic.name,
+      topicId: topic.id,
+      topicName: topic.name,
       subscription: preview
         ? {
             ...graphqlRequest,
@@ -47,7 +49,7 @@ export async function getStaticProps({ params, preview = false }) {
   };
 }
 
-export default function Topic({ subscription, topic }) {
+export default function Topic({ subscription, topicId, topicName }) {
   const {
     data: { allPosts, site, blog },
   } = useQuerySubscription(subscription);
@@ -58,9 +60,16 @@ export default function Topic({ subscription, topic }) {
     <>
       <Head>{renderMetaTags(metaTags)}</Head>
       <Container>
-        {allPosts.length > 0 && (
-          <MoreStories title={`Topic: ${topic}`} posts={allPosts} />
-        )}
+        <div className="flex">
+          {allPosts.length > 0 && (
+            <MoreStories title={`Topic: ${topicName}`} posts={allPosts} />
+          )}
+          <Sidebar
+            showLiveChat={true}
+            topicId={topicId}
+            topicName={topicName}
+          />
+        </div>
       </Container>
     </>
   );

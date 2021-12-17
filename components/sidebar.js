@@ -1,4 +1,4 @@
-export default function Sidebar({ showLiveChat, liveChatHeader }) {
+export default function Sidebar({ showLiveChat, topicId, topicName }) {
   return (
     <div className="w-[310px] ml-8 hidden lg:block">
       <div className="min-w-[300px] h-[275px]">
@@ -9,7 +9,7 @@ export default function Sidebar({ showLiveChat, liveChatHeader }) {
       {showLiveChat && (
         <>
           <div className="border-b-[1px] border-b-neutral-300 mt-6 mb-4 pb-1 text-lg font-bold">
-            {liveChatHeader}
+            Talk {topicName}
           </div>
           <div className="min-w-[300px] min-h-[550px]">
             <div
@@ -17,7 +17,7 @@ export default function Sidebar({ showLiveChat, liveChatHeader }) {
               style={{ height: "550px" }}
               className="viafoura"
             >
-              <vf-livechat></vf-livechat>
+              <vf-livechat vf-container-id={topicId}></vf-livechat>
             </div>
           </div>
         </>
