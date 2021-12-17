@@ -48,10 +48,10 @@ export default function Index({ subscription }) {
             id={heroPost.id}
             title={heroPost.title}
             coverImage={heroPost.coverImage}
-            date={heroPost.date}
             author={heroPost.author}
             slug={heroPost.slug}
             excerpt={heroPost.excerpt}
+            blocks={heroPost.content.blocks}
           />
         )}
         {morePosts.length > 0 && (

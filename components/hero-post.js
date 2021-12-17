@@ -8,6 +8,7 @@ export default function HeroPost({
   excerpt,
   author,
   slug,
+  blocks,
 }) {
   return (
     <section className="pb-11">
@@ -28,7 +29,12 @@ export default function HeroPost({
           <p className="mt-4 mb-4 text-base antialiased text-gray-700 sm:mt-0">
             {excerpt}
           </p>
-          <AvatarHome name={author.name} postId={id} slug={slug} />
+          <AvatarHome
+            authorName={author.name}
+            postId={id}
+            postSlug={slug}
+            vfConversationId={blocks.find((block) => block.id)}
+          />
         </div>
       </div>
     </section>

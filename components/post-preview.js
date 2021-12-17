@@ -5,10 +5,10 @@ export default function PostPreview({
   id,
   title,
   coverImage,
-  date,
   excerpt,
   author,
   slug,
+  blocks,
 }) {
   return (
     <div>
@@ -23,7 +23,12 @@ export default function PostPreview({
         </a>
       </h3>
       <p className="mb-4 text-base antialiased text-gray-700">{excerpt}</p>
-      <AvatarHome name={author.name} postId={id} slug={slug} />
+      <AvatarHome
+        authorName={author.name}
+        postId={id}
+        postSlug={slug}
+        vfConversationId={blocks.find((block) => block.id)}
+      />
     </div>
   );
 }
