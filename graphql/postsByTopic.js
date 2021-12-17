@@ -19,13 +19,20 @@ export const postsByTopic = gql`
       slug
       title
       excerpt
+      author {
+        name
+      }
+      content {
+        blocks {
+          ... on ConversationRecord {
+            id
+          }
+        }
+      }
       coverImage {
         responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }) {
           ...responsiveImageFragment
         }
-      }
-      author {
-        name
       }
     }
   }
