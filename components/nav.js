@@ -55,7 +55,7 @@ export default function Nav({ allPosts }) {
             </div>
           )}
         </div>
-        <div className="w-40 h-8 mx-auto">
+        <div className="w-[150px] h-[30px] mx-auto">
           <a href="/" title="Viafoura" aria-label="Viafoura">
             <Image
               width={150}
