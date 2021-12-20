@@ -7,10 +7,10 @@ export const menuAndTopics = gql`
       name
       slug
     }
-    allPosts(orderBy: menuName_ASC) {
+    allPosts(orderBy: productDemo_ASC) {
       id
       slug
-      menuName
+      productDemo
     }
   }
 `;
