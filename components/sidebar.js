@@ -1,7 +1,7 @@
 export default function Sidebar({ showLiveChat, topicId, topicName }) {
   return (
     <div className="w-[310px] ml-8 hidden lg:block">
-      <div className="min-w-[300px] h-[275px]">
+      <div className="min-w-[300px] min-h-[275px]">
         <div className="viafoura">
           <vf-standalone-ad></vf-standalone-ad>
         </div>

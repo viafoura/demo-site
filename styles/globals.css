@@ -56,16 +56,13 @@ nav .viafoura .vf-tray-trigger:focus {
 .viafoura {
   --reserved-space-top: 62px !important;
 }
-.viafoura .vf-trending-articles .vf-content__icon {
-  margin-top: 5px !important;
-}
-.viafoura .vf-trending-articles__header {
+.vf-trending-articles__header {
   @apply text-lg font-bold pb-2 capitalize !important;
 }
-.viafoura .vf-expanding-hover-light::before {
+.vf-expanding-hover-light::before {
   border-width: 0 0 3px 0 !important;
 }
-.viafoura .vf-account-nav-illustration {
+.vf-account-nav-illustration {
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;

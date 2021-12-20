@@ -67,7 +67,7 @@ export default function Post({ subscription }) {
       </Head>
       <Container>
         <div className="flex">
-          <article className="relative">
+          <article className="relative min-w-0">
             <PostHeader
               title={post.title}
               coverImage={post.coverImage}
