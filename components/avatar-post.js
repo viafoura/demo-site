@@ -12,7 +12,7 @@ export default function AvatarPost({
   vfConversation,
 }) {
   return (
-    <div className="mb-5 sm:flex">
+    <div className="my-5 sm:flex">
       <AuthorFollow
         authorId={authorId}
         authorName={authorName}

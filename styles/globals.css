@@ -43,13 +43,16 @@ nav .viafoura .vf-tray-trigger:focus {
   background-color: #fafafa !important;
   color: #181818 !important;
   min-width: auto !important;
-  padding: 8px 12px 8px 12px !important;
+  padding: 8px 12px !important;
   font-size: 12px !important;
+  height: 32px !important;
 }
 #vf-btn-topics .vf-topic-unfollow-button {
   font-size: 12px !important;
   min-width: auto !important;
-  padding: 8px 12px 8px 12px !important;
+  padding: 8px 12px !important;
+  height: 32px !important;
+  line-height: -1px !important;
 }
 
 /* Classes */
@@ -77,9 +80,9 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 .vf-topic-unfollow-button {
   font-size: 10px !important;
-  padding: 2px !important;
+  padding: 4px 2px !important;
   min-width: 85px !important;
-  line-height: normal !important;
+  line-height: -1px !important;
 }
 .vf-share-bar.vf-share-bar-horizontal {
   margin: -20px 0 20px -10px !important;

@@ -62,7 +62,12 @@ export default function Topic({ subscription, topicId, topicName }) {
       <Container>
         <div className="flex">
           {allPosts.length > 0 && (
-            <MoreStories title={`Topic: ${topicName}`} posts={allPosts} />
+            <MoreStories
+              title={`Topic: ${topicName}`}
+              posts={allPosts}
+              topicId={topicId}
+              topicName={topicName}
+            />
           )}
           <Sidebar
             showLiveChat={true}
