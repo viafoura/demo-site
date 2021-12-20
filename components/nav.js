@@ -39,17 +39,20 @@ export default function Nav({ allPosts }) {
                   </div>
                 </div>
                 <nav>
-                  {allPosts.map((post) => (
-                    <a
-                      key={post.id}
-                      href={`/posts/${post.slug}`}
-                      title={post.menuName}
-                      aria-label={post.menuName}
-                      className="block px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 rounded cursor-pointer hover:bg-gray-100 hover:text-red-700"
-                    >
-                      {post.menuName}
-                    </a>
-                  ))}
+                  {allPosts.map(
+                    (post) =>
+                      post.productDemo && (
+                        <a
+                          key={post.id}
+                          href={`/posts/${post.slug}`}
+                          title={post.productDemo}
+                          aria-label={post.productDemo}
+                          className="block px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 rounded cursor-pointer hover:bg-gray-100 hover:text-red-700"
+                        >
+                          {post.productDemo}
+                        </a>
+                      )
+                  )}
                 </nav>
               </div>
             </div>

@@ -14,7 +14,7 @@ export const homePosts = gql`
         ...metaTagsFragment
       }
     }
-    allPosts(orderBy: menuName_DESC) {
+    allPosts(orderBy: productDemo_DESC) {
       id
       slug
       title
