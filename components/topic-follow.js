@@ -6,7 +6,7 @@ export default function TopicFollow({ topics }) {
       <div className="mb-3 text-xs font-semibold">Follow Article Topics</div>
       <div id="vf-btn-topics" className="flex">
         {topics.map((topic) => (
-          <div key={topic.id} className="flex mr-3">
+          <div key={topic.id} className="flex items-center mr-3">
             <div className="mr-2 font-semibold text-neutral-600">
               {topic.name}
             </div>
