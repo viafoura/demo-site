@@ -1,13 +1,13 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Main from "@/components/main";
-import TopicNavigation from "@/components/topic-navigation";
+import TopicMenu from "@/components/topic-menu";
 
 export default function Layout({ children, initialProps, preview }) {
   return (
     <>
       <Header allPosts={initialProps.allPosts} />
-      <TopicNavigation allTopics={initialProps.allTopics} />
+      <TopicMenu allTopics={initialProps.allTopics} />
       <Main>{children}</Main>
       <Footer preview={preview} />
     </>
