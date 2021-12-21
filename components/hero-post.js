@@ -1,4 +1,4 @@
-import AvatarHome from "@/components/avatar-home";
+import AuthorHome from "@/components/author-home";
 import CoverImage from "@/components/cover-image";
 
 export default function HeroPost({
@@ -29,7 +29,7 @@ export default function HeroPost({
           <p className="mt-4 mb-4 text-base antialiased text-gray-700 sm:mt-0">
             {excerpt}
           </p>
-          <AvatarHome
+          <AuthorHome
             authorName={author.name}
             postId={id}
             postSlug={slug}

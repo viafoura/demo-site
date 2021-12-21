@@ -1,4 +1,4 @@
-import AvatarHome from "@/components/avatar-home";
+import AuthorHome from "@/components/author-home";
 import CoverImage from "@/components/cover-image";
 
 export default function PostPreview({
@@ -23,7 +23,7 @@ export default function PostPreview({
         </a>
       </h3>
       <p className="mb-4 text-base antialiased text-gray-700">{excerpt}</p>
-      <AvatarHome
+      <AuthorHome
         authorName={author.name}
         postId={id}
         postSlug={slug}

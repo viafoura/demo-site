@@ -1,4 +1,4 @@
-import AvatarPost from "@/components/avatar-post";
+import AuthorPost from "@/components/author-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
 import PostTopics from "@/components/post-topics";
@@ -17,7 +17,7 @@ export default function PostHeader({
     <>
       <PostTopics topics={topics} />
       <PostTitle>{title}</PostTitle>
-      <AvatarPost
+      <AuthorPost
         authorId={author.id}
         authorName={author.name}
         authorPicture={author.picture}

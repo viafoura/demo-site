@@ -2,7 +2,7 @@ import { BiCommentDetail } from "react-icons/bi";
 
 import VfConversationsCount from "@/components/vf-conversations-count";
 
-export default function AvatarHome({
+export default function AuthorHome({
   authorName,
   postId,
   postSlug,
