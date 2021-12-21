@@ -25,17 +25,15 @@ export default function PostHeader({
         postId={postId}
         vfConversation={vfConversation}
       />
-      <ShareBar
-        showTotal={true}
-        className="hidden lg:block vf-share-bar-vertical"
-      />
+      <div className="hidden lg:block">
+        <ShareBar showTotal={true} orientation="vf-share-bar-vertical" />
+      </div>
 
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      <ShareBar
-        showTotal={true}
-        className="block lg:hidden vf-share-bar-horizontal"
-      />
+      <div className="block lg:hidden">
+        <ShareBar showTotal={true} orientation="vf-share-bar-horizontal" />
+      </div>
     </>
   );
 }
