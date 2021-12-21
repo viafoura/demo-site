@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-
 import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
@@ -15,38 +13,6 @@ export default function PostHeader({
   topics,
   vfConversation,
 }) {
-  const [isDesktop, setDesktop] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth > 1100) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
-
-    const resetVf = (() => {
-      let executed = false;
-      return function () {
-        if (!executed) {
-          executed = true;
-          vf.context.reset();
-        }
-      };
-    })();
-
-    const updateMedia = () => {
-      if (window.innerWidth > 1100) {
-        setDesktop(true);
-        resetVf();
-      } else {
-        setDesktop(false);
-        resetVf();
-      }
-    };
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  }, []);
-
   return (
     <>
       <PostTopics topics={topics} />
@@ -59,15 +25,17 @@ export default function PostHeader({
         postId={postId}
         vfConversation={vfConversation}
       />
-      {isDesktop && (
-        <ShareBar showTotal={true} className="vf-share-bar-vertical" />
-      )}
+      <ShareBar
+        showTotal={true}
+        className="hidden lg:block vf-share-bar-vertical"
+      />
 
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
 
-      {!isDesktop && (
-        <ShareBar showTotal={true} className="vf-share-bar-horizontal" />
-      )}
+      <ShareBar
+        showTotal={true}
+        className="block lg:hidden vf-share-bar-horizontal"
+      />
     </>
   );
 }
