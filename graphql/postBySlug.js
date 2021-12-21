@@ -67,6 +67,7 @@ export const postBySlug = gql`
         }
       }
       author {
+        id
         name
         picture {
           url(imgixParams: { fm: jpg, fit: crop, w: 48, h: 48 })

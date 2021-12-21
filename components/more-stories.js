@@ -1,19 +1,14 @@
 import PostPreview from "@/components/post-preview";
-import TopicFollow from "@/components/topic-follow";
+import VfTopicFollow from "@/components/vf-topic-follow";
 
-export default function MoreStories({
-  title,
-  posts,
-  topicId = null,
-  topicName = null,
-}) {
+export default function MoreStories({ title, posts, topicId, topicName }) {
   return (
     <section className="pb-6">
       <div className="flex items-center mb-6">
         <h2>{title}</h2>
         {topicId && (
           <div className="ml-4">
-            <TopicFollow
+            <VfTopicFollow
               topicId={topicId}
               topicName={topicName}
               topicType="topic"

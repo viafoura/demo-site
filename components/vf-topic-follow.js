@@ -1,4 +1,4 @@
-export default function TopicFollow({ topicId, topicName, topicType }) {
+export default function VfTopicFollow({ topicId, topicName, topicType }) {
   return (
     <div className="viafoura">
       <vf-topic-follow

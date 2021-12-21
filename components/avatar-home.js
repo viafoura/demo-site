@@ -1,5 +1,7 @@
 import { BiCommentDetail } from "react-icons/bi";
 
+import VfConversationsCount from "@/components/vf-conversations-count";
+
 export default function AvatarHome({
   authorName,
   postId,
@@ -18,7 +20,7 @@ export default function AvatarHome({
             title="Join the Conversation"
           >
             <BiCommentDetail className="w-5 h-5 mx-1 mt-[3px]" />{" "}
-            <vf-conversations-count vf-container-id={postId} />
+            <VfConversationsCount postId={postId} />
           </a>
         )}
       </div>

@@ -1,10 +1,12 @@
+import VfLivechat from "@/components/vf-livechat";
+import VfStandaloneAd from "@/components/vf-standalone-ad";
+import VfTrendingArticlesVertical from "@/components/vf-trending-articles-vertical";
+
 export default function Sidebar({ showLiveChat, topicId, topicName }) {
   return (
     <div className="w-[310px] ml-8 hidden lg:block">
       <div className="min-w-[300px] min-h-[275px]">
-        <div className="viafoura">
-          <vf-standalone-ad></vf-standalone-ad>
-        </div>
+        <VfStandaloneAd />
       </div>
       {showLiveChat && (
         <>
@@ -12,28 +14,12 @@ export default function Sidebar({ showLiveChat, topicId, topicName }) {
             Talk {topicName}
           </div>
           <div className="min-w-[300px] min-h-[550px]">
-            <div
-              id="livechat-wrapper"
-              style={{ height: "550px" }}
-              className="viafoura"
-            >
-              <vf-livechat vf-container-id={topicId}></vf-livechat>
-            </div>
+            <VfLivechat topicId={topicId} />
           </div>
         </>
       )}
       <div className="mt-7">
-        <div className="viafoura">
-          <vf-trending-articles
-            title="Trending Articles"
-            limit="5"
-            days-published="7"
-            trend-window="1"
-            sort="comments"
-            view="full"
-            vf-container-id="currentPageContainer"
-          ></vf-trending-articles>
-        </div>
+        <VfTrendingArticlesVertical />
       </div>
     </div>
   );

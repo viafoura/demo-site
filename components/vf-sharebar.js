@@ -1,4 +1,4 @@
-export default function ShareBar({ showTotal, orientation }) {
+export default function VfShareBar({ showTotal, orientation }) {
   return (
     <div className="viafoura">
       <div

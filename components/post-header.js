@@ -2,7 +2,7 @@ import AvatarPost from "@/components/avatar-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
 import PostTopics from "@/components/post-topics";
-import ShareBar from "@/components/sharebar";
+import VfShareBar from "@/components/vf-sharebar";
 
 export default function PostHeader({
   title,
@@ -26,13 +26,11 @@ export default function PostHeader({
         vfConversation={vfConversation}
       />
       <div className="hidden xl:block">
-        <ShareBar showTotal={true} orientation="vertical" />
+        <VfShareBar showTotal={true} orientation="vertical" />
       </div>
-
       <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
-
       <div className="block xl:hidden">
-        <ShareBar showTotal={true} orientation="horizontal" />
+        <VfShareBar showTotal={true} orientation="horizontal" />
       </div>
     </>
   );

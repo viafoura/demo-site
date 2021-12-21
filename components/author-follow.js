@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import TopicFollow from "@/components/topic-follow";
+import VfTopicFollow from "@/components/vf-topic-follow";
 
 export default function AuthorFollow({ authorId, authorName, authorPicture }) {
   return (
@@ -16,7 +16,7 @@ export default function AuthorFollow({ authorId, authorName, authorPicture }) {
         />
       </div>
       <div className="font-semibold ml-[1px]">{authorName}</div>
-      <TopicFollow
+      <VfTopicFollow
         topicId={authorId}
         topicName={authorName}
         topicType="author"

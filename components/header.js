@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { BiMenuAltLeft, BiX } from "react-icons/bi";
 
-export default function Nav({ allPosts }) {
+export default function Header({ allPosts }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (

@@ -46,6 +46,9 @@ nav .viafoura .vf-tray-trigger:focus {
 .vf-trending-articles__header {
   @apply text-lg font-bold pb-2 capitalize !important;
 }
+.vf-comments-count {
+  @apply text-base font-semibold text-gray-800 !important;
+}
 .vf-expanding-hover-light::before {
   border-width: 0 0 3px 0 !important;
 }

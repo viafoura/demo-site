@@ -1,4 +1,4 @@
-import TopicFollow from "@/components/topic-follow";
+import VfTopicFollow from "@/components/vf-topic-follow";
 
 export default function PostTopicsFollow({ topics }) {
   return (
@@ -11,7 +11,7 @@ export default function PostTopicsFollow({ topics }) {
               {topic.name}
             </div>
             <div className="pr-1 not-prose">
-              <TopicFollow
+              <VfTopicFollow
                 topicId={topic.id}
                 topicName={topic.name}
                 topicType="topic"

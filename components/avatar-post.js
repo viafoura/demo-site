@@ -2,6 +2,7 @@ import { BiCommentDetail } from "react-icons/bi";
 
 import AuthorFollow from "@/components/author-follow";
 import Date from "@/components/date";
+import VfConversationsCount from "@/components/vf-conversations-count";
 
 export default function AvatarPost({
   authorId,
@@ -31,7 +32,7 @@ export default function AvatarPost({
               title="Join the Conversation"
             >
               <BiCommentDetail className="w-5 h-5 mt-[3px] mr-1" />{" "}
-              <vf-conversations-count vf-container-id={postId} />
+              <VfConversationsCount postId={postId} />
             </a>
           </div>
         )}
