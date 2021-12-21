@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import TopicFollow from "@/components/topic-follow";
+
 export default function AuthorFollow({ authorId, authorName, authorPicture }) {
   return (
     <div className="flex items-center space-x-3">
@@ -14,15 +16,11 @@ export default function AuthorFollow({ authorId, authorName, authorPicture }) {
         />
       </div>
       <div className="font-semibold ml-[1px]">{authorName}</div>
-      <div className="viafoura">
-        <vf-topic-follow
-          topic-id={authorId}
-          topic-name={authorName}
-          topic-type="author"
-          show-count="false"
-          minimum-count="5"
-        ></vf-topic-follow>
-      </div>
+      <TopicFollow
+        topicId={authorId}
+        topicName={authorName}
+        topicType="author"
+      />
     </div>
   );
 }

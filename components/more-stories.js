@@ -1,4 +1,5 @@
 import PostPreview from "@/components/post-preview";
+import TopicFollow from "@/components/topic-follow";
 
 export default function MoreStories({
   title,
@@ -12,15 +13,11 @@ export default function MoreStories({
         <h2>{title}</h2>
         {topicId && (
           <div className="ml-4">
-            <div className="viafoura">
-              <vf-topic-follow
-                topic-id={topicId}
-                topic-name={topicName}
-                topic-type="topic"
-                show-count="true"
-                minimum-count="5"
-              ></vf-topic-follow>
-            </div>
+            <TopicFollow
+              topicId={topicId}
+              topicName={topicName}
+              topicType="topic"
+            />
           </div>
         )}
       </div>

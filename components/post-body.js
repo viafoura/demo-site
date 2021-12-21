@@ -1,7 +1,7 @@
 import { Image, StructuredText } from "react-datocms";
 
 import AuthorFollow from "@/components/author-follow";
-import TopicFollow from "@/components/topic-follow";
+import PostTopicsFollow from "@/components/post-topics-follow";
 
 export default function PostBody({ content, author, topics }) {
   return (
@@ -40,7 +40,7 @@ export default function PostBody({ content, author, topics }) {
                     authorName={author.name}
                     authorPicture={author.picture}
                   />
-                  <TopicFollow topics={topics} />
+                  <PostTopicsFollow topics={topics} />
                   <div
                     dangerouslySetInnerHTML={{
                       __html: record.conversation,
