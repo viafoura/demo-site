@@ -25,10 +25,10 @@ export default function PostHeader({
         postId={postId}
         vfConversation={vfConversation}
       />
+      <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
       <div className="hidden xl:block">
         <VfShareBar showTotal={true} orientation="vertical" />
       </div>
-      <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
       <div className="block xl:hidden">
         <VfShareBar showTotal={true} orientation="horizontal" />
       </div>
