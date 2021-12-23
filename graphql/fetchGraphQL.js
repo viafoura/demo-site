@@ -1,5 +1,5 @@
 export async function fetchGraphQL({ query, variables, preview }) {
-  let endpoint = process.env.GRAPHQL_API_URL;
+  let endpoint = "https://graphql.datocms.com";
   if (process.env.DATOCMS_ENVIRONMENT) {
     endpoint += `/environments/${process.env.DATOCMS_ENVIRONMENT}`;
   }
