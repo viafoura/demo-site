@@ -20,7 +20,7 @@ Have a look at the end result live:
 
 3. Let DatoCMS set everything up for you clicking this button:
 
-[![Clone DatoCMS project](https://dashboard.datocms.com/clone/button.svg)](https://dashboard.datocms.com/deploy?repo=viafoura/demo-site)
+[![Deploy DatoCMS project](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/deploy?repo=viafoura/demo-site)
 
 ### Local setup
 
@@ -43,9 +43,7 @@ Then on `.env.local` update `GRAPHQL_API_TOKEN` with the value provided by DatoC
 Your `.env.local` file should look like this:
 
 ```bash
-GRAPHQL_API_TOKEN=aeaf721e5e532e753bb2d4310425d2
-GRAPHQL_API_URL=https://graphql.datocms.com
-REACT_EDITOR=code
+GRAPHQL_API_TOKEN=<read-only-api-token-from-datocms>
 ```
 
 #### Run your project locally
