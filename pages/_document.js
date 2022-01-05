@@ -5,9 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
-          {process.env.NODE_ENV === "development" && (
-            <meta name="vf:domain" content="demo.viafoura.com" />
-          )}
+          <meta name="vf:domain" content="demo.viafoura.com" />
           <link
             rel="shortcut icon"
             href="/images/favicon.ico"
