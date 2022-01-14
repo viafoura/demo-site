@@ -6,6 +6,15 @@ import { BiMenuAltLeft, BiX } from "react-icons/bi";
 export default function SalesMenu({ allPosts }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const menuItems = [
+    ...allPosts,
+    {
+      id: 99999999,
+      slug: "broadcast-notification",
+      productDemo: "Broadcast Notification",
+    },
+  ];
+
   return (
     <div className="flex w-10 h-10">
       <button
@@ -37,17 +46,17 @@ export default function SalesMenu({ allPosts }) {
               </div>
             </div>
             <nav>
-              {allPosts.map(
-                (post) =>
-                  post.productDemo && (
+              {menuItems.map(
+                (menuItem) =>
+                  menuItem.productDemo && (
                     <a
-                      key={post.id}
-                      href={`/posts/${post.slug}`}
-                      title={post.productDemo}
-                      aria-label={post.productDemo}
+                      key={menuItem.id}
+                      href={`/posts/${menuItem.slug}`}
+                      title={menuItem.productDemo}
+                      aria-label={menuItem.productDemo}
                       className="block px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 rounded cursor-pointer hover:bg-gray-100 hover:text-red-700"
                     >
-                      {post.productDemo}
+                      {menuItem.productDemo}
                     </a>
                   )
               )}
