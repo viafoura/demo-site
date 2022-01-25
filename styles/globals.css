@@ -6,6 +6,10 @@
   body {
     @apply font-sans;
   }
+
+  body.dark {
+    @apply bg-[#2A262B];
+  }
   h1 {
     @apply text-4xl antialiased font-bold text-gray-800;
   }
@@ -14,6 +18,9 @@
   }
   h3 {
     @apply text-2xl font-semibold text-gray-800;
+  }
+  h1, h2, h3, p, div {
+    @apply dark:text-white;
   }
   svg {
     @apply inline align-baseline;
@@ -97,3 +104,46 @@ form#vf-broadcast-notification {
   height: 32px !important;
   line-height: -1px !important;
 }
+
+/* Viafoura Dark Mode Styles */
+.dark .prose strong { color: #fff; }
+
+.dark .viafoura, .dark .vf3-comments {
+  --background-color: #2A262B !important;
+  --light-text-on-background-color: #fff !important;
+  --dark-text-on-background-color: #fff !important;
+  --light-text-on-default-color: #fff !important;
+  --dark-text-on-default-color: #fff !important;
+  --dark-text-on-default-color: #fff !important;
+  --secondary-text-color: #fff !important;
+  --text-on-accent-color: #fff !important;
+  --default-color: #434343;
+  --primary-color-20: #434343;
+  --primary-color-10: #434343;
+  --accent-color-light: #2792fe !important;
+  --accent-color: #1d8eff !important;
+  --accent-color-dark: #007FFF !important;
+}
+
+.dark .viafoura .vf-community-content .vf-tabbed-subnav .vf-tabbed-nav { background-color: #2A262B; }
+.dark .vf-conversation-starter_content { background-color: #43392D !important; }
+.dark .vf-conversation-starter_text, .dark .vf-secondary-text-colour, .dark .vf-primary-colour { color: #fff !important; }
+.dark .vf-livechat__header { @apply border-neutral-600 !important; }
+.dark .vf-tray { color: #fff !important; }
+.dark .viafoura h2, .dark .viafoura h3{ color: #fff; }
+.dark .viafoura .vf-icon-button .vf-icon-svg { fill: #fff !important; }
+.dark .viafoura svg { fill: #fff !important; }
+.dark .viafoura .vf-comments-count { color: #fff !important; }
+
+.dark .vf-topic-follow-button {
+  background-color: #1d8eff !important;
+  border-color: #007FFF !important;
+  color: #fff !important;
+}
+
+.dark .vf-tabbed-nav__tabs .vf-active .vf-nav-label, 
+.dark .viafoura .vf-nav-button:hover .vf-nav-label,
+.dark .viafoura .vf-label {
+  color: #fff !important;
+}
+

@@ -6,7 +6,7 @@ import VfTrayTrigger from "@/components/vf-tray-trigger";
 
 export default function Header({ allPosts }) {
   return (
-    <nav className="sticky top-0 z-10 h-16 max-w-full px-4 py-3 bg-neutral-800">
+    <nav className="sticky top-0 z-10 h-16 max-w-full px-4 py-3 bg-neutral-800 dark:bg-[#090909]">
       <div className="flex items-center max-w-6xl mx-auto">
         <SalesMenu allPosts={allPosts} />
         <div className="w-[150px] h-[30px] mx-auto">

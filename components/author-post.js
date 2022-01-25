@@ -20,11 +20,11 @@ export default function AuthorPost({
         authorPicture={authorPicture}
       />
       <div className="flex items-center sm:pl-4">
-        <div className="mr-3 border-gray-300 sm:border-l sm:pl-3">
+        <div className="mr-3 border-b-neutral-300 dark:border-neutral-600 sm:border-l sm:pl-3">
           <Date dateString={postDate} />
         </div>
         {vfConversation && (
-          <div className="flex pl-3 font-semibold text-gray-800 border-l border-gray-300">
+          <div className="flex pl-3 font-semibold text-gray-800 border-l border-b-neutral-300 dark:border-neutral-600">
             <a
               className="flex mr-3 hover:underline"
               href="#vf-conversations-container"
