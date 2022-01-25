@@ -27,9 +27,9 @@ export default function SalesMenu({ allPosts }) {
       </button>
       {isMenuOpen && (
         <div className="relative z-20 top-2 -left-[30px]">
-          <div className="p-3 pb-5 bg-white border rounded shadow-sm w-80">
+          <div className="p-3 pb-5 bg-white dark:bg-neutral-800 border dark:border-neutral-700 rounded shadow-sm w-80">
             <div className="flex items-center justify-between mb-2">
-              <div className="ml-2 text-xl font-bold hover:text-red-700">
+              <div className="ml-2 text-xl font-bold hover:text-red-700 dark:text-white">
                 <a href="/" aria-label="Viafoura" title="Viafoura">
                   Viafoura
                 </a>
@@ -38,10 +38,10 @@ export default function SalesMenu({ allPosts }) {
                 <button
                   aria-label="Close Menu"
                   title="Close Menu"
-                  className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 focus:bg-gray-200"
+                  className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 focus:bg-gray-200 dark:hover:bg-neutral-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <BiX className="text-center text-gray-700 w-7 h-7" />
+                  <BiX className="text-center text-gray-700 dark:text-gray-300 w-7 h-7" />
                 </button>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function SalesMenu({ allPosts }) {
                       href={`/posts/${menuItem.slug}`}
                       title={menuItem.productDemo}
                       aria-label={menuItem.productDemo}
-                      className="block px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 rounded cursor-pointer hover:bg-gray-100 hover:text-red-700"
+                      className="block px-3 py-2 font-medium tracking-wide text-gray-800 dark:text-white transition-colors duration-200 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-700"
                     >
                       {menuItem.productDemo}
                     </a>

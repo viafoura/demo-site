@@ -2,7 +2,7 @@ import VfTopicFollow from "@/components/vf-topic-follow";
 
 export default function PostTopicsFollow({ topics }) {
   return (
-    <div className="pt-4 pb-5 mt-3 mb-8 border-t border-b border-gray-300">
+    <div className="pt-4 pb-5 mt-3 mb-8 border-t border-b border-gray-300 dark:border-neutral-600">
       <div className="mb-3 text-xs font-semibold">Follow Article Topics</div>
       <div className="flex">
         {topics.map((topic) => (

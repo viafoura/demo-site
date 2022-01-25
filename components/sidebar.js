@@ -10,7 +10,7 @@ export default function Sidebar({ showLiveChat, topicId, topicName }) {
       </div>
       {showLiveChat && (
         <>
-          <div className="border-b-[1px] border-b-neutral-300 mt-6 mb-4 pb-1 text-lg font-bold">
+          <div className="border-b-[1px] border-b-neutral-300 dark:border-neutral-600 mt-6 mb-4 pb-1 text-lg font-bold">
             Talk {topicName}
           </div>
           <div className="min-w-[300px] min-h-[550px]">
