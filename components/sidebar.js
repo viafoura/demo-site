@@ -4,16 +4,16 @@ import VfTrendingArticlesVertical from "@/components/vf-trending-articles-vertic
 
 export default function Sidebar({ showLiveChat, topicId, topicName }) {
   return (
-    <div className="w-[310px] ml-8 hidden lg:block">
-      <div className="min-w-[300px] min-h-[275px]">
+    <div className="ml-8 hidden w-[310px] lg:block">
+      <div className="min-h-[275px] min-w-[300px]">
         <VfStandaloneAd />
       </div>
       {showLiveChat && (
         <>
-          <div className="border-b-[1px] border-b-neutral-300 dark:border-neutral-600 mt-6 mb-4 pb-1 text-lg font-bold">
+          <div className="mt-6 mb-4 border-b-[1px] border-b-neutral-300 pb-1 text-lg font-bold dark:border-neutral-600">
             Talk {topicName}
           </div>
-          <div className="min-w-[300px] min-h-[550px]">
+          <div className="min-h-[550px] min-w-[300px]">
             <VfLivechat topicId={topicId} />
           </div>
         </>

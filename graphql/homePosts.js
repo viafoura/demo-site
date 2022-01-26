@@ -30,7 +30,7 @@ export const homePosts = gql`
         }
       }
       coverImage {
-        responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }) {
+        responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 1112, h: 556 }) {
           ...responsiveImageFragment
         }
       }

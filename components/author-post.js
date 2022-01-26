@@ -24,14 +24,14 @@ export default function AuthorPost({
           <Date dateString={postDate} />
         </div>
         {vfConversation && (
-          <div className="flex pl-3 font-semibold text-gray-800 border-l border-b-neutral-300 dark:border-neutral-600">
+          <div className="flex border-l border-b-neutral-300 pl-3 font-semibold text-gray-800 dark:border-neutral-600">
             <a
-              className="flex mr-3 hover:underline"
+              className="mr-3 flex hover:underline"
               href="#vf-conversations-container"
               alt="Join the Conversation"
               title="Join the Conversation"
             >
-              <BiCommentDetail className="w-5 h-5 mt-[3px] mr-1" />{" "}
+              <BiCommentDetail className="mt-[3px] mr-1 h-5 w-5" />{" "}
               <VfConversationsCount postId={postId} />
             </a>
           </div>
