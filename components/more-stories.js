@@ -4,7 +4,7 @@ import VfTopicFollow from "@/components/vf-topic-follow";
 export default function MoreStories({ title, posts, topicId, topicName }) {
   return (
     <section className="pb-6">
-      <div className="flex items-center mb-6">
+      <div className="mb-6 flex items-center">
         <h2>{title}</h2>
         {topicId && (
           <div className="ml-4">
@@ -16,7 +16,7 @@ export default function MoreStories({ title, posts, topicId, topicName }) {
           </div>
         )}
       </div>
-      <div className="grid sm:grid-cols-2 gap-x-16 gap-y-10">
+      <div className="grid gap-x-16 gap-y-10 sm:grid-cols-2">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}

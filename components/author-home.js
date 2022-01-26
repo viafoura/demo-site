@@ -14,12 +14,12 @@ export default function AuthorHome({
         {authorName}
         {vfConversationId && (
           <a
-            className="flex mr-3 hover:underline"
+            className="mr-3 flex hover:underline"
             href={`/posts/${postSlug}#vf-conversations-container`}
             alt="Join the Conversation"
             title="Join the Conversation"
           >
-            <BiCommentDetail className="w-5 h-5 mx-1 mt-[3px]" />{" "}
+            <BiCommentDetail className="mx-1 mt-[3px] h-5 w-5" />{" "}
             <VfConversationsCount postId={postId} />
           </a>
         )}

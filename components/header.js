@@ -6,10 +6,10 @@ import VfTrayTrigger from "@/components/vf-tray-trigger";
 
 export default function Header({ allPosts }) {
   return (
-    <nav className="sticky top-0 z-10 h-16 max-w-full px-4 py-3 bg-neutral-800 dark:bg-[#090909]">
-      <div className="flex items-center max-w-6xl mx-auto">
+    <nav className="sticky top-0 z-10 h-16 max-w-full bg-neutral-800 px-4 py-3 dark:bg-[#090909]">
+      <div className="mx-auto flex max-w-6xl items-center">
         <SalesMenu allPosts={allPosts} />
-        <div className="w-[150px] h-[30px] mx-auto">
+        <div className="mx-auto h-[30px] w-[150px]">
           <a href="/" title="Viafoura" aria-label="Viafoura">
             <Image
               width={150}
@@ -19,7 +19,7 @@ export default function Header({ allPosts }) {
             />
           </a>
         </div>
-        <div className="w-10 h-10 rounded-full bg-neutral-700 hover:bg-neutral-600">
+        <div className="h-10 w-10 rounded-full bg-neutral-700 hover:bg-neutral-600">
           <VfTrayTrigger />
         </div>
       </div>

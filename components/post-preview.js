@@ -22,7 +22,7 @@ export default function PostPreview({
           {title}
         </a>
       </h3>
-      <p className="mb-4 text-base antialiased text-gray-700">{excerpt}</p>
+      <p className="mb-4 text-base text-gray-700 antialiased">{excerpt}</p>
       <AuthorHome
         authorName={author.name}
         postId={id}

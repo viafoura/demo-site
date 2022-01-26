@@ -11,7 +11,7 @@ export default function VfBroadcastForm({
   onBroadcastSubmit,
 }) {
   return (
-    <div className="w-full max-w-4xl m-auto">
+    <div className="m-auto w-full max-w-4xl">
       <h2 className="text-center">Broadcast Notification</h2>
       <form id="vf-broadcast-notification" ref={broadcastFormRef}>
         <label htmlFor="title">Title</label>

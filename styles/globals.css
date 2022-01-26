@@ -6,12 +6,11 @@
   body {
     @apply font-sans;
   }
-
   body.dark {
     @apply bg-[#2A262B];
   }
   h1 {
-    @apply text-4xl antialiased font-bold text-gray-800;
+    @apply text-4xl font-bold text-gray-800 antialiased;
   }
   h2 {
     @apply text-3xl font-bold text-gray-800;
@@ -19,7 +18,11 @@
   h3 {
     @apply text-2xl font-semibold text-gray-800;
   }
-  h1, h2, h3, p, div {
+  h1,
+  h2,
+  h3,
+  p,
+  div {
     @apply dark:text-white;
   }
   svg {
@@ -48,7 +51,7 @@ nav .viafoura .vf-tray-trigger:focus {
 
 /* Custom Identifiers*/
 form#vf-broadcast-notification {
-  @apply px-8 pt-6 pb-8 mt-6 mb-4 bg-white border-stone-200 border-[1px] rounded shadow-lg;
+  @apply mt-6 mb-4 rounded border-[1px] border-stone-200 bg-white px-8 pt-6 pb-8 shadow-lg;
 }
 #vf-broadcast-notification label {
   @apply text-sm font-semibold text-stone-600;
@@ -56,10 +59,10 @@ form#vf-broadcast-notification {
 #vf-broadcast-notification input,
 #vf-broadcast-notification select,
 #vf-broadcast-notification textarea {
-  @apply w-full mt-1 mb-4 text-sm rounded text-stone-600 border-stone-300 focus:ring-stone-400;
+  @apply mt-1 mb-4 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
 }
 #vf-broadcast-notification button {
-  @apply flex px-6 py-4 m-auto mt-4 mb-2 text-base text-white bg-indigo-500 rounded hover:bg-indigo-600 disabled:bg-indigo-300;
+  @apply m-auto mt-4 mb-2 flex rounded bg-indigo-500 px-6 py-4 text-base text-white hover:bg-indigo-600 disabled:bg-indigo-300;
 }
 
 /* Viafoura Classes */
@@ -67,7 +70,7 @@ form#vf-broadcast-notification {
   --reserved-space-top: 62px !important;
 }
 .vf-trending-articles__header {
-  @apply text-lg font-bold pb-2 capitalize !important;
+  @apply pb-2 text-lg font-bold capitalize !important;
 }
 .vf-comments-count {
   @apply text-base font-semibold text-gray-800 !important;
@@ -106,10 +109,12 @@ form#vf-broadcast-notification {
 }
 
 /* Viafoura Dark Mode Styles */
-.dark .prose strong { color: #fff; }
-
-.dark .viafoura, .dark .vf3-comments {
-  --background-color: #2A262B !important;
+.dark .prose strong {
+  color: #fff;
+}
+.dark .viafoura,
+.dark .vf3-comments {
+  --background-color: #2a262b !important;
   --light-text-on-background-color: #fff !important;
   --dark-text-on-background-color: #fff !important;
   --light-text-on-default-color: #fff !important;
@@ -122,28 +127,45 @@ form#vf-broadcast-notification {
   --primary-color-10: #434343;
   --accent-color-light: #2792fe !important;
   --accent-color: #1d8eff !important;
-  --accent-color-dark: #007FFF !important;
+  --accent-color-dark: #007fff !important;
 }
-
-.dark .viafoura h2, .dark .viafoura h3{ color: #fff; }
-.dark .viafoura .vf-community-content .vf-tabbed-subnav .vf-tabbed-nav { background-color: #2A262B; }
-.dark .viafoura .vf-conversation-starter_content { background-color: #43392D !important; }
-.dark .viafoura .vf-conversation-starter_text, .dark .vf-secondary-text-colour, .dark .vf-primary-colour { color: #fff !important; }
-.dark .viafoura .vf-livechat__header { @apply border-neutral-600 !important; }
-.dark .viafoura .vf-tray { color: #fff !important; }
-.dark .viafoura .vf-icon-button .vf-icon-svg { fill: #fff !important; }
-.dark .viafoura svg { fill: #fff !important; }
-.dark .viafoura .vf-comments-count { color: #fff !important; }
-
-.dark .vf-topic-follow-button {
-  background-color: #1d8eff !important;
-  border-color: #007FFF !important;
+.dark .viafoura h2,
+.dark .viafoura h3 {
+  color: #fff;
+}
+.dark .viafoura .vf-community-content .vf-tabbed-subnav .vf-tabbed-nav {
+  background-color: #2a262b;
+}
+.dark .viafoura .vf-conversation-starter_content {
+  background-color: #43392d !important;
+}
+.dark .viafoura .vf-conversation-starter_text,
+.dark .vf-secondary-text-colour,
+.dark .vf-primary-colour {
   color: #fff !important;
 }
-
-.dark .vf-tabbed-nav__tabs .vf-active .vf-nav-label, 
+.dark .viafoura .vf-livechat__header {
+  @apply border-neutral-600 !important;
+}
+.dark .viafoura .vf-tray {
+  color: #fff !important;
+}
+.dark .viafoura .vf-icon-button .vf-icon-svg {
+  fill: #fff !important;
+}
+.dark .viafoura svg {
+  fill: #fff !important;
+}
+.dark .viafoura .vf-comments-count {
+  color: #fff !important;
+}
+.dark .vf-topic-follow-button {
+  background-color: #1d8eff !important;
+  border-color: #007fff !important;
+  color: #fff !important;
+}
+.dark .vf-tabbed-nav__tabs .vf-active .vf-nav-label,
 .dark .viafoura .vf-nav-button:hover .vf-nav-label,
 .dark .viafoura .vf-label {
   color: #fff !important;
 }
-
