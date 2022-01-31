@@ -46,6 +46,14 @@ Your `.env.local` file should look like this:
 GRAPHQL_API_TOKEN=<read-only-api-token-from-datocms>
 ```
 
+Then, update these values in `next.config.js` according to your site.
+
+```
+vfDomain: "demo.viafoura.com",
+vfSiteId: "233586191803414",
+vfSiteUUID: "00000000-0000-4000-8000-d47205fca416",
+```
+
 #### Run your project locally
 
 ```bash

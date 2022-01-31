@@ -38,7 +38,7 @@ export default function VfBroadcastForm({
               readOnly
               type="url"
               name="url"
-              value={`https://demo.viafoura.com/posts/${selectedPost.slug}`}
+              value={`https://${process.env.vfDomain}/posts/${selectedPost.slug}`}
             />
             <label htmlFor="image_url">Image URL</label>
             <textarea
