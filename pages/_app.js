@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 
+import Script from "next/script";
+
 import Layout from "@/components/layout";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { menuAndTopics } from "@/graphql/menuAndTopics";
@@ -13,9 +15,12 @@ MyApp.getInitialProps = async () => {
 
 function MyApp({ Component, pageProps, initialProps }) {
   return (
-    <Layout initialProps={initialProps} preview={pageProps}>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Script src="/scripts/darkMode.js" strategy="beforeInteractive" />
+      <Layout initialProps={initialProps} preview={pageProps}>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }
 

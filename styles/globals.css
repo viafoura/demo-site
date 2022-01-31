@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html.dark {
+    @apply bg-[#2A262B];
+  }
   body {
     @apply font-sans;
   }
-  body.dark {
-    @apply bg-[#2A262B];
-  }
   h1 {
-    @apply text-4xl antialiased font-bold text-gray-800;
+    @apply text-4xl font-bold text-gray-800 antialiased;
   }
   h2 {
     @apply text-3xl font-bold text-gray-800;
@@ -38,11 +38,6 @@ nav .viafoura .vf-tray-trigger:focus {
   background-color: transparent;
 }
 
-.viafoura input:focus, .viafoura textarea:focus {
-  border: none !important;
-  box-shadow: none !important;
-}
-
 /* Viafoura Identifiers */
 #vf-content-recirculation-container {
   min-height: 338.84px !important;
@@ -64,15 +59,20 @@ form#vf-broadcast-notification {
 #vf-broadcast-notification input,
 #vf-broadcast-notification select,
 #vf-broadcast-notification textarea {
-  @apply w-full mt-1 mb-4 text-sm rounded border-stone-300 text-stone-600 focus:ring-stone-400;
+  @apply mt-1 mb-4 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
 }
 #vf-broadcast-notification button {
-  @apply flex px-6 py-4 m-auto mt-4 mb-2 text-base text-white bg-indigo-500 rounded hover:bg-indigo-600 disabled:bg-indigo-300;
+  @apply m-auto mt-4 mb-2 flex rounded bg-indigo-500 px-6 py-4 text-base text-white hover:bg-indigo-600 disabled:bg-indigo-300;
 }
 
 /* Viafoura Classes */
 .viafoura {
   --reserved-space-top: 62px !important;
+}
+.viafoura input:focus,
+.viafoura textarea:focus {
+  border: none !important;
+  box-shadow: none !important;
 }
 .vf-trending-articles__header {
   @apply pb-2 text-lg font-bold capitalize !important;
