@@ -1,7 +1,17 @@
+import { useEffect, useState } from "react";
+
 export default function VfTrayTrigger() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="viafoura">
-      <vf-tray-trigger />
-    </div>
+    mounted && (
+      <div className="viafoura">
+        <vf-tray-trigger />
+      </div>
+    )
   );
 }

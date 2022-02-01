@@ -48,8 +48,9 @@ export default function BroadcastNotification({ subscription }) {
   const onPostIdChange = (event) => {
     const selectedIndex = event.target.options.selectedIndex;
     const postId = event.target.options[selectedIndex].getAttribute("post-id");
-    setSelectedPost(...allPosts.filter((post) => post.id === postId));
-    setImageUrl(selectedPost.coverImage.url);
+    const post = allPosts.filter((post) => post.id === postId)[0];
+    setSelectedPost(post);
+    setImageUrl(post.coverImage.url);
   };
 
   const broadcastFormRef = useRef(null);
