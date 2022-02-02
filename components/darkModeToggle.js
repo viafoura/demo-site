@@ -19,14 +19,14 @@ export default function DarkModeToggle() {
   }, [darkMode]);
 
   return darkMode ? (
-    <HiOutlineMoon
-      title="Dark Theme"
+    <HiOutlineLightBulb
+      title="Enable Light Theme"
       className="mt-1 h-6 w-6 cursor-pointer"
       onClick={() => setDarkMode(!darkMode)}
     />
   ) : (
-    <HiOutlineLightBulb
-      title="Light Theme"
+    <HiOutlineMoon
+      title="Enable Dark Theme"
       className="mt-1 h-6 w-6 cursor-pointer"
       onClick={() => setDarkMode(!darkMode)}
     />
