@@ -1,6 +1,6 @@
-import VfLivechat from "@/components/vf-livechat";
-import VfStandaloneAd from "@/components/vf-standalone-ad";
-import VfTrendingArticlesVertical from "@/components/vf-trending-articles-vertical";
+import VfLivechat from "@/components/viafoura/vf-livechat";
+import VfStandaloneAd from "@/components/viafoura/vf-standalone-ad";
+import VfTrendingArticlesVertical from "@/components/viafoura/vf-trending-articles-vertical";
 
 export default function Sidebar({ showLiveChat, topicId, topicName }) {
   return (

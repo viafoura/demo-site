@@ -1,6 +1,6 @@
 import { BiCommentDetail } from "react-icons/bi";
 
-import VfConversationsCount from "@/components/vf-conversations-count";
+import VfConversationsCount from "@/components/viafoura/vf-conversations-count";
 
 export default function AuthorHome({
   authorName,

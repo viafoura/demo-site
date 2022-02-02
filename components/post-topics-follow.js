@@ -1,4 +1,4 @@
-import VfTopicFollow from "@/components/vf-topic-follow";
+import VfTopicFollow from "@/components/viafoura/vf-topic-follow";
 
 export default function PostTopicsFollow({ topics }) {
   return (

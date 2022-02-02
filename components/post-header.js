@@ -2,7 +2,7 @@ import AuthorPost from "@/components/author-post";
 import CoverImage from "@/components/cover-image";
 import PostTitle from "@/components/post-title";
 import PostTopics from "@/components/post-topics";
-import VfShareBar from "@/components/vf-sharebar";
+import VfShareBar from "@/components/viafoura/vf-sharebar";
 
 export default function PostHeader({
   title,
