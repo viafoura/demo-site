@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import SalesMenu from "@/components/sales-menu";
-import VfTrayTrigger from "@/components/vf-tray-trigger";
+import VfTrayTrigger from "@/components/viafoura/vf-tray-trigger";
 
 export default function Header({ allPosts }) {
   return (

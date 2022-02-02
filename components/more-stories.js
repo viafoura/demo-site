@@ -1,5 +1,5 @@
 import PostPreview from "@/components/post-preview";
-import VfTopicFollow from "@/components/vf-topic-follow";
+import VfTopicFollow from "@/components/viafoura/vf-topic-follow";
 
 export default function MoreStories({ title, posts, topicId, topicName }) {
   return (

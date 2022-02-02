@@ -2,7 +2,7 @@ import { BiCommentDetail } from "react-icons/bi";
 
 import AuthorFollow from "@/components/author-follow";
 import Date from "@/components/date";
-import VfConversationsCount from "@/components/vf-conversations-count";
+import VfConversationsCount from "@/components/viafoura/vf-conversations-count";
 
 export default function AuthorPost({
   authorId,
