@@ -16,6 +16,7 @@ export const homePosts = gql`
     }
     allPosts(orderBy: productDemo_DESC) {
       id
+      vfPostContainerId
       slug
       title
       excerpt

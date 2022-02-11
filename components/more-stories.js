@@ -1,15 +1,20 @@
 import PostPreview from "@/components/post-preview";
 import VfTopicFollow from "@/components/viafoura/vf-topic-follow";
 
-export default function MoreStories({ title, posts, topicId, topicName }) {
+export default function MoreStories({
+  title,
+  posts,
+  topicName,
+  vfTopicContainerId,
+}) {
   return (
     <section className="pb-6">
       <div className="mb-6 flex items-center">
         <h2>{title}</h2>
-        {topicId && (
+        {vfTopicContainerId && (
           <div className="ml-4">
             <VfTopicFollow
-              topicId={topicId}
+              vfTopicContainerId={vfTopicContainerId}
               topicName={topicName}
               topicType="topic"
             />
@@ -20,7 +25,7 @@ export default function MoreStories({ title, posts, topicId, topicName }) {
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
-            id={post.id}
+            vfPostContainerId={post.vfPostContainerId}
             title={post.title}
             coverImage={post.coverImage}
             author={post.author}

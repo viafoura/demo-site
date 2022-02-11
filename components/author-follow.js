@@ -17,7 +17,7 @@ export default function AuthorFollow({ authorId, authorName, authorPicture }) {
       </div>
       <div className="ml-[1px] font-semibold">{authorName}</div>
       <VfTopicFollow
-        topicId={authorId}
+        vfTopicContainerId={authorId}
         topicName={authorName}
         topicType="author"
       />

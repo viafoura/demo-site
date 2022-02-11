@@ -9,8 +9,8 @@ export default function PostHeader({
   coverImage,
   date,
   author,
-  postId,
   topics,
+  vfPostContainerId,
   vfConversation,
 }) {
   return (
@@ -22,7 +22,7 @@ export default function PostHeader({
         authorName={author.name}
         authorPicture={author.picture}
         postDate={date}
-        postId={postId}
+        vfPostContainerId={vfPostContainerId}
         vfConversation={vfConversation}
       />
       <div className="hidden xl:block">

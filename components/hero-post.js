@@ -2,7 +2,7 @@ import AuthorHome from "@/components/author-home";
 import CoverImage from "@/components/cover-image";
 
 export default function HeroPost({
-  id,
+  vfPostContainerId,
   title,
   coverImage,
   excerpt,
@@ -31,8 +31,8 @@ export default function HeroPost({
           </p>
           <AuthorHome
             authorName={author.name}
-            postId={id}
             postSlug={slug}
+            vfPostContainerId={vfPostContainerId}
             vfConversationId={blocks.find((block) => block.id)}
           />
         </div>

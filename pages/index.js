@@ -45,7 +45,7 @@ export default function Index({ subscription }) {
       <Container>
         {heroPost && (
           <HeroPost
-            id={heroPost.id}
+            vfPostContainerId={heroPost.vfPostContainerId}
             title={heroPost.title}
             coverImage={heroPost.coverImage}
             author={heroPost.author}

@@ -9,7 +9,7 @@ export default function AuthorPost({
   authorName,
   authorPicture,
   postDate,
-  postId,
+  vfPostContainerId,
   vfConversation,
 }) {
   return (
@@ -32,7 +32,7 @@ export default function AuthorPost({
               title="Join the Conversation"
             >
               <BiCommentDetail className="mt-[3px] mr-1 h-5 w-5" />{" "}
-              <VfConversationsCount postId={postId} />
+              <VfConversationsCount vfPostContainerId={vfPostContainerId} />
             </a>
           </div>
         )}

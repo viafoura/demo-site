@@ -16,6 +16,7 @@ export const postsByTopic = gql`
     }
     allPosts(filter: { topic: { allIn: $topicId } }) {
       id
+      vfPostContainerId
       slug
       title
       excerpt
