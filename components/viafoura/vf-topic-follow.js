@@ -1,13 +1,17 @@
 import useHasMounted from "@/hooks/useHasMounted";
 
-export default function VfTopicFollow({ topicId, topicName, topicType }) {
+export default function VfTopicFollow({
+  vfTopicContainerId,
+  topicName,
+  topicType,
+}) {
   const hasMounted = useHasMounted();
 
   return (
     hasMounted && (
       <div className="viafoura">
         <vf-topic-follow
-          topic-id={topicId}
+          topic-id={vfTopicContainerId}
           topic-name={topicName}
           topic-type={topicType}
           show-count="true"

@@ -4,8 +4,8 @@ import VfConversationsCount from "@/components/viafoura/vf-conversations-count";
 
 export default function AuthorHome({
   authorName,
-  postId,
   postSlug,
+  vfPostContainerId,
   vfConversationId,
 }) {
   return (
@@ -20,7 +20,7 @@ export default function AuthorHome({
             title="Join the Conversation"
           >
             <BiCommentDetail className="mx-1 mt-[3px] h-5 w-5" />{" "}
-            <VfConversationsCount postId={postId} />
+            <VfConversationsCount vfPostContainerId={vfPostContainerId} />
           </a>
         )}
       </div>

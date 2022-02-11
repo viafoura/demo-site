@@ -61,7 +61,7 @@ export default function Post({ subscription }) {
     <>
       <Head>
         {renderMetaTags(metaTags)}
-        <meta name="vf:container_id" content={post.id} />
+        <meta name="vf:container_id" content={post.vfPostContainerId} />
         <meta property="vf:author" content="viafoura-id:6157500021214" />
         <meta property="vf:author" content="viafoura-id:8892700021086" />
         <meta property="vf:author" content="viafoura-id:1472900021555" />
@@ -76,8 +76,8 @@ export default function Post({ subscription }) {
               coverImage={post.coverImage}
               date={post.date}
               author={post.author}
-              postId={post.id}
               topics={post.topic}
+              vfPostContainerId={post.vfPostContainerId}
               vfConversation={vfConversation}
             />
             <PostBody
@@ -88,7 +88,7 @@ export default function Post({ subscription }) {
           </article>
           <Sidebar
             showLiveChat={post.showLivechat}
-            topicId={post.topic[0].id}
+            vfTopicContainerId={post.topic[0].vfTopicContainerId}
             topicName={post.topic[0].name}
           />
         </div>

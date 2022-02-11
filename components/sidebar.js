@@ -2,7 +2,11 @@ import VfLivechat from "@/components/viafoura/vf-livechat";
 import VfStandaloneAd from "@/components/viafoura/vf-standalone-ad";
 import VfTrendingArticlesVertical from "@/components/viafoura/vf-trending-articles-vertical";
 
-export default function Sidebar({ showLiveChat, topicId, topicName }) {
+export default function Sidebar({
+  showLiveChat,
+  vfTopicContainerId,
+  topicName,
+}) {
   return (
     <div className="ml-8 hidden w-[310px] lg:block">
       <div className="min-h-[275px] min-w-[300px]">
@@ -14,7 +18,7 @@ export default function Sidebar({ showLiveChat, topicId, topicName }) {
             Talk {topicName}
           </div>
           <div className="min-h-[550px] min-w-[300px]">
-            <VfLivechat topicId={topicId} />
+            <VfLivechat vfTopicContainerId={vfTopicContainerId} />
           </div>
         </>
       )}

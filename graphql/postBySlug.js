@@ -10,14 +10,16 @@ export const postBySlug = gql`
       }
     }
     post(filter: { slug: { eq: $slug } }) {
-      id
       seo: _seoMetaTags {
         ...metaTagsFragment
       }
       topic {
         id
         name
+        vfTopicContainerId
       }
+      id
+      vfPostContainerId
       title
       slug
       date

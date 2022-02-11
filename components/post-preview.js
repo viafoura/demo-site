@@ -2,7 +2,7 @@ import AuthorHome from "@/components/author-home";
 import CoverImage from "@/components/cover-image";
 
 export default function PostPreview({
-  id,
+  vfPostContainerId,
   title,
   coverImage,
   excerpt,
@@ -25,7 +25,7 @@ export default function PostPreview({
       <p className="mb-4 text-base text-gray-700 antialiased">{excerpt}</p>
       <AuthorHome
         authorName={author.name}
-        postId={id}
+        vfPostContainerId={vfPostContainerId}
         postSlug={slug}
         vfConversationId={blocks.find((block) => block.id)}
       />

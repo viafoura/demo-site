@@ -20,7 +20,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview = false }) {
   const { topic } = await fetchGraphQL({
-    query: `{ topic(filter: {slug: {eq: ${params.slug}}}) { id name } }`,
+    query: `{ topic(filter: {slug: {eq: ${params.slug}}}) {
+        id
+        name
+        vfTopicContainerId
+      }
+    }`,
   });
 
   const graphqlRequest = {
@@ -33,7 +38,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   return {
     props: {
-      topicId: topic.id,
+      vfTopicContainerId: topic.vfTopicContainerId,
       topicName: topic.name,
       subscription: preview
         ? {
@@ -49,7 +54,7 @@ export async function getStaticProps({ params, preview = false }) {
   };
 }
 
-export default function Topic({ subscription, topicId, topicName }) {
+export default function Topic({ subscription, vfTopicContainerId, topicName }) {
   const {
     data: { allPosts, site, blog },
   } = useQuerySubscription(subscription);
@@ -65,13 +70,13 @@ export default function Topic({ subscription, topicId, topicName }) {
             <MoreStories
               title={`Topic: ${topicName}`}
               posts={allPosts}
-              topicId={topicId}
+              vfTopicContainerId={vfTopicContainerId}
               topicName={topicName}
             />
           )}
           <Sidebar
             showLiveChat={true}
-            topicId={topicId}
+            vfTopicContainerId={vfTopicContainerId}
             topicName={topicName}
           />
         </div>

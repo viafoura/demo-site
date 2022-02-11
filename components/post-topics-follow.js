@@ -12,7 +12,7 @@ export default function PostTopicsFollow({ topics }) {
             </div>
             <div className="not-prose pr-1">
               <VfTopicFollow
-                topicId={topic.id}
+                vfTopicContainerId={topic.vfTopicContainerId}
                 topicName={topic.name}
                 topicType="topic"
               />
