@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useQuerySubscription } from "react-datocms";
 import toast, { Toaster } from "react-hot-toast";
 
 import Container from "@/components/container";
@@ -11,21 +10,15 @@ import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 export async function getStaticProps() {
   return {
     props: {
-      subscription: {
-        enabled: false,
-        initialData: await fetchGraphQL({
-          query: broadcastPosts,
-        }),
-      },
+      data: await fetchGraphQL({
+        query: broadcastPosts,
+      }),
     },
   };
 }
 
-export default function BroadcastNotification({ subscription }) {
-  const {
-    data: { allPosts },
-  } = useQuerySubscription(subscription);
-
+export default function BroadcastNotification({ data }) {
+  const { allPosts } = data;
   const [userPrivilege, setUserPrivilege] = useState("guest");
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [selectedPost, setSelectedPost] = useState({ ...allPosts[0] });
@@ -38,8 +31,8 @@ export default function BroadcastNotification({ subscription }) {
         `https://api.viafoura.co/v2/${process.env.vfSiteId}/users/current`,
         { credentials: "include" }
       );
-      const data = await response.json();
-      setUserPrivilege(data.result.user_privilege);
+      const { result } = await response.json();
+      setUserPrivilege(result.user_privilege);
       if (userPrivilege === "administrator") setIsSubmitDisabled(false);
     };
     getCurrentUser();

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { renderMetaTags, useQuerySubscription } from "react-datocms";
+import { renderMetaTags } from "react-datocms";
 
 import Container from "@/components/container";
 import HeroPost from "@/components/hero-post";
@@ -7,41 +7,24 @@ import MoreStories from "@/components/more-stories";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { homePosts } from "@/graphql/homePosts";
 
-export async function getStaticProps({ preview }) {
-  const graphqlRequest = {
-    query: homePosts,
-    preview,
-  };
-
+export async function getStaticProps() {
   return {
     props: {
-      subscription: preview
-        ? {
-            ...graphqlRequest,
-            initialData: await fetchGraphQL(graphqlRequest),
-            token: process.env.GRAPHQL_API_TOKEN,
-            environment: process.env.DATOCMS_ENVIRONMENT || null,
-          }
-        : {
-            enabled: false,
-            initialData: await fetchGraphQL(graphqlRequest),
-          },
+      data: await fetchGraphQL({
+        query: homePosts,
+      }),
     },
   };
 }
 
-export default function Index({ subscription }) {
-  const {
-    data: { allPosts, site, blog },
-  } = useQuerySubscription(subscription);
-
+export default function Index({ data }) {
+  const { allPosts, site, blog } = data;
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
-  const metaTags = blog.seo.concat(site.favicon);
 
   return (
     <>
-      <Head>{renderMetaTags(metaTags)}</Head>
+      <Head>{renderMetaTags([...blog.seo, ...site.favicon])}</Head>
       <Container>
         {heroPost && (
           <HeroPost

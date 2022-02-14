@@ -28,7 +28,7 @@ export default function PostHeader({
       <div className="hidden xl:block">
         <VfShareBar showTotal={true} orientation="vertical" />
       </div>
-      <CoverImage title={title} responsiveImage={coverImage.responsiveImage} />
+      <CoverImage responsiveImage={coverImage.responsiveImage} />
       <div className="block xl:hidden">
         <VfShareBar showTotal={true} orientation="horizontal" />
       </div>

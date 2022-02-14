@@ -12,9 +12,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ImageBlockRecord") {
             return (
               // eslint-disable-next-line jsx-a11y/alt-text
-              <Image
-                data={{ ...record.image.responsiveImage, alt: "Content Image" }}
-              />
+              <Image data={record.image.responsiveImage} />
             );
           }
           if (record.__typename === "ContentRecirculationRecord") {

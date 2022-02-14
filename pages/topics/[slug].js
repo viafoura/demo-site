@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { renderMetaTags, useQuerySubscription } from "react-datocms";
+import { renderMetaTags } from "react-datocms";
 
 import Container from "@/components/container";
 import MoreStories from "@/components/more-stories";
@@ -9,7 +9,11 @@ import { postsByTopic } from "@/graphql/postsByTopic";
 
 export async function getStaticPaths() {
   const { allTopics } = await fetchGraphQL({
-    query: `{ allTopics { id slug } }`,
+    query: `{ allTopics {
+        id
+        slug
+      }
+    }`,
   });
 
   return {
@@ -18,7 +22,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps({ params }) {
   const { topic } = await fetchGraphQL({
     query: `{ topic(filter: {slug: {eq: ${params.slug}}}) {
         id
@@ -28,42 +32,26 @@ export async function getStaticProps({ params, preview = false }) {
     }`,
   });
 
-  const graphqlRequest = {
-    query: postsByTopic,
-    preview,
-    variables: {
-      topicId: topic.id,
-    },
-  };
-
   return {
     props: {
       vfTopicContainerId: topic.vfTopicContainerId,
       topicName: topic.name,
-      subscription: preview
-        ? {
-            ...graphqlRequest,
-            initialData: await fetchGraphQL(graphqlRequest),
-            token: process.env.GRAPHQL_API_TOKEN,
-          }
-        : {
-            enabled: false,
-            initialData: await fetchGraphQL(graphqlRequest),
-          },
+      data: await fetchGraphQL({
+        query: postsByTopic,
+        variables: {
+          topicId: topic.id,
+        },
+      }),
     },
   };
 }
 
-export default function Topic({ subscription, vfTopicContainerId, topicName }) {
-  const {
-    data: { allPosts, site, blog },
-  } = useQuerySubscription(subscription);
-
-  const metaTags = blog.seo.concat(site.favicon);
+export default function Topic({ vfTopicContainerId, topicName, data }) {
+  const { allPosts, site, blog } = data;
 
   return (
     <>
-      <Head>{renderMetaTags(metaTags)}</Head>
+      <Head>{renderMetaTags([...blog.seo, ...site.favicon])}</Head>
       <Container>
         <div className="flex">
           {allPosts.length > 0 && (

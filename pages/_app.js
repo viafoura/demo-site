@@ -9,10 +9,11 @@ import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { menuAndTopics } from "@/graphql/menuAndTopics";
 
 MyApp.getInitialProps = async () => {
-  const initialProps = await fetchGraphQL({
-    query: menuAndTopics,
-  });
-  return { initialProps };
+  return {
+    initialProps: await fetchGraphQL({
+      query: menuAndTopics,
+    }),
+  };
 };
 
 function MyApp({ Component, pageProps, initialProps }) {
@@ -27,7 +28,7 @@ function MyApp({ Component, pageProps, initialProps }) {
         />
       </Head>
       <Script src="/scripts/darkMode.js" strategy="beforeInteractive" />
-      <Layout initialProps={initialProps} preview={pageProps}>
+      <Layout initialProps={initialProps}>
         <Component {...pageProps} />
       </Layout>
     </>
