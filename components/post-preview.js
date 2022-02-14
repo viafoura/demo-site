@@ -12,11 +12,7 @@ export default function PostPreview({
 }) {
   return (
     <div>
-      <CoverImage
-        slug={slug}
-        title={title}
-        responsiveImage={coverImage.responsiveImage}
-      />
+      <CoverImage responsiveImage={coverImage.responsiveImage} slug={slug} />
       <h3 className="mb-3">
         <a href={`/posts/${slug}`} className="hover:underline">
           {title}

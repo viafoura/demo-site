@@ -10,6 +10,7 @@ export const broadcastPosts = gql`
       topic {
         id
         name
+        vfTopicContainerId
       }
       coverImage {
         url(

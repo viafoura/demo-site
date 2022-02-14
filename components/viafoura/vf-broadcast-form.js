@@ -72,11 +72,7 @@ export default function VfBroadcastForm({
                 <label htmlFor="topic_id">Topic ID</label>
                 <select name="topic_id">
                   {selectedPost.topic.map((topic) => (
-                    <option
-                      key={topic.id}
-                      data-key={topic.vfTopicContainerId}
-                      value={topic.vfTopicContainerId}
-                    >
+                    <option key={topic.id} value={topic.vfTopicContainerId}>
                       {topic.name}
                     </option>
                   ))}

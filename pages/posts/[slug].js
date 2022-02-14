@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { renderMetaTags, useQuerySubscription } from "react-datocms";
+import { renderMetaTags } from "react-datocms";
 
 import Container from "@/components/container";
 import PostBody from "@/components/post-body";
@@ -10,7 +10,12 @@ import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { postBySlug } from "@/graphql/postBySlug";
 
 export async function getStaticPaths() {
-  const data = await fetchGraphQL({ query: `{ allPosts { slug } }` });
+  const data = await fetchGraphQL({
+    query: `{ allPosts {
+        slug
+      }
+    }`,
+  });
 
   return {
     paths: data.allPosts.map((post) => `/posts/${post.slug}`),
@@ -18,41 +23,23 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params, preview = false }) {
-  const graphqlRequest = {
-    query: postBySlug,
-    preview,
-    variables: {
-      slug: params.slug,
-    },
-  };
-
+export async function getStaticProps({ params }) {
   return {
     props: {
-      subscription: preview
-        ? {
-            ...graphqlRequest,
-            initialData: await fetchGraphQL(graphqlRequest),
-            token: process.env.GRAPHQL_API_TOKEN,
-          }
-        : {
-            enabled: false,
-            initialData: await fetchGraphQL(graphqlRequest),
-          },
+      data: await fetchGraphQL({
+        query: postBySlug,
+        variables: {
+          slug: params.slug,
+        },
+      }),
     },
   };
 }
 
-export default function Post({ subscription }) {
-  const {
-    data: { site, post },
-  } = useQuerySubscription(subscription);
-
-  const metaTags = post.seo.concat(site.favicon);
-
+export default function Post({ data }) {
+  const { site, post } = data;
   const router = useRouter();
   const { adfree } = router.query;
-
   const vfConversation = post.content.blocks.find(
     (block) => block.__typename === "ConversationRecord"
   );
@@ -60,7 +47,7 @@ export default function Post({ subscription }) {
   return (
     <>
       <Head>
-        {renderMetaTags(metaTags)}
+        {renderMetaTags([...post.seo, ...site.favicon])}
         <meta name="vf:container_id" content={post.vfPostContainerId} />
         <meta property="vf:author" content="viafoura-id:6157500021214" />
         <meta property="vf:author" content="viafoura-id:8892700021086" />

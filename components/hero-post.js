@@ -13,11 +13,7 @@ export default function HeroPost({
   return (
     <section className="pb-11">
       <div className="my-8">
-        <CoverImage
-          title={title}
-          responsiveImage={coverImage.responsiveImage}
-          slug={slug}
-        />
+        <CoverImage responsiveImage={coverImage.responsiveImage} slug={slug} />
       </div>
       <div className="grid gap-x-6 sm:grid-cols-2">
         <h1>

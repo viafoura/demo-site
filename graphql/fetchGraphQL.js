@@ -1,17 +1,9 @@
-export async function fetchGraphQL({ query, variables, preview }) {
-  let endpoint = "https://graphql.datocms.com";
-  if (process.env.DATOCMS_ENVIRONMENT) {
-    endpoint += `/environments/${process.env.DATOCMS_ENVIRONMENT}`;
-  }
-  if (preview) {
-    endpoint += `/preview`;
-  }
-
-  const res = await fetch(endpoint, {
+export async function fetchGraphQL({ query, variables }) {
+  const res = await fetch("https://graphql.datocms.com", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.GRAPHQL_API_TOKEN}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       query,

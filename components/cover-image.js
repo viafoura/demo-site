@@ -1,24 +1,15 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Image } from "react-datocms";
 
-export default function CoverImage({ title, responsiveImage, slug }) {
-  const image = (
-    // eslint-disable-next-line jsx-a11y/alt-text
-    <Image
-      data={{
-        ...responsiveImage,
-        alt: `Cover Image for ${title}`,
-      }}
-      className="mb-5 shadow-lg"
-    />
-  );
+export default function CoverImage({ responsiveImage, slug }) {
   return (
     <div>
       {slug ? (
-        <a href={`/posts/${slug}`} aria-label={title}>
-          {image}
+        <a href={`/posts/${slug}`}>
+          <Image data={responsiveImage} className="mb-5 shadow-lg" />
         </a>
       ) : (
-        image
+        <Image data={responsiveImage} className="mb-5 shadow-lg" />
       )}
     </div>
   );
