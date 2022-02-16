@@ -5,14 +5,12 @@ import Container from "@/components/container";
 import HeroPost from "@/components/hero-post";
 import MoreStories from "@/components/more-stories";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
-import { homePosts } from "@/graphql/homePosts";
+import { gqlHomePosts } from "@/graphql/gqlHomePosts";
 
 export async function getStaticProps() {
   return {
     props: {
-      data: await fetchGraphQL({
-        query: homePosts,
-      }),
+      data: await fetchGraphQL({ query: gqlHomePosts }),
     },
   };
 }

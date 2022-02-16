@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "eg2.vscode-npm-script",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "graphql.vscode-graphql",
+    "planbcoding.vscode-react-refactor",
+    "wix.vscode-import-cost"
+  ]
+}

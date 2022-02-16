@@ -7,16 +7,10 @@ import PostBody from "@/components/post-body";
 import PostHeader from "@/components/post-header";
 import Sidebar from "@/components/sidebar";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
-import { postBySlug } from "@/graphql/postBySlug";
+import { gqlPostBySlug } from "@/graphql/gqlPostBySlug";
 
 export async function getStaticPaths() {
-  const data = await fetchGraphQL({
-    query: `{ allPosts {
-        slug
-      }
-    }`,
-  });
-
+  const data = await fetchGraphQL({ query: `{ allPosts { slug } }` });
   return {
     paths: data.allPosts.map((post) => `/posts/${post.slug}`),
     fallback: false,
@@ -27,10 +21,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       data: await fetchGraphQL({
-        query: postBySlug,
-        variables: {
-          slug: params.slug,
-        },
+        query: gqlPostBySlug,
+        variables: { slug: params.slug },
       }),
     },
   };

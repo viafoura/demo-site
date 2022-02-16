@@ -1,17 +1,20 @@
-import { metaTagsFragment, responsiveImageFragment } from "@/graphql/fragments";
+import {
+  gqlMetaTagsFragment,
+  gqlResponsiveImageFragment,
+} from "@/graphql/gqlFragments";
 
 const gql = String.raw;
 
-export const homePosts = gql`
+export const gqlHomePosts = gql`
   {
     site: _site {
       favicon: faviconMetaTags {
-        ...metaTagsFragment
+        ...gqlMetaTagsFragment
       }
     }
     blog {
       seo: _seoMetaTags {
-        ...metaTagsFragment
+        ...gqlMetaTagsFragment
       }
     }
     allPosts(orderBy: productDemo_DESC) {
@@ -32,11 +35,11 @@ export const homePosts = gql`
       }
       coverImage {
         responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 1112, h: 556 }) {
-          ...responsiveImageFragment
+          ...gqlResponsiveImageFragment
         }
       }
     }
   }
-  ${metaTagsFragment}
-  ${responsiveImageFragment}
+  ${gqlMetaTagsFragment}
+  ${gqlResponsiveImageFragment}
 `;
