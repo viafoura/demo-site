@@ -5,15 +5,11 @@ import Container from "@/components/container";
 import MoreStories from "@/components/more-stories";
 import Sidebar from "@/components/sidebar";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
-import { postsByTopic } from "@/graphql/postsByTopic";
+import { gqlPostsByTopic } from "@/graphql/gqlPostsByTopic";
 
 export async function getStaticPaths() {
   const { allTopics } = await fetchGraphQL({
-    query: `{ allTopics {
-        id
-        slug
-      }
-    }`,
+    query: `{ allTopics { id slug } }`,
   });
 
   return {
@@ -37,7 +33,7 @@ export async function getStaticProps({ params }) {
       vfTopicContainerId: topic.vfTopicContainerId,
       topicName: topic.name,
       data: await fetchGraphQL({
-        query: postsByTopic,
+        query: gqlPostsByTopic,
         variables: {
           topicId: topic.id,
         },

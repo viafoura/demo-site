@@ -1,17 +1,20 @@
-import { metaTagsFragment, responsiveImageFragment } from "@/graphql/fragments";
+import {
+  gqlMetaTagsFragment,
+  gqlResponsiveImageFragment,
+} from "@/graphql/gqlFragments";
 
 const gql = String.raw;
 
-export const postBySlug = gql`
+export const gqlPostBySlug = gql`
   query PostBySlug($slug: String) {
     site: _site {
       favicon: faviconMetaTags {
-        ...metaTagsFragment
+        ...gqlMetaTagsFragment
       }
     }
     post(filter: { slug: { eq: $slug } }) {
       seo: _seoMetaTags {
-        ...metaTagsFragment
+        ...gqlMetaTagsFragment
       }
       topic {
         id
@@ -34,7 +37,7 @@ export const postBySlug = gql`
               responsiveImage(
                 imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }
               ) {
-                ...responsiveImageFragment
+                ...gqlResponsiveImageFragment
               }
             }
           }
@@ -65,7 +68,7 @@ export const postBySlug = gql`
       }
       coverImage {
         responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }) {
-          ...responsiveImageFragment
+          ...gqlResponsiveImageFragment
         }
       }
       author {
@@ -77,6 +80,6 @@ export const postBySlug = gql`
       }
     }
   }
-  ${responsiveImageFragment}
-  ${metaTagsFragment}
+  ${gqlResponsiveImageFragment}
+  ${gqlMetaTagsFragment}
 `;

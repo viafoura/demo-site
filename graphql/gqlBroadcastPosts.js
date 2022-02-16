@@ -1,6 +1,6 @@
 const gql = String.raw;
 
-export const broadcastPosts = gql`
+export const gqlBroadcastPosts = gql`
   {
     allPosts(orderBy: createdAt_ASC) {
       id

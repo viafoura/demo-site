@@ -49,8 +49,8 @@ nav .viafoura .vf-tray-trigger:focus {
   min-height: 800px !important;
 }
 
-/* Custom Identifiers*/
-form#vf-broadcast-notification {
+/* Custom Identifiers */
+#vf-broadcast-notification {
   @apply mt-6 mb-4 rounded border-[1px] border-stone-200 bg-white px-8 pt-6 pb-8 shadow-lg;
 }
 #vf-broadcast-notification label {
@@ -63,6 +63,11 @@ form#vf-broadcast-notification {
 }
 #vf-broadcast-notification button {
   @apply m-auto mt-4 mb-2 flex rounded bg-indigo-500 px-6 py-4 text-base text-white hover:bg-indigo-600 disabled:bg-indigo-300;
+}
+
+/* Custom Classes */
+.broadcast-notification-link {
+  @apply block cursor-pointer rounded px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-neutral-700;
 }
 
 /* Viafoura Classes */

@@ -4,15 +4,13 @@ import toast, { Toaster } from "react-hot-toast";
 import Container from "@/components/container";
 import SuccessToast from "@/components/toasts/success-toast";
 import VfBroadcastForm from "@/components/viafoura/vf-broadcast-form";
-import { broadcastPosts } from "@/graphql/broadcastPosts";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
+import { gqlBroadcastPosts } from "@/graphql/gqlBroadcastPosts";
 
 export async function getStaticProps() {
   return {
     props: {
-      data: await fetchGraphQL({
-        query: broadcastPosts,
-      }),
+      data: await fetchGraphQL({ query: gqlBroadcastPosts }),
     },
   };
 }

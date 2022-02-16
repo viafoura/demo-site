@@ -1,0 +1,35 @@
+{
+  "css.validate": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  "editor.largeFileOptimizations": false,
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "eslint.validate": [
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "html.completion.attributeDefaultValue": "doublequotes",
+  "javascript.preferences.jsxAttributeCompletionStyle": "auto",
+  "javascript.suggest.completeFunctionCalls": true,
+  "prettier.configPath": ".prettierrc.json",
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  }
+}
