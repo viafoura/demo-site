@@ -35,9 +35,7 @@ export default function Index({ data }) {
             blocks={heroPost.content.blocks}
           />
         )}
-        {morePosts.length > 0 && (
-          <MoreStories title="More Stories" posts={morePosts} />
-        )}
+        {morePosts.length > 0 && <MoreStories title="More Stories" posts={morePosts} />}
       </Container>
     </>
   );

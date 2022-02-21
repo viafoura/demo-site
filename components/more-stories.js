@@ -1,12 +1,7 @@
 import PostPreview from "@/components/post-preview";
 import VfTopicFollow from "@/components/viafoura/vf-topic-follow";
 
-export default function MoreStories({
-  title,
-  posts,
-  topicName,
-  vfTopicContainerId,
-}) {
+export default function MoreStories({ title, posts, topicName, vfTopicContainerId }) {
   return (
     <section className="pb-6">
       <div className="mb-6 flex items-center">

@@ -17,7 +17,6 @@ export async function getStaticProps() {
 
 export default function BroadcastNotification({ data }) {
   const { allPosts } = data;
-  const [userPrivilege, setUserPrivilege] = useState("guest");
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [selectedPost, setSelectedPost] = useState({ ...allPosts[0] });
   const [broadcastType, setBroadcastType] = useState("site");
@@ -30,11 +29,10 @@ export default function BroadcastNotification({ data }) {
         { credentials: "include" }
       );
       const { result } = await response.json();
-      setUserPrivilege(result.user_privilege);
-      if (userPrivilege === "administrator") setIsSubmitDisabled(false);
+      if (result.user_privilege === "administrator") setIsSubmitDisabled(false);
     };
     getCurrentUser();
-  }, [userPrivilege]);
+  }, []);
 
   const onPostIdChange = (event) => {
     const selectedIndex = event.target.options.selectedIndex;
@@ -56,17 +54,13 @@ export default function BroadcastNotification({ data }) {
       }
     );
     if (status === 204) {
-      toast.custom((toast) => (
-        <SuccessToast toast={toast} message="Broadcast notification sent" />
-      ));
+      toast.custom((toast) => <SuccessToast toast={toast} message="Broadcast notification sent" />);
     }
   };
 
   return (
     <Container>
-      <Toaster
-        toastOptions={{ custom: { duration: 2000, position: "top-center" } }}
-      />
+      <Toaster toastOptions={{ custom: { duration: 2000, position: "top-center" } }} />
       <VfBroadcastForm
         broadcastFormRef={broadcastFormRef}
         onPostIdChange={onPostIdChange}

@@ -15,9 +15,9 @@ export default function TopicsMenu() {
   }, []);
 
   return (
-    data && (
-      <div className="-ml-5 flex h-14 items-center justify-center border-b-[1px] border-gray-200 bg-gray-100 text-sm uppercase text-gray-500 dark:border-neutral-700 dark:bg-[#1A1A1A]">
-        {data.map((topic) => (
+    <div className="-ml-5 flex h-14 items-center justify-center border-b-[1px] border-gray-200 bg-gray-100 text-sm uppercase text-gray-500 dark:border-neutral-700 dark:bg-[#1A1A1A]">
+      {data &&
+        data.map((topic) => (
           <a
             key={topic.id}
             href={`/topics/${topic.slug}`}
@@ -26,7 +26,6 @@ export default function TopicsMenu() {
             {topic.name}
           </a>
         ))}
-      </div>
-    )
+    </div>
   );
 }

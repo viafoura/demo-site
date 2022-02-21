@@ -48,15 +48,8 @@ export default function VfBroadcastForm({
               value={imageUrl}
               onChange={(event) => setImageUrl(event.target.value)}
             />
-            <label htmlFor="push_time_to_live">
-              Push Time To Live (seconds)
-            </label>
-            <input
-              type="number"
-              max="3600"
-              name="push_time_to_live"
-              defaultValue="3600"
-            />
+            <label htmlFor="push_time_to_live">Push Time To Live (seconds)</label>
+            <input type="number" max="3600" name="push_time_to_live" defaultValue="3600" />
             <label htmlFor="broadcast_type">Broadcast Type</label>
             <select
               name="broadcast_type"
@@ -79,14 +72,8 @@ export default function VfBroadcastForm({
                 </select>
               </>
             )}
-            <button
-              type="submit"
-              disabled={isSubmitDisabled}
-              onClick={onBroadcastSubmit}
-            >
-              {isSubmitDisabled
-                ? "Login as Administrator"
-                : "Send Broadcast Notification"}
+            <button type="submit" disabled={isSubmitDisabled} onClick={onBroadcastSubmit}>
+              {isSubmitDisabled ? "Login as Administrator" : "Send Broadcast Notification"}
             </button>
           </>
         )}
