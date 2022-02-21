@@ -14,11 +14,7 @@ export default function AuthorPost({
 }) {
   return (
     <div className="my-5 sm:flex">
-      <AuthorFollow
-        authorId={authorId}
-        authorName={authorName}
-        authorPicture={authorPicture}
-      />
+      <AuthorFollow authorId={authorId} authorName={authorName} authorPicture={authorPicture} />
       <div className="flex items-center sm:pl-4">
         <div className="mr-3 border-b-neutral-300 dark:border-neutral-600 sm:border-l sm:pl-3">
           <Date dateString={postDate} />
@@ -28,7 +24,6 @@ export default function AuthorPost({
             <a
               className="mr-3 flex hover:underline"
               href="#vf-conversations-container"
-              alt="Join the Conversation"
               title="Join the Conversation"
             >
               <BiCommentDetail className="mt-[3px] mr-1 h-5 w-5" />{" "}

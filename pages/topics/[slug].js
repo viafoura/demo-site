@@ -8,10 +8,7 @@ import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { gqlPostsByTopic } from "@/graphql/gqlPostsByTopic";
 
 export async function getStaticPaths() {
-  const { allTopics } = await fetchGraphQL({
-    query: `{ allTopics { id slug } }`,
-  });
-
+  const { allTopics } = await fetchGraphQL({ query: `{ allTopics { id slug } }` });
   return {
     paths: allTopics.map((topic) => `/topics/${topic.slug}`),
     fallback: false,
@@ -20,24 +17,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { topic } = await fetchGraphQL({
-    query: `{ topic(filter: {slug: {eq: ${params.slug}}}) {
-        id
-        name
-        vfTopicContainerId
-      }
-    }`,
+    query: `{ topic(filter: {slug: {eq: ${params.slug}}}) { id name vfTopicContainerId }}`,
   });
-
   return {
     props: {
       vfTopicContainerId: topic.vfTopicContainerId,
       topicName: topic.name,
-      data: await fetchGraphQL({
-        query: gqlPostsByTopic,
-        variables: {
-          topicId: topic.id,
-        },
-      }),
+      data: await fetchGraphQL({ query: gqlPostsByTopic, variables: { topicId: topic.id } }),
     },
   };
 }

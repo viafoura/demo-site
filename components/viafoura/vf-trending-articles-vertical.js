@@ -8,7 +8,7 @@ export default function VfTrendingArticlesVertical() {
         trend-window="1"
         sort="comments"
         view="full"
-      ></vf-trending-articles>
+      />
     </div>
   );
 }

@@ -7,9 +7,7 @@ export default function PostTopicsFollow({ topics }) {
       <div className="flex">
         {topics.map((topic) => (
           <div key={topic.id} className="mr-3 flex items-center">
-            <div className="mr-2 font-semibold text-neutral-600">
-              {topic.name}
-            </div>
+            <div className="mr-2 font-semibold text-neutral-600">{topic.name}</div>
             <div className="not-prose pr-1">
               <VfTopicFollow
                 vfTopicContainerId={topic.vfTopicContainerId}

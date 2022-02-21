@@ -29,10 +29,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "ConversationRecord") {
             return (
               <>
-                <div
-                  id="vf-conversations-container"
-                  className="not-prose scroll-mt-20"
-                >
+                <div id="vf-conversations-container" className="not-prose scroll-mt-20">
                   <AuthorFollow
                     authorId={author.id}
                     authorName={author.name}
