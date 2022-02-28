@@ -4,7 +4,6 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/graphql/*": ["graphql/*"],
-      "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"]
     }
   }
