@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 
 import Layout from "@/components/layout";
-import vfCustomCookieLogin from "@/lib/viafoura/vfCustomCookieLogin";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -24,8 +23,11 @@ function MyApp({ Component, pageProps }) {
       <Script
         src="https://cdn.viafoura.net/vf-v2.js"
         strategy="lazyOnload"
-        onLoad={() => {
-          vfCustomCookieLogin(path);
+        onLoad={async () => {
+          if (new URLSearchParams(window.location.search).has("oidc")) {
+            const { vfOpenIDConnect } = await import("@/lib/viafoura/vfOpenIDConnect.js");
+            vfOpenIDConnect(path);
+          }
         }}
       />
       <Layout>
