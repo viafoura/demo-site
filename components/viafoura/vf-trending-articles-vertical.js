@@ -4,8 +4,8 @@ export default function VfTrendingArticlesVertical() {
       <vf-trending-articles
         title="Trending Articles"
         limit="5"
-        days-published="7"
-        trend-window="1"
+        days-published="all"
+        trend-window="48"
         sort="comments"
         view="full"
       />
