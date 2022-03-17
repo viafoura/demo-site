@@ -9,12 +9,11 @@ import Layout from "@/components/layout";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const path = router.asPath;
 
   return (
     <>
       <Head>
-        <meta property="og:url" content={`https://${process.env.vfDomain}${path}`} />
+        <meta property="og:url" content={`https://${process.env.vfDomain}${router.asPath}`} />
         <meta name="vf:domain" content={process.env.vfDomain} />
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="manifest" href="/manifest.json" />
@@ -26,7 +25,7 @@ function MyApp({ Component, pageProps }) {
         onLoad={async () => {
           if (new URLSearchParams(window.location.search).has("oidc")) {
             const { vfOpenIDConnect } = await import("@/lib/viafoura/vfOpenIDConnect.js");
-            vfOpenIDConnect(path);
+            vfOpenIDConnect();
           }
         }}
       />
