@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Script src="/scripts/darkMode.js" strategy="beforeInteractive" />
       <Script
         src="https://cdn.viafoura.net/vf-v2.js"
         strategy="lazyOnload"
