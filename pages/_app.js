@@ -6,32 +6,27 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 
 import Layout from "@/components/layout";
+import { settings } from "@/lib/viafoura/settings";
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
+  const { asPath, query } = useRouter();
   return (
     <>
       <Head>
-        <meta property="og:url" content={`https://${process.env.vfDomain}${router.asPath}`} />
+        <meta property="og:url" content={`https://${process.env.vfDomain}${asPath}`} />
         <meta name="vf:domain" content={process.env.vfDomain} />
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Script
-        src="https://cdn.viafoura.net/vf-v2.js"
-        strategy="lazyOnload"
-        onLoad={async () => {
-          if (new URLSearchParams(window.location.search).has("oidc")) {
-            const { vfOpenIDConnect } = await import("@/lib/viafoura/vfOpenIDConnect.js");
-            vfOpenIDConnect();
-          }
-        }}
-      />
+      <Script src="https://cdn.viafoura.net/vf-v2.js" onReady={settings} />
       <Layout>
-        <UserProvider>
+        {query.oidc ? (
+          <UserProvider>
+            <Component {...pageProps} />
+          </UserProvider>
+        ) : (
           <Component {...pageProps} />
-        </UserProvider>
+        )}
       </Layout>
     </>
   );
