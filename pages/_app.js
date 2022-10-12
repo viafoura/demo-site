@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Script src="https://cdn.viafoura.net/vf-v2.js" onReady={settings} />
+      <Script src="//cdn.viafoura.net/entry/index.js" onReady={settings} />
       <Layout>
         {query.oidc ? (
           <UserProvider>

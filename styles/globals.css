@@ -79,6 +79,17 @@ nav .viafoura .vf-tray-trigger:focus {
   border: none !important;
   box-shadow: none !important;
 }
+.viafoura.custom-sharebar-vertical {
+  position: absolute;
+  left: -90px;
+  min-width: 40px;
+}
+.vf-share-bar.vf-share-bar-horizontal {
+  margin: -20px 0 20px -10px !important;
+}
+.vf-share-bar-vertical ul {
+  position: fixed !important;
+}
 .vf-trending-articles__header {
   @apply pb-2 text-lg font-bold capitalize !important;
 }
@@ -92,16 +103,6 @@ nav .viafoura .vf-tray-trigger:focus {
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
-}
-.vf-share-bar.vf-share-bar-horizontal {
-  margin: -20px 0 20px -10px !important;
-}
-.vf-share-bar-vertical {
-  position: absolute !important;
-  left: -45px !important;
-}
-.vf-share-bar-vertical ul {
-  position: fixed !important;
 }
 .vf-topic-follow-button {
   border-color: #ccc !important;
