@@ -47,6 +47,7 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 #vf-conversations-container {
   min-height: 800px !important;
+  scroll-margin-top: 75px;
 }
 
 /* Custom Identifiers */

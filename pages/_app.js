@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 
-import { UserProvider } from "@auth0/nextjs-auth0";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";

@@ -12,7 +12,6 @@ export default function AuthorFollow({ authorId, authorName, authorPicture }) {
           alt={authorName}
           width={48}
           height={48}
-          layout="fixed"
         />
       </div>
       <div className="ml-[1px] font-semibold">{authorName}</div>
