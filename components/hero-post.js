@@ -22,7 +22,9 @@ export default function HeroPost({
           </a>
         </h1>
         <div>
-          <p className="mt-4 mb-4 text-base text-gray-700 antialiased sm:mt-0">{excerpt}</p>
+          <p className="mb-4 mt-4 text-base text-gray-700 antialiased sm:mt-0">
+            {excerpt}
+          </p>
           <AuthorHome
             authorName={author.name}
             postSlug={slug}

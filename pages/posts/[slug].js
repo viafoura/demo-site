@@ -20,7 +20,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   return {
     props: {
-      data: await fetchGraphQL({ query: gqlPostBySlug, variables: { slug: params.slug } }),
+      data: await fetchGraphQL({
+        query: gqlPostBySlug,
+        variables: { slug: params.slug },
+      }),
     },
   };
 }
@@ -56,7 +59,11 @@ export default function Post({ data }) {
               vfPostContainerId={post.vfPostContainerId}
               vfConversation={vfConversation}
             />
-            <PostBody content={post.content} author={post.author} topics={post.topic} />
+            <PostBody
+              content={post.content}
+              author={post.author}
+              topics={post.topic}
+            />
           </article>
           <Sidebar
             showLiveChat={post.showLivechat}

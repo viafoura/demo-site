@@ -1,4 +1,7 @@
-import { gqlMetaTagsFragment, gqlResponsiveImageFragment } from "@/graphql/gqlFragments";
+import {
+  gqlMetaTagsFragment,
+  gqlResponsiveImageFragment,
+} from "@/graphql/gqlFragments";
 
 const gql = String.raw;
 

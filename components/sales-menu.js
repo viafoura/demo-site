@@ -20,11 +20,15 @@ export default function SalesMenu() {
   return (
     data && (
       <div className="flex h-10 w-10">
-        <button className="flex items-center" title="Open Menu" onClick={() => setIsMenuOpen(true)}>
+        <button
+          className="flex items-center"
+          title="Open Menu"
+          onClick={() => setIsMenuOpen(true)}
+        >
           <BiMenuAltLeft className="h-8 w-8 text-white" />
         </button>
         {isMenuOpen && (
-          <div className="relative top-2 -left-[30px] z-20">
+          <div className="relative -left-[30px] top-2 z-20">
             <div className="w-80 rounded border bg-white p-3 pb-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-800">
               <div className="mb-2 flex items-center justify-between">
                 <div className="ml-2 text-xl font-bold hover:text-red-700 dark:text-white">

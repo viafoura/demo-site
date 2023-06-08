@@ -52,7 +52,7 @@ nav .viafoura .vf-tray-trigger:focus {
 
 /* Custom Identifiers */
 #vf-broadcast-notification {
-  @apply mt-6 mb-4 rounded border-[1px] border-stone-200 bg-white px-8 pt-6 pb-8 shadow-lg;
+  @apply mb-4 mt-6 rounded border-[1px] border-stone-200 bg-white px-8 pb-8 pt-6 shadow-lg;
 }
 #vf-broadcast-notification label {
   @apply text-sm font-semibold text-stone-600;
@@ -60,10 +60,10 @@ nav .viafoura .vf-tray-trigger:focus {
 #vf-broadcast-notification input,
 #vf-broadcast-notification select,
 #vf-broadcast-notification textarea {
-  @apply mt-1 mb-4 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
+  @apply mb-4 mt-1 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
 }
 #vf-broadcast-notification button {
-  @apply m-auto mt-4 mb-2 flex rounded bg-indigo-500 px-6 py-4 text-base text-white hover:bg-indigo-600 disabled:bg-indigo-300;
+  @apply m-auto mb-2 mt-4 flex rounded bg-indigo-500 px-6 py-4 text-base text-white hover:bg-indigo-600 disabled:bg-indigo-300;
 }
 
 /* Custom Classes */

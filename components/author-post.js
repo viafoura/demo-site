@@ -14,7 +14,11 @@ export default function AuthorPost({
 }) {
   return (
     <div className="my-5 sm:flex">
-      <AuthorFollow authorId={authorId} authorName={authorName} authorPicture={authorPicture} />
+      <AuthorFollow
+        authorId={authorId}
+        authorName={authorName}
+        authorPicture={authorPicture}
+      />
       <div className="flex items-center sm:pl-4">
         <div className="mr-3 border-b-neutral-300 dark:border-neutral-600 sm:border-l sm:pl-3">
           <Date dateString={postDate} />
@@ -26,7 +30,7 @@ export default function AuthorPost({
               href="#vf-conversations-container"
               title="Join the Conversation"
             >
-              <BiCommentDetail className="mt-[3px] mr-1 h-5 w-5" />{" "}
+              <BiCommentDetail className="mr-1 mt-[3px] h-5 w-5" />{" "}
               <VfConversationsCount vfPostContainerId={vfPostContainerId} />
             </a>
           </div>
