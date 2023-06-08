@@ -13,9 +13,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta property="og:url" content={`https://${process.env.vfDomain}${asPath}`} />
+        <meta
+          property="og:url"
+          content={`https://${process.env.vfDomain}${asPath}`}
+        />
         <meta name="vf:domain" content={process.env.vfDomain} />
-        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+        <link
+          rel="shortcut icon"
+          href="/images/favicon.ico"
+          type="image/x-icon"
+        />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <Script src="//cdn.viafoura.net/entry/index.js" onReady={settings} />

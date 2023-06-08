@@ -1,4 +1,8 @@
-export default function VfTopicFollow({ vfTopicContainerId, topicName, topicType }) {
+export default function VfTopicFollow({
+  vfTopicContainerId,
+  topicName,
+  topicType,
+}) {
   return (
     <div className="viafoura">
       <vf-topic-follow

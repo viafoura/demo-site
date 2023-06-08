@@ -2,12 +2,20 @@ import userComments from "./data/userComments.json";
 
 const VF_LIVECOMMENTS_API = `https://livecomments.viafoura.co/v4/livecomments/${process.env.VF_SITE_UUID}`;
 const VF_AUTH_API = `https://api.viafoura.co/v2/${process.env.VF_DOMAIN}/users`;
-const VF_HEADERS = { "Content-Type": "application/json", Accept: "application/json" };
+const VF_HEADERS = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+};
+
 const DATOCMS_API = "https://site-api.datocms.com";
-const DATOCMS_HEADERS = { ...VF_HEADERS, Authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}` };
+const DATOCMS_HEADERS = {
+  ...VF_HEADERS,
+  Authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
+};
 
 const handleHTTPResponseError = async (response) => {
-  if (response.status === 400) throw new Error(`{"http_status":400,"error":"Bad Request"}`);
+  if (response.status === 400)
+    throw new Error(`{"http_status":400,"error":"Bad Request"}`);
   if (!response.ok) {
     const errorResponse = await response.json();
     throw new Error(JSON.stringify(errorResponse));
@@ -107,7 +115,10 @@ const getCookies = async (user) => {
 
 const getContainerUUID = async (post, trendingArticlesCount) => {
   if (trendingArticlesCount === 0) {
-    const newVfPostContainerId = await getNewVfPostContainerId(post.id, post.vfPostContainerId);
+    const newVfPostContainerId = await getNewVfPostContainerId(
+      post.id,
+      post.vfPostContainerId
+    );
     const response = await fetch(`${VF_LIVECOMMENTS_API}`, {
       method: "POST",
       headers: VF_HEADERS,
@@ -127,11 +138,14 @@ const getContainerUUID = async (post, trendingArticlesCount) => {
 };
 
 const createComment = async (containerUUID, cookies, comment) => {
-  const response = await fetch(`${VF_LIVECOMMENTS_API}/${containerUUID}/comments`, {
-    method: "POST",
-    headers: { ...VF_HEADERS, Cookie: cookies },
-    body: JSON.stringify(comment),
-  });
+  const response = await fetch(
+    `${VF_LIVECOMMENTS_API}/${containerUUID}/comments`,
+    {
+      method: "POST",
+      headers: { ...VF_HEADERS, Cookie: cookies },
+      body: JSON.stringify(comment),
+    }
+  );
   await handleHTTPResponseError(response);
   return await response.json();
 };

@@ -54,13 +54,17 @@ export default function BroadcastNotification({ data }) {
       }
     );
     if (status === 204) {
-      toast.custom((toast) => <SuccessToast toast={toast} message="Broadcast notification sent" />);
+      toast.custom((toast) => (
+        <SuccessToast toast={toast} message="Broadcast notification sent" />
+      ));
     }
   };
 
   return (
     <Container>
-      <Toaster toastOptions={{ custom: { duration: 2000, position: "top-center" } }} />
+      <Toaster
+        toastOptions={{ custom: { duration: 2000, position: "top-center" } }}
+      />
       <VfBroadcastForm
         broadcastFormRef={broadcastFormRef}
         onPostIdChange={onPostIdChange}

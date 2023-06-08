@@ -2,7 +2,12 @@ import { BiCommentDetail } from "react-icons/bi";
 
 import VfConversationsCount from "@/components/viafoura/vf-conversations-count";
 
-export default function AuthorHome({ authorName, postSlug, vfPostContainerId, vfConversationId }) {
+export default function AuthorHome({
+  authorName,
+  postSlug,
+  vfPostContainerId,
+  vfConversationId,
+}) {
   return (
     <div className="w-50">
       <div className="flex text-base font-semibold text-gray-800">

@@ -1,4 +1,7 @@
-import { gqlMetaTagsFragment, gqlResponsiveImageFragment } from "@/graphql/gqlFragments";
+import {
+  gqlMetaTagsFragment,
+  gqlResponsiveImageFragment,
+} from "@/graphql/gqlFragments";
 
 const gql = String.raw;
 
@@ -31,7 +34,9 @@ export const gqlPostBySlug = gql`
           ... on ImageBlockRecord {
             id
             image {
-              responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }) {
+              responsiveImage(
+                imgixParams: { fm: jpg, fit: crop, w: 856, h: 428 }
+              ) {
                 ...gqlResponsiveImageFragment
               }
             }
