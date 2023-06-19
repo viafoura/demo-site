@@ -1,3 +1,5 @@
+import { handleHTTPResponseError } from "@/utils/handleHTTPResponseError";
+
 import userComments from "./data/userComments.json";
 
 const VF_LIVECOMMENTS_API = `https://livecomments.viafoura.co/v4/livecomments/${process.env.VF_SITE_UUID}`;
@@ -11,15 +13,6 @@ const DATOCMS_API = "https://site-api.datocms.com";
 const DATOCMS_HEADERS = {
   ...VF_HEADERS,
   Authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
-};
-
-const handleHTTPResponseError = async (response) => {
-  if (response.status === 400)
-    throw new Error(`{"http_status":400,"error":"Bad Request"}`);
-  if (!response.ok) {
-    const errorResponse = await response.json();
-    throw new Error(JSON.stringify(errorResponse));
-  }
 };
 
 const getPosts = async () => {
