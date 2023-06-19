@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/viafoura/create-site-broadcast-notification",
+      "schedule": "0 */12 * * *"
+    },
+    {
+      "path": "/api/viafoura/create-content",
+      "schedule": "0 10 * * *"
+    }
+  ]
+}
