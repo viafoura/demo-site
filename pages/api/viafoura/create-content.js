@@ -1,9 +1,9 @@
+import { getUserCookies } from "@/lib/viafoura/getUserCookies";
 import { handleHTTPResponseError } from "@/utils/handleHTTPResponseError";
 
 import userComments from "./data/userComments.json";
 
 const VF_LIVECOMMENTS_API = `https://livecomments.viafoura.co/v4/livecomments/${process.env.VF_SITE_UUID}`;
-const VF_AUTH_API = `https://api.viafoura.co/v2/${process.env.VF_DOMAIN}/users`;
 const VF_HEADERS = {
   "Content-Type": "application/json",
   Accept: "application/json",
@@ -60,52 +60,6 @@ const getNewVfPostContainerId = async (postId, vfPostContainerId) => {
   return newVfPostContainerId;
 };
 
-const loginUser = async ({ email, password }) => {
-  const response = await fetch(`${VF_AUTH_API}/login`, {
-    method: "POST",
-    headers: VF_HEADERS,
-    credentials: "include",
-    body: JSON.stringify({ email, password }),
-  });
-  const session = await response.json();
-  if (session.error === "Unregistered email address.") {
-    return session;
-  }
-  const cookieString = response.headers.getSetCookie();
-  const cookies = cookieString.map((item) => item.split(";")[0]).join(";");
-  return cookies;
-};
-
-const signupUser = async (user) => {
-  const response = await fetch(`${VF_AUTH_API}`, {
-    method: "POST",
-    headers: VF_HEADERS,
-    body: JSON.stringify(user),
-  });
-  await handleHTTPResponseError(response);
-  const { result } = await response.json();
-  return result.id;
-};
-
-const updateAvatar = async ({ avatar }, userId, cookies) => {
-  const response = await fetch(`${VF_AUTH_API}/${userId}`, {
-    method: "PATCH",
-    headers: { ...VF_HEADERS, Cookie: cookies },
-    body: JSON.stringify({ avatar }),
-  });
-  await handleHTTPResponseError(response);
-};
-
-const getCookies = async (user) => {
-  let cookies = await loginUser(user);
-  if (cookies.error === "Unregistered email address.") {
-    const userId = await signupUser(user);
-    cookies = await loginUser(user);
-    await updateAvatar(user, userId, cookies);
-  }
-  return cookies;
-};
-
 const getContainerUUID = async (post, trendingArticlesCount) => {
   if (trendingArticlesCount === 0) {
     const newVfPostContainerId = await getNewVfPostContainerId(
@@ -122,7 +76,8 @@ const getContainerUUID = async (post, trendingArticlesCount) => {
     return content_container_uuid;
   } else {
     const response = await fetch(
-      `${VF_LIVECOMMENTS_API}/contentcontainer/id?container_id=${post.vfPostContainerId}`
+      `${VF_LIVECOMMENTS_API}/contentcontainer/id?container_id=${post.vfPostContainerId}`,
+      { method: "GET", headers: VF_HEADERS }
     );
     await handleHTTPResponseError(response);
     const { content_container_uuid } = await response.json();
@@ -156,13 +111,13 @@ const createViafouraContent = async (allPosts, trendingArticlesCount) => {
     if (userComments[post.slug]) {
       const containerUUID = await getContainerUUID(post, trendingArticlesCount);
       for (const userComment of userComments[post.slug]) {
-        const cookies = await getCookies({
+        const cookies = await getUserCookies({
           name: userComment.name,
           email: userComment.email,
           password: process.env.VF_USERS_PASSWORD,
           avatar: userComment.avatar,
         });
-        const comment = {
+        await createComment(containerUUID, cookies, {
           content: userComment.comment,
           metadata: {
             author_host_section_uuid: process.env.VF_SITE_UUID,
@@ -172,8 +127,7 @@ const createViafouraContent = async (allPosts, trendingArticlesCount) => {
             origin_image_url: post.coverImage.url,
             origin_image_alt: post.coverImage.alt,
           },
-        };
-        await createComment(containerUUID, cookies, comment);
+        });
       }
     }
   }
