@@ -7,6 +7,10 @@
     {
       "path": "/api/viafoura/create-content",
       "schedule": "0 10 * * *"
+    },
+    {
+      "path": "/api/viafoura/create-livechat-content",
+      "schedule": "0 */6 * * *"
     }
   ]
 }
