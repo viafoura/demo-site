@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -6,7 +7,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans: ["Roboto", "sans-serif"],
+      sans: ["var(--font-inter)"],
     },
     screens: {
       sm: "640px",
