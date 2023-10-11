@@ -8,7 +8,7 @@ import Script from "next/script";
 import Layout from "@/components/layout";
 import { settings } from "@/lib/viafoura/settings";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   const { asPath, query } = useRouter();
   return (
     <>
@@ -38,5 +38,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;
