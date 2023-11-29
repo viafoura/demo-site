@@ -52,15 +52,22 @@ export default function SalesMenu() {
                     key={menuItem.id}
                     href={`/posts/${menuItem.slug}`}
                     title={menuItem.productDemo}
-                    className="broadcast-notification-link"
+                    className="sales-menu-link"
                   >
                     {menuItem.productDemo}
                   </a>
                 ))}
                 <a
+                  href="/livechat-overlay"
+                  title="Live Chat - Overlay"
+                  className="sales-menu-link"
+                >
+                  Live Chat - Overlay
+                </a>
+                <a
                   href="/broadcast-notification"
                   title="Broadcast Notification"
-                  className="broadcast-notification-link"
+                  className="sales-menu-link"
                 >
                   Broadcast Notification
                 </a>

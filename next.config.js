@@ -9,6 +9,11 @@ module.exports = {
     vfSiteUUID: process.env.VF_SITE_UUID,
   },
   images: {
-    domains: ["www.datocms-assets.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.datocms-assets.com",
+      },
+    ],
   },
 };

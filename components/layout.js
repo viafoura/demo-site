@@ -14,7 +14,7 @@ export default function Layout({ children }) {
     <div className={`${inter.variable} font-sans`}>
       <Header />
       <TopicsMenu />
-      <main>{children}</main>
+      <main className="min-h-[calc(100vh-310px)]">{children}</main>
       <Footer />
     </div>
   );
