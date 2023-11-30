@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 
 import Footer from "@/components/footer";
@@ -16,6 +17,7 @@ export default function Layout({ children }) {
       <TopicsMenu />
       <main className="min-h-[calc(100vh-310px)]">{children}</main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
