@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.3.0",
+    "@vercel/analytics": "^1.1.1",
     "@zephr/sdk": "^1.1.0",
     "date-fns": "2.30.0",
     "next": "^14.0.3",
