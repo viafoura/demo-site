@@ -23,8 +23,9 @@ export const gqlPostBySlug = gql`
       }
       id
       vfPostContainerId
-      title
       slug
+      title
+      excerpt
       date
       showLivechat
       content {
