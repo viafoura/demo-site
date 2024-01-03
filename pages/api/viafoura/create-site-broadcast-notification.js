@@ -10,7 +10,7 @@ const getSlugsFromNotificationsInTray = async () => {
   await handleHTTPResponseError(response);
   const { broadcasts } = await response.json();
   return broadcasts.map(({ target_url }) =>
-    target_url.substring(target_url.lastIndexOf("/") + 1)
+    target_url.substring(target_url.lastIndexOf("/") + 1),
   );
 };
 
@@ -30,7 +30,7 @@ const getAllPosts = async () => {
 
 const getRandomPost = (targetSlugs, allPosts) => {
   const filteredPosts = allPosts.filter(
-    (post) => !targetSlugs.includes(post.slug)
+    (post) => !targetSlugs.includes(post.slug),
   );
   return filteredPosts[Math.floor(Math.random() * filteredPosts.length)];
 };

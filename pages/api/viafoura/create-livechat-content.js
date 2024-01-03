@@ -32,7 +32,7 @@ const getPosts = async () => {
 const getContainerUUID = async (vfContainerId) => {
   const response = await fetch(
     `${VF_LIVECHATS_API}?limit=1&container_id=${vfContainerId}`,
-    { method: "GET", headers: VF_HEADERS }
+    { method: "GET", headers: VF_HEADERS },
   );
   await handleHTTPResponseError(response);
   const { content_container_uuid } = await response.json();
@@ -46,7 +46,7 @@ const createComment = async (containerUUID, cookies, comment) => {
       method: "POST",
       headers: { ...VF_HEADERS, Cookie: cookies },
       body: JSON.stringify(comment),
-    }
+    },
   );
   await handleHTTPResponseError(response);
   return await response.json();
@@ -66,7 +66,7 @@ const createLivechatContent = async (allPosts) => {
   for (const post of allPosts) {
     if (livechatComments[post.slug]) {
       const containerUUID = await getContainerUUID(
-        post.vfPostContainerId || post.vfTopicContainerId
+        post.vfPostContainerId || post.vfTopicContainerId,
       );
       for (const comment of livechatComments[post.slug]) {
         const randomUser = getRandomUser();

@@ -26,7 +26,7 @@ export default function BroadcastNotification({ data }) {
     const getCurrentUser = async () => {
       const response = await fetch(
         `https://api.viafoura.co/v2/${process.env.vfSiteId}/users/current`,
-        { credentials: "include" }
+        { credentials: "include" },
       );
       const { result } = await response.json();
       if (result.user_privilege === "administrator") setIsSubmitDisabled(false);
@@ -51,7 +51,7 @@ export default function BroadcastNotification({ data }) {
         method: "POST",
         body: new URLSearchParams(new FormData(broadcastFormRef.current)),
         credentials: "include",
-      }
+      },
     );
     if (status === 204) {
       toast.custom((toast) => (
