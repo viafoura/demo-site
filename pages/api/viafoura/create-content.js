@@ -33,7 +33,7 @@ const getPosts = async () => {
 const getTrendingArticlesCount = async () => {
   const response = await fetch(
     `${VF_LIVECOMMENTS_API}/trending?limit=1&content_window_hours=48&sorted_by=total_visible_contents`,
-    { method: "GET", headers: VF_HEADERS }
+    { method: "GET", headers: VF_HEADERS },
   );
   await handleHTTPResponseError(response);
   const { trending } = await response.json();
@@ -64,7 +64,7 @@ const getContainerUUID = async (post, trendingArticlesCount) => {
   if (trendingArticlesCount === 0) {
     const newVfPostContainerId = await getNewVfPostContainerId(
       post.id,
-      post.vfPostContainerId
+      post.vfPostContainerId,
     );
     const response = await fetch(`${VF_LIVECOMMENTS_API}`, {
       method: "POST",
@@ -77,7 +77,7 @@ const getContainerUUID = async (post, trendingArticlesCount) => {
   } else {
     const response = await fetch(
       `${VF_LIVECOMMENTS_API}/contentcontainer/id?container_id=${post.vfPostContainerId}`,
-      { method: "GET", headers: VF_HEADERS }
+      { method: "GET", headers: VF_HEADERS },
     );
     await handleHTTPResponseError(response);
     const { content_container_uuid } = await response.json();
@@ -92,7 +92,7 @@ const createComment = async (containerUUID, cookies, comment) => {
       method: "POST",
       headers: { ...VF_HEADERS, Cookie: cookies },
       body: JSON.stringify(comment),
-    }
+    },
   );
   await handleHTTPResponseError(response);
   return await response.json();
@@ -101,7 +101,7 @@ const createComment = async (containerUUID, cookies, comment) => {
 const triggerBuildProcess = async () => {
   const response = await fetch(
     `${DATOCMS_API}/build-triggers/${process.env.DATOCMS_BUILD_TRIGGER_ID}/trigger`,
-    { method: "POST", headers: DATOCMS_HEADERS }
+    { method: "POST", headers: DATOCMS_HEADERS },
   );
   await handleHTTPResponseError(response);
 };

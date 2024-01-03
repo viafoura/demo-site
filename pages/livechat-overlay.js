@@ -1,5 +1,7 @@
 import Container from "@/components/container";
-import VfLivechatOverlay from "@/components/viafoura/vf-livechat-overlay";
+import VfLivechatOverlayDesktop from "@/components/viafoura/vf-livechat-overlay-desktop";
+import VfLivechatOverlayMobile from "@/components/viafoura/vf-livechat-overlay-mobile";
+import VfLivechatOverlayTablet from "@/components/viafoura/vf-livechat-overlay-tablet";
 
 export default function LivechatOverlay() {
   return (
@@ -55,30 +57,21 @@ export default function LivechatOverlay() {
         }
       `}</style>
 
-      <h1 className="text-center mb-6">NBA Live Chat</h1>
+      <h1 className="mb-6 text-center">NBA Live Chat</h1>
       <div className="relative">
         <div className="lg:flex">
-          <div className="w-full xl:w-4/6 lg:relative">
+          <div className="w-full lg:relative xl:w-4/6">
             <iframe
-              className="w-full h-[470px]"
+              className="h-[470px] w-full"
               src="https://www.youtube.com/embed/UK0RVMJRlNg?autoplay=1&mute=1&loop=1&playlist=UK0RVMJRlNg"
-              title="YouTube Video"
+              title="NBA Live Chat"
               allowFullScreen
             ></iframe>
-            {/* Tablet */}
-            <div className="hidden xl:hidden sm:block absolute top-0 right-0 sm:w-3/6 md:w-2/6 h-[470px]">
-              <VfLivechatOverlay height="470px" />
-            </div>
+            <VfLivechatOverlayTablet />
           </div>
-          {/* Desktop */}
-          <div className="hidden xl:block xl:w-2/6">
-            <VfLivechatOverlay height="470px" />
-          </div>
+          <VfLivechatOverlayDesktop />
         </div>
-        {/* Mobile */}
-        <div className="sm:hidden absolute bottom-0 right-0 left-0">
-          <VfLivechatOverlay height="175px" />
-        </div>
+        <VfLivechatOverlayMobile />
       </div>
     </Container>
   );
