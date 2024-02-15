@@ -69,7 +69,7 @@ const getContainerUUID = async (post, trendingArticlesCount) => {
     const response = await fetch(`${VF_LIVECOMMENTS_API}`, {
       method: "POST",
       headers: VF_HEADERS,
-      body: JSON.stringify({ container_id: newVfPostContainerId }),
+      body: JSON.stringify({ container_id: newVfPostContainerId.toString() }),
     });
     await handleHTTPResponseError(response);
     const { content_container_uuid } = await response.json();
