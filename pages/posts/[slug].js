@@ -25,13 +25,15 @@ export async function getStaticProps({ params }) {
     query: gqlPostBySlug,
     variables: { slug: params.slug },
   });
-  const { contents } = await fetchCommentsSchema(data.post.vfPostContainerId);
-  if (!contents)
+  const commentsSchema = await fetchCommentsSchema(data.post.vfPostContainerId);
+  if (!commentsSchema || !commentsSchema.contents) {
     return {
       props: {
         data,
       },
     };
+  }
+  const { contents } = commentsSchema;
   const commentPromises = contents.map(async (comment) => {
     const actorId = await fetchCommentAuthorSchema(comment.actor_uuid);
     return {
@@ -41,7 +43,7 @@ export async function getStaticProps({ params }) {
       author: {
         "@context": "http://schema.org/",
         "@type": "Person",
-        name: actorId.result.name,
+        name: actorId?.result?.name,
       },
       text: comment.content,
       upvoteCount: comment.total_likes,
