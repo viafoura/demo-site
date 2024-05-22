@@ -70,6 +70,9 @@ nav .viafoura .vf-tray-trigger:focus {
 .sales-menu-link {
   @apply block cursor-pointer rounded px-3 py-2 font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:bg-gray-100 dark:text-white dark:hover:bg-neutral-700;
 }
+.privacy-policy:hover {
+  @apply underline brightness-75;
+}
 
 /* Viafoura Classes */
 .viafoura {
