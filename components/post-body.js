@@ -56,12 +56,12 @@ export default function PostBody({ content, author, topics }) {
               />
             );
           }
-          if (record.__typename === "LiveStoryRecord") {
+          if (record.__typename === "LiveBlogRecord") {
             return (
               <div
                 className="not-prose"
                 dangerouslySetInnerHTML={{
-                  __html: record.liveStory,
+                  __html: record.liveBlog,
                 }}
               />
             );

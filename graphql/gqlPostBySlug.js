@@ -54,9 +54,9 @@ export const gqlPostBySlug = gql`
             id
             liveChat
           }
-          ... on LiveStoryRecord {
+          ... on LiveBlogRecord {
             id
-            liveStory
+            liveBlog
           }
           ... on ConversationStarterRecord {
             id
