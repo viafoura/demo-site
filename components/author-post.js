@@ -20,7 +20,7 @@ export default function AuthorPost({
         authorPicture={authorPicture}
       />
       <div className="flex items-center sm:pl-4">
-        <div className="mr-3 border-b-neutral-300 sm:border-l sm:pl-3 dark:border-neutral-600">
+        <div className="mr-3 border-b-neutral-300 dark:border-neutral-600 sm:border-l sm:pl-3">
           <Date dateString={postDate} />
         </div>
         {vfConversation && (

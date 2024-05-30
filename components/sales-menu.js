@@ -19,7 +19,7 @@ export default function SalesMenu() {
 
   return (
     data && (
-      <div className="flex h-10 w-10">
+      <div className="flex">
         <button
           className="flex items-center"
           title="Open Menu"
