@@ -66,6 +66,16 @@ export default function PostBody({ content, author, topics }) {
               />
             );
           }
+          if (record.__typename === "LiveReviewRecord") {
+            return (
+              <div
+                className="not-prose"
+                dangerouslySetInnerHTML={{
+                  __html: record.liveReview,
+                }}
+              />
+            );
+          }
           if (record.__typename === "ConversationStarterRecord") {
             return (
               <div

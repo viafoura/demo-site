@@ -58,6 +58,10 @@ export const gqlPostBySlug = gql`
             id
             liveBlog
           }
+          ... on LiveReviewRecord {
+            id
+            liveReview
+          }
           ... on ConversationStarterRecord {
             id
             conversationStarter
