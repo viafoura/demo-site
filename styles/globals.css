@@ -93,6 +93,8 @@ nav .viafoura .vf-tray-trigger:focus {
 }
 .vf-share-bar-vertical ul {
   position: fixed !important;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .vf-trending-articles__header {
   @apply pb-2 text-lg font-bold capitalize !important;
@@ -183,4 +185,16 @@ nav .viafoura .vf-tray-trigger:focus {
 .dark .viafoura .vf-nav-button:hover .vf-nav-label,
 .dark .viafoura .vf-label {
   color: #fff !important;
+}
+/* Temporal fixes */
+.dark
+  .viafoura
+  .vf-editors-pick_container-right
+  .vf-post
+  .vf-post-name-button__username {
+  color: #fff !important;
+}
+.dark .viafoura .vf-feedback-survey__label {
+  color: #fff !important;
+  opacity: 0.6 !important;
 }
