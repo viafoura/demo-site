@@ -23,7 +23,6 @@ export default function MyApp({ Component, pageProps }) {
           href="/images/favicon.ico"
           type="image/x-icon"
         />
-        <link rel="manifest" href="/manifest.json" />
       </Head>
       <Script
         src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
