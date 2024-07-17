@@ -25,6 +25,18 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="manifest" href="/manifest.json" />
       </Head>
+      <Script
+        src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+        strategy="afterInteractive"
+        onReady={() => {
+          window.OneSignalDeferred = window.OneSignalDeferred || [];
+          OneSignalDeferred.push(async function (OneSignal) {
+            await OneSignal.init({
+              appId: "8add46ba-1535-4c77-8c97-4faccd2cd7e5",
+            });
+          });
+        }}
+      ></Script>
       <Script src="//cdn.viafoura.net/entry/index.js" onReady={settings} />
       <Layout>
         {query.oidc ? (
