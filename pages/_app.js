@@ -37,9 +37,9 @@ export default function MyApp({ Component, pageProps }) {
           });
           window.vfQ = window.vfQ || [];
           window.vfQ.push(async () => {
-            const user = await window.vf.context.get("user");
-            if (user.user_privilege !== "guest") {
-              await OneSignal.login(toString(user.id));
+            const { user_privilege, id } = await window.vf.context.get("user");
+            if (user_privilege !== "guest") {
+              await OneSignal.login(id.toString());
             } else {
               await OneSignal.logout();
             }
