@@ -24,6 +24,7 @@ export default function MyApp({ Component, pageProps }) {
           type="image/x-icon"
         />
       </Head>
+      <Script src="//cdn.viafoura.net/entry/index.js" onReady={settings} />
       <Script
         src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
         strategy="afterInteractive"
@@ -34,9 +35,17 @@ export default function MyApp({ Component, pageProps }) {
               appId: "8add46ba-1535-4c77-8c97-4faccd2cd7e5",
             });
           });
+          window.vfQ = window.vfQ || [];
+          window.vfQ.push(async () => {
+            const user = await window.vf.context.get("user");
+            if (user_privilege !== "guest") {
+              await OneSignal.login(toString(user.id));
+            } else {
+              await OneSignal.logout();
+            }
+          });
         }}
-      ></Script>
-      <Script src="//cdn.viafoura.net/entry/index.js" onReady={settings} />
+      />
       <Layout>
         {query.oidc ? (
           <UserProvider>
