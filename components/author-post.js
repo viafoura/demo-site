@@ -11,6 +11,7 @@ export default function AuthorPost({
   postDate,
   vfPostContainerId,
   vfConversation,
+  vfReview,
 }) {
   return (
     <div className="my-5 sm:flex">
@@ -32,6 +33,19 @@ export default function AuthorPost({
             >
               <BiCommentDetail className="mr-1 mt-[3px] h-5 w-5" />{" "}
               <VfConversationsCount vfPostContainerId={vfPostContainerId} />
+            </a>
+          </div>
+        )}
+        {vfReview && (
+          <div className="flex border-l border-b-neutral-300 pl-3 font-semibold text-gray-800 dark:border-neutral-600">
+            <a
+              className="mr-3 flex h-6 hover:underline"
+              href="#vf-reviews-container"
+              title="Leave your Review"
+            >
+              <div className="viafoura">
+                <vf-rating vf-container-id={vfPostContainerId}></vf-rating>
+              </div>
             </a>
           </div>
         )}

@@ -69,7 +69,8 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "LiveReviewRecord") {
             return (
               <div
-                className="not-prose"
+                id="vf-reviews-container"
+                className="not-prose scroll-mt-20"
                 dangerouslySetInnerHTML={{
                   __html: record.liveReview,
                 }}

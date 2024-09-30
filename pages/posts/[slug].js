@@ -67,6 +67,9 @@ export default function Post({ data, schemaCommentsCount, schemaComments }) {
   const vfConversation = post.content.blocks.find(
     (block) => block.__typename === "ConversationRecord",
   );
+  const vfReview = post.content.blocks.find(
+    (block) => block.__typename === "LiveReviewRecord",
+  );
 
   return (
     <>
@@ -101,6 +104,7 @@ export default function Post({ data, schemaCommentsCount, schemaComments }) {
               topics={post.topic}
               vfPostContainerId={post.vfPostContainerId}
               vfConversation={vfConversation}
+              vfReview={vfReview}
             />
             <PostBody
               content={post.content}
