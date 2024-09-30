@@ -12,6 +12,7 @@ export default function PostHeader({
   topics,
   vfPostContainerId,
   vfConversation,
+  vfReview,
 }) {
   return (
     <>
@@ -24,6 +25,7 @@ export default function PostHeader({
         postDate={date}
         vfPostContainerId={vfPostContainerId}
         vfConversation={vfConversation}
+        vfReview={vfReview}
       />
       <div className="hidden xl:block">
         <VfShareBar showTotal={true} orientation="vertical" />
