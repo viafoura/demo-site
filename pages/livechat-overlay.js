@@ -63,7 +63,7 @@ export default function LivechatOverlay() {
           <div className="w-full lg:relative xl:w-4/6">
             <iframe
               className="h-[470px] w-full"
-              src="https://www.youtube.com/embed/UK0RVMJRlNg?autoplay=1&mute=1&loop=1&playlist=UK0RVMJRlNg"
+              src="https://www.youtube.com/embed/j2kvgwLapKk?autoplay=1&mute=1&loop=1&playlist=j2kvgwLapKk"
               title="NBA Live Chat"
               allowFullScreen
             ></iframe>
