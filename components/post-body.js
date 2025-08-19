@@ -77,6 +77,17 @@ export default function PostBody({ content, author, topics }) {
               />
             );
           }
+          if (record.__typename === "LiveQARecord") {
+            return (
+              <div
+                id="vf-livequestions"
+                className="not-prose scroll-mt-20"
+                dangerouslySetInnerHTML={{
+                  __html: record.liveQA,
+                }}
+              />
+            );
+          }
           if (record.__typename === "ConversationStarterRecord") {
             return (
               <div
