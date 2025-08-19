@@ -62,9 +62,9 @@ export const gqlPostBySlug = gql`
             id
             liveReview
           }
-          ... on LiveQARecord {
+          ... on LiveqaRecord {
             id
-            liveQA
+            liveQa
           }
           ... on ConversationStarterRecord {
             id

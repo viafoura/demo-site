@@ -77,13 +77,13 @@ export default function PostBody({ content, author, topics }) {
               />
             );
           }
-          if (record.__typename === "LiveQARecord") {
+          if (record.__typename === "LiveqaRecord") {
             return (
               <div
                 id="vf-livequestions"
                 className="not-prose scroll-mt-20"
                 dangerouslySetInnerHTML={{
-                  __html: record.liveQA,
+                  __html: record.liveQa,
                 }}
               />
             );
