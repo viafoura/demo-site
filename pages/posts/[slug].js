@@ -25,7 +25,6 @@ export async function getStaticProps({ params }) {
     query: gqlPostBySlug,
     variables: { slug: params.slug },
   });
-  console.log("DATA I GET:" + data);
   const commentsSchema = await fetchCommentsSchema(data.post.vfPostContainerId);
   if (!commentsSchema || !commentsSchema.contents) {
     return {
