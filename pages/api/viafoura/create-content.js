@@ -109,7 +109,13 @@ const triggerBuildProcess = async () => {
 const createViafouraContent = async (allPosts, trendingArticlesCount) => {
   for (const post of allPosts) {
     if (userComments[post.slug]) {
-      const containerUUID = await getContainerUUID(post, trendingArticlesCount);
+      let containerUUID
+      try {
+        containerUUID = await getContainerUUID(post, trendingArticlesCount)
+      } catch (e) {
+        console.error(`Failed to get container for ${post.slug}`, e)
+        continue
+      }
       for (const userComment of userComments[post.slug]) {
         const cookies = await getUserCookies({
           name: userComment.name,
@@ -135,13 +141,11 @@ const createViafouraContent = async (allPosts, trendingArticlesCount) => {
 
 export default async function handler(_, res) {
   try {
-    console.time("TIMER");
     const allPosts = await getPosts();
     const trendingArticlesCount = await getTrendingArticlesCount();
     await createViafouraContent(allPosts, trendingArticlesCount);
     if (trendingArticlesCount === 0) await triggerBuildProcess();
     res.status(200).json({ message: "Update Successful" });
-    console.timeEnd("TIMER");
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
