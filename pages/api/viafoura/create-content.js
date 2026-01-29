@@ -11,7 +11,8 @@ const VF_HEADERS = {
 
 const DATOCMS_API = "https://site-api.datocms.com";
 const DATOCMS_HEADERS = {
-  ...VF_HEADERS,
+  "Content-Type": "application/json",
+  Accept: "application/json",
   Authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
 };
 
@@ -30,18 +31,8 @@ const getPosts = async () => {
   return data.allPosts;
 };
 
-const getTrendingArticlesCount = async () => {
-  const response = await fetch(
-    `${VF_LIVECOMMENTS_API}/trending?limit=1&content_window_hours=48&sorted_by=total_visible_contents`,
-    { method: "GET", headers: VF_HEADERS },
-  );
-  await handleHTTPResponseError(response);
-  const { trending } = await response.json();
-  return trending.length;
-};
-
 const getNewVfPostContainerId = async (postId, vfPostContainerId) => {
-  const newVfPostContainerId = vfPostContainerId + 1;
+  const newVfPostContainerId = (vfPostContainerId || 0) + 1;
   const response = await fetch(`${DATOCMS_API}/items/${postId}`, {
     method: "PUT",
     headers: DATOCMS_HEADERS,
@@ -60,29 +51,30 @@ const getNewVfPostContainerId = async (postId, vfPostContainerId) => {
   return newVfPostContainerId;
 };
 
-const getContainerUUID = async (post, trendingArticlesCount) => {
-  if (trendingArticlesCount === 0) {
-    const newVfPostContainerId = await getNewVfPostContainerId(
-      post.id,
-      post.vfPostContainerId,
-    );
-    const response = await fetch(`${VF_LIVECOMMENTS_API}`, {
-      method: "POST",
-      headers: VF_HEADERS,
-      body: JSON.stringify({ container_id: newVfPostContainerId.toString() }),
-    });
-    await handleHTTPResponseError(response);
-    const { content_container_uuid } = await response.json();
-    return content_container_uuid;
-  } else {
-    const response = await fetch(
-      `${VF_LIVECOMMENTS_API}/contentcontainer/id?container_id=${post.vfPostContainerId}`,
-      { method: "GET", headers: VF_HEADERS },
-    );
-    await handleHTTPResponseError(response);
-    const { content_container_uuid } = await response.json();
+const getOrCreateContainer = async (post) => {
+  const newVfPostContainerId = await getNewVfPostContainerId(
+    post.id,
+    post.vfPostContainerId,
+  );
+  
+  const createResponse = await fetch(`${VF_LIVECOMMENTS_API}`, {
+    method: "POST",
+    headers: VF_HEADERS,
+    body: JSON.stringify({ container_id: newVfPostContainerId.toString() }),
+  });
+  
+  if (createResponse.ok) {
+    const { content_container_uuid } = await createResponse.json();
     return content_container_uuid;
   }
+  
+  const getResponse = await fetch(
+    `${VF_LIVECOMMENTS_API}/contentcontainer/id?container_id=${newVfPostContainerId}`,
+    { method: "GET", headers: VF_HEADERS },
+  );
+  await handleHTTPResponseError(getResponse);
+  const { content_container_uuid } = await getResponse.json();
+  return content_container_uuid;
 };
 
 const createComment = async (containerUUID, cookies, comment) => {
@@ -106,15 +98,15 @@ const triggerBuildProcess = async () => {
   await handleHTTPResponseError(response);
 };
 
-const createViafouraContent = async (allPosts, trendingArticlesCount) => {
+const createViafouraContent = async (allPosts) => {
   for (const post of allPosts) {
     if (userComments[post.slug]) {
-      let containerUUID
+      let containerUUID;
       try {
-        containerUUID = await getContainerUUID(post, trendingArticlesCount)
+        containerUUID = await getOrCreateContainer(post);
       } catch (e) {
-        console.error(`Failed to get container for ${post.slug}`, e)
-        continue
+        console.error(`Failed to get/create container for ${post.slug}`, e);
+        continue;
       }
       for (const userComment of userComments[post.slug]) {
         const cookies = await getUserCookies({
@@ -142,9 +134,8 @@ const createViafouraContent = async (allPosts, trendingArticlesCount) => {
 export default async function handler(_, res) {
   try {
     const allPosts = await getPosts();
-    const trendingArticlesCount = await getTrendingArticlesCount();
-    await createViafouraContent(allPosts, trendingArticlesCount);
-    if (trendingArticlesCount === 0) await triggerBuildProcess();
+    await createViafouraContent(allPosts);
+    await triggerBuildProcess();
     res.status(200).json({ message: "Update Successful" });
   } catch (error) {
     console.error(error);
