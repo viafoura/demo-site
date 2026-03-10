@@ -103,7 +103,7 @@ export default function PostBody({ content, author, topics }) {
           if (record.__typename === "StandalonePollRecord") {
             return (
               <div className="not-prose scroll-mt-20">
-                <VfStandalonePoll vfContainerId={record.pollContainerId} />
+                <VfStandalonePoll vfContainerId={record.standalonePoll} />
               </div>
             );
           }
