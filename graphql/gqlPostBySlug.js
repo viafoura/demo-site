@@ -72,7 +72,7 @@ export const gqlPostBySlug = gql`
           }
           ... on StandalonePollRecord {
             id
-            standalonePoll
+            standalone_poll
           }
         }
       }
