@@ -70,6 +70,10 @@ export const gqlPostBySlug = gql`
             id
             conversationStarter
           }
+          ... on StandalonePollRecord {
+            id
+            pollContainerId
+          }
         }
       }
       ogImage: coverImage {

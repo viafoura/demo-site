@@ -2,6 +2,7 @@ import { Image, StructuredText } from "react-datocms";
 
 import AuthorFollow from "@/components/author-follow";
 import PostTopicsFollow from "@/components/post-topics-follow";
+import VfStandalonePoll from "@/components/viafoura/vf-standalone-poll";
 
 export default function PostBody({ content, author, topics }) {
   return (
@@ -97,6 +98,13 @@ export default function PostBody({ content, author, topics }) {
                   __html: record.conversationStarter,
                 }}
               />
+            );
+          }
+          if (record.__typename === "StandalonePollRecord") {
+            return (
+              <div className="not-prose scroll-mt-20">
+                <VfStandalonePoll vfContainerId={record.pollContainerId} />
+              </div>
             );
           }
 
