@@ -71,13 +71,6 @@ export default function SalesMenu() {
                 >
                   Broadcast Notification
                 </a>
-                <a
-                  href="/standalone-poll"
-                  title="Standalone Polls"
-                  className="sales-menu-link"
-                >
-                  Standalone Polls
-                </a>
               </nav>
             </div>
           </div>
