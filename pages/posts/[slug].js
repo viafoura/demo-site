@@ -12,6 +12,29 @@ import { addPostJsonLd } from "@/lib/viafoura/addPostJsonLd";
 import { fetchCommentAuthorSchema } from "@/lib/viafoura/fetchCommentAuthorSchema";
 import { fetchCommentsSchema } from "@/lib/viafoura/fetchCommentsSchema";
 
+async function fetchPostDisplaySettings(slug) {
+  try {
+    const data = await fetchGraphQL({
+      query: `
+        query PostDisplaySettings($slug: String) {
+          post(filter: { slug: { eq: $slug } }) {
+            hideArticleFollows
+          }
+        }
+      `,
+      variables: { slug },
+    });
+
+    return {
+      hideArticleFollows: data.post?.hideArticleFollows ?? false,
+    };
+  } catch {
+    return {
+      hideArticleFollows: false,
+    };
+  }
+}
+
 export async function getStaticPaths() {
   const data = await fetchGraphQL({ query: `{ allPosts { slug } }` });
   return {
@@ -21,10 +44,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await fetchGraphQL({
-    query: gqlPostBySlug,
-    variables: { slug: params.slug },
-  });
+  const [data, postDisplaySettings] = await Promise.all([
+    fetchGraphQL({
+      query: gqlPostBySlug,
+      variables: { slug: params.slug },
+    }),
+    fetchPostDisplaySettings(params.slug),
+  ]);
+
+  data.post = {
+    ...data.post,
+    ...postDisplaySettings,
+  };
+
   const commentsSchema = await fetchCommentsSchema(data.post.vfPostContainerId);
   if (!commentsSchema || !commentsSchema.contents) {
     return {
@@ -110,6 +142,7 @@ export default function Post({ data, schemaCommentsCount, schemaComments }) {
               content={post.content}
               author={post.author}
               topics={post.topic}
+              hideArticleFollows={post.hideArticleFollows}
             />
           </article>
           <Sidebar
