@@ -4,7 +4,12 @@ import AuthorFollow from "@/components/author-follow";
 import PostTopicsFollow from "@/components/post-topics-follow";
 import VfStandalonePoll from "@/components/viafoura/vf-standalone-poll";
 
-export default function PostBody({ content, author, topics }) {
+export default function PostBody({
+  content,
+  author,
+  topics,
+  hideArticleFollows = false,
+}) {
   return (
     <div className="prose prose-sky max-w-4xl">
       <StructuredText
@@ -31,12 +36,16 @@ export default function PostBody({ content, author, topics }) {
             return (
               <>
                 <div className="not-prose scroll-mt-20">
-                  <AuthorFollow
-                    authorId={author.id}
-                    authorName={author.name}
-                    authorPicture={author.picture}
-                  />
-                  <PostTopicsFollow topics={topics} />
+                  {!hideArticleFollows && (
+                    <>
+                      <AuthorFollow
+                        authorId={author.id}
+                        authorName={author.name}
+                        authorPicture={author.picture}
+                      />
+                      <PostTopicsFollow topics={topics} />
+                    </>
+                  )}
                   <div
                     id="vf-conversations-container"
                     dangerouslySetInnerHTML={{
