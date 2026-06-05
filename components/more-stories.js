@@ -36,21 +36,7 @@ export default function MoreStories({
       <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) =>
           item.type === "poll" ? (
-            <div
-              key="poll"
-              className="rounded-lg border border-gray-200 p-5 shadow-sm dark:border-neutral-700"
-            >
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-blue-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="h-4 w-4 shrink-0"
-                >
-                  <path d="M3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h9a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1Z" />
-                </svg>
-                Poll Question
-              </div>
+            <div key="poll">
               <VfStandalonePoll vfContainerId={pollContainerId} />
             </div>
           ) : (
