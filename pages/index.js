@@ -36,7 +36,11 @@ export default function Index({ data }) {
           />
         )}
         {morePosts.length > 0 && (
-          <MoreStories title="More Stories" posts={morePosts} />
+          <MoreStories
+            title="More Stories"
+            posts={morePosts}
+            pollContainerId="homepage-poll"
+          />
         )}
       </Container>
     </>
