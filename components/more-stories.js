@@ -2,7 +2,7 @@ import PostPreview from "@/components/post-preview";
 import VfStandalonePoll from "@/components/viafoura/vf-standalone-poll";
 import VfTopicFollow from "@/components/viafoura/vf-topic-follow";
 
-const POLL_INSERT_INDEX = 4;
+const POLL_INSERT_INDEX = 7;
 
 export default function MoreStories({
   title,
