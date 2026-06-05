@@ -2,7 +2,7 @@ import Head from "next/head";
 import { renderMetaTags } from "react-datocms";
 
 import Container from "@/components/container";
-import HeroPost from "@/components/hero-post";
+import HomeHeroSplit from "@/components/home-hero-split";
 import MoreStories from "@/components/more-stories";
 import { fetchGraphQL } from "@/graphql/fetchGraphQL";
 import { gqlHomePosts } from "@/graphql/gqlHomePosts";
@@ -18,22 +18,15 @@ export async function getStaticProps() {
 export default function Index({ data }) {
   const { allPosts, site, blog } = data;
   const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+  const sidePosts = allPosts.slice(1, 3);
+  const morePosts = allPosts.slice(3);
 
   return (
     <>
       <Head>{renderMetaTags([...blog.seo, ...site.favicon])}</Head>
       <Container>
         {heroPost && (
-          <HeroPost
-            vfPostContainerId={heroPost.vfPostContainerId}
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-            blocks={heroPost.content.blocks}
-          />
+          <HomeHeroSplit featuredPost={heroPost} sidePosts={sidePosts} />
         )}
         {morePosts.length > 0 && (
           <MoreStories
