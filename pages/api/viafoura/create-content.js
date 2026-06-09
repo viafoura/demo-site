@@ -21,7 +21,7 @@ const getPosts = async () => {
     headers: DATOCMS_HEADERS,
     body: JSON.stringify({
       query: `{
-        allPosts { id vfPostContainerId slug title excerpt coverImage { url alt } }
+        allPosts { id vfPostContainerId autoPopulate slug title excerpt coverImage { url alt } }
       }`,
     }),
   });
@@ -108,7 +108,7 @@ const triggerBuildProcess = async () => {
 
 const createViafouraContent = async (allPosts, trendingArticlesCount) => {
   for (const post of allPosts) {
-    if (userComments[post.slug]) {
+    if (post.autoPopulate && userComments[post.slug]) {
       let containerUUID
       try {
         containerUUID = await getContainerUUID(post, trendingArticlesCount)
