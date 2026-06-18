@@ -30,8 +30,7 @@ const getPosts = async () => {
   return data.allPosts;
 };
 
-const getNewVfPostContainerId = async (postId, vfPostContainerId) => {
-  const newVfPostContainerId = vfPostContainerId + 1;
+const updatePostContainerId = async (postId, newVfPostContainerId) => {
   const response = await fetch(`${DATOCMS_API}/items/${postId}`, {
     method: "PUT",
     headers: DATOCMS_HEADERS,
@@ -47,14 +46,10 @@ const getNewVfPostContainerId = async (postId, vfPostContainerId) => {
     }),
   });
   await handleHTTPResponseError(response);
-  return newVfPostContainerId;
 };
 
 const getContainerUUID = async (post) => {
-  const newVfPostContainerId = await getNewVfPostContainerId(
-    post.id,
-    post.vfPostContainerId,
-  );
+  const newVfPostContainerId = (post.vfPostContainerId ?? 0) + 1;
   const response = await fetch(`${VF_LIVECOMMENTS_API}`, {
     method: "POST",
     headers: VF_HEADERS,
@@ -62,6 +57,7 @@ const getContainerUUID = async (post) => {
   });
   await handleHTTPResponseError(response);
   const { content_container_uuid } = await response.json();
+  await updatePostContainerId(post.id, newVfPostContainerId);
   return content_container_uuid;
 };
 
@@ -97,23 +93,27 @@ const createViafouraContent = async (allPosts) => {
         continue;
       }
       for (const userComment of userComments[post.slug]) {
-        const cookies = await getUserCookies({
-          name: userComment.name,
-          email: userComment.email,
-          password: process.env.VF_USERS_PASSWORD,
-          avatar: userComment.avatar,
-        });
-        await createComment(containerUUID, cookies, {
-          content: userComment.comment,
-          metadata: {
-            author_host_section_uuid: process.env.VF_SITE_UUID,
-            origin_summary: post.excerpt,
-            origin_title: post.title,
-            origin_url: `https://${process.env.VF_DOMAIN}/posts/${post.slug}`,
-            origin_image_url: post.coverImage.url,
-            origin_image_alt: post.coverImage.alt,
-          },
-        });
+        try {
+          const cookies = await getUserCookies({
+            name: userComment.name,
+            email: userComment.email,
+            password: process.env.VF_USERS_PASSWORD,
+            avatar: userComment.avatar,
+          });
+          await createComment(containerUUID, cookies, {
+            content: userComment.comment,
+            metadata: {
+              author_host_section_uuid: process.env.VF_SITE_UUID,
+              origin_summary: post.excerpt,
+              origin_title: post.title,
+              origin_url: `https://${process.env.VF_DOMAIN}/posts/${post.slug}`,
+              origin_image_url: post.coverImage.url,
+              origin_image_alt: post.coverImage.alt,
+            },
+          });
+        } catch (e) {
+          console.error(`Failed to create comment for ${post.slug}`, e);
+        }
       }
     }
   }
