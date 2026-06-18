@@ -50,13 +50,26 @@ const updatePostContainerId = async (postId, newVfPostContainerId) => {
 
 const getContainerUUID = async (post) => {
   const newVfPostContainerId = (post.vfPostContainerId ?? 0) + 1;
-  const response = await fetch(`${VF_LIVECOMMENTS_API}`, {
+  const createResponse = await fetch(`${VF_LIVECOMMENTS_API}`, {
     method: "POST",
     headers: VF_HEADERS,
     body: JSON.stringify({ container_id: newVfPostContainerId.toString() }),
   });
-  await handleHTTPResponseError(response);
-  const { content_container_uuid } = await response.json();
+
+  let content_container_uuid;
+  if (createResponse.status === 409) {
+    // Container already exists from a prior run where DatoCMS failed to update — look it up
+    const lookupResponse = await fetch(
+      `${VF_LIVECOMMENTS_API}/contentcontainer/id?container_id=${newVfPostContainerId}`,
+      { method: "GET", headers: VF_HEADERS },
+    );
+    await handleHTTPResponseError(lookupResponse);
+    ({ content_container_uuid } = await lookupResponse.json());
+  } else {
+    await handleHTTPResponseError(createResponse);
+    ({ content_container_uuid } = await createResponse.json());
+  }
+
   await updatePostContainerId(post.id, newVfPostContainerId);
   return content_container_uuid;
 };
