@@ -96,6 +96,7 @@ const triggerBuildProcess = async () => {
 };
 
 const createViafouraContent = async (allPosts) => {
+  let failures = 0;
   for (const post of allPosts) {
     if (post.autoPopulate && userComments[post.slug]) {
       let containerUUID;
@@ -103,6 +104,7 @@ const createViafouraContent = async (allPosts) => {
         containerUUID = await getContainerUUID(post);
       } catch (e) {
         console.error(`Failed to get container for ${post.slug}`, e);
+        failures++;
         continue;
       }
       for (const userComment of userComments[post.slug]) {
@@ -126,18 +128,24 @@ const createViafouraContent = async (allPosts) => {
           });
         } catch (e) {
           console.error(`Failed to create comment for ${post.slug}`, e);
+          failures++;
         }
       }
     }
   }
+  return failures;
 };
 
 export default async function handler(_, res) {
   try {
     const allPosts = await getPosts();
-    await createViafouraContent(allPosts);
+    const failures = await createViafouraContent(allPosts);
     await triggerBuildProcess();
-    res.status(200).json({ message: "Update Successful" });
+    if (failures > 0) {
+      res.status(207).json({ message: "Update completed with errors", failures });
+    } else {
+      res.status(200).json({ message: "Update Successful" });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
