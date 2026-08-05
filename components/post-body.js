@@ -2,6 +2,9 @@ import { Image, StructuredText } from "react-datocms";
 
 import AuthorFollow from "@/components/author-follow";
 import PostTopicsFollow from "@/components/post-topics-follow";
+import TickarooEmbed, {
+  hasTickarooEmbed,
+} from "@/components/tickaroo/tickaroo-embed";
 import VfStandalonePoll from "@/components/viafoura/vf-standalone-poll";
 
 export default function PostBody({
@@ -67,6 +70,9 @@ export default function PostBody({
             );
           }
           if (record.__typename === "LiveBlogRecord") {
+            if (hasTickarooEmbed(record.liveBlog)) {
+              return <TickarooEmbed html={record.liveBlog} />;
+            }
             return (
               <div
                 className="not-prose"
