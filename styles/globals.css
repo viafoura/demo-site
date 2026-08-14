@@ -9,23 +9,23 @@
   body {
     @apply font-sans;
   }
-  h1 {
+  h1:not(.viafoura *) {
     @apply text-4xl font-bold text-gray-800 antialiased;
   }
-  h2 {
+  h2:not(.viafoura *) {
     @apply text-3xl font-bold text-gray-800;
   }
-  h3 {
+  h3:not(.viafoura *) {
     @apply text-2xl font-semibold text-gray-800;
   }
-  h1,
-  h2,
-  h3,
-  p,
-  div {
+  h1:not(.viafoura *),
+  h2:not(.viafoura *),
+  h3:not(.viafoura *),
+  p:not(.viafoura *),
+  div:not(.viafoura):not(.viafoura *) {
     @apply dark:text-white;
   }
-  svg {
+  svg:not(.viafoura *) {
     @apply inline align-baseline;
   }
 }
@@ -57,10 +57,14 @@ nav .viafoura .vf-tray-trigger:focus {
 #vf-broadcast-notification label {
   @apply text-sm font-semibold text-stone-600;
 }
-#vf-broadcast-notification input,
-#vf-broadcast-notification select,
+#vf-broadcast-notification input {
+  @apply form-input mb-4 mt-1 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
+}
+#vf-broadcast-notification select {
+  @apply form-select mb-4 mt-1 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
+}
 #vf-broadcast-notification textarea {
-  @apply mb-4 mt-1 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
+  @apply form-textarea mb-4 mt-1 w-full rounded border-stone-300 text-sm text-stone-600 focus:ring-stone-400;
 }
 #vf-broadcast-notification button {
   @apply m-auto mb-2 mt-4 flex rounded bg-indigo-500 px-6 py-4 text-base text-white hover:bg-indigo-600 disabled:bg-indigo-300;

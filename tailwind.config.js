@@ -16,5 +16,8 @@ module.exports = {
       xl: "1280px",
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms")({ strategy: "class" }),
+  ],
 };
