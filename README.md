@@ -54,6 +54,8 @@ vfSiteUUID: "00000000-0000-4000-8000-d47205fca416",
 
 #### Run your project locally
 
+This project requires **Node.js 24.x**. If you use a version manager, run `nvm use` (or `fnm use`) to pick up the version pinned in `.node-version`.
+
 ```bash
 npm install
 npm run dev
