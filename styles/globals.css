@@ -25,7 +25,7 @@
   div:not(.viafoura):not(.viafoura *) {
     @apply dark:text-white;
   }
-  svg:not(.viafoura *) {
+  svg {
     @apply inline align-baseline;
   }
 }
