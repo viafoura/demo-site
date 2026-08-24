@@ -6,7 +6,7 @@ import VfTrayTrigger from "@/components/viafoura/vf-tray-trigger";
 
 export default function Header() {
   return (
-    <nav className="sticky top-0 z-10 h-16 max-w-full bg-neutral-800 px-4 py-3 dark:bg-[#090909]">
+    <nav className="sticky top-0 z-50 h-16 max-w-full bg-neutral-800 px-4 py-3 dark:bg-[#090909]">
       <div className="mx-auto flex max-w-6xl items-center">
         <div className="h-10 w-10">
           <SalesMenu />
