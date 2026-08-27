@@ -92,6 +92,10 @@ nav .viafoura .vf-tray-trigger:focus {
   left: -90px;
   min-width: 40px;
 }
+.viafoura.custom-sharebar {
+  max-width: 100%;
+  overflow-x: auto;
+}
 .vf-share-bar.vf-share-bar-horizontal {
   margin: -20px 0 20px -10px !important;
 }
