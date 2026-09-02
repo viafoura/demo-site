@@ -82,11 +82,6 @@ nav .viafoura .vf-tray-trigger:focus {
 .viafoura {
   --reserved-space-top: 62px !important;
 }
-.viafoura input:focus:not([type="radio"]):not([type="checkbox"]),
-.viafoura textarea:focus {
-  border: none !important;
-  box-shadow: none !important;
-}
 .viafoura.custom-sharebar-vertical {
   position: absolute;
   left: -90px;
