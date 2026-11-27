@@ -135,19 +135,25 @@ nav .viafoura .vf-tray-trigger:focus {
 .dark .viafoura,
 .dark .vf3-comments {
   --background-color: #2a262b !important;
-  --light-text-on-background-color: #fff !important;
+  --default-color: #2a262b !important;
+  --light-text-on-background-color: rgba(255, 255, 255, 0.8) !important;
   --dark-text-on-background-color: #fff !important;
-  --light-text-on-default-color: #fff !important;
+  --light-text-on-default-color: rgba(255, 255, 255, 0.8) !important;
   --dark-text-on-default-color: #fff !important;
-  --dark-text-on-default-color: #fff !important;
-  --secondary-text-color: #fff !important;
+  --secondary-text-color: rgba(255, 255, 255, 0.8) !important;
   --text-on-accent-color: #fff !important;
-  --default-color: #434343;
-  --primary-color-20: #434343;
-  --primary-color-10: #434343;
-  --accent-color-light: #2792fe !important;
-  --accent-color: #1d8eff !important;
-  --accent-color-dark: #007fff !important;
+  --surface-sunken: #201d21 !important;
+  --shadow-color: rgba(0, 0, 0, 0.35) !important;
+  --primary-color-75: rgba(255, 255, 255, 0.92) !important;
+  --primary-color-60: rgba(255, 255, 255, 0.8) !important;
+  --primary-color-50: rgba(255, 255, 255, 0.71) !important;
+  --primary-color-30: rgba(255, 255, 255, 0.5) !important;
+  --primary-color-20: rgba(255, 255, 255, 0.38) !important;
+  --primary-color-15: rgba(255, 255, 255, 0.3) !important;
+  --primary-color-10: rgba(255, 255, 255, 0.22) !important;
+  --primary-color-08: rgba(255, 255, 255, 0.12) !important;
+  --primary-color-04: rgba(255, 255, 255, 0.12) !important;
+  --primary-color-02: rgba(255, 255, 255, 0.08) !important;
 }
 .dark .viafoura h2,
 .dark .viafoura h3 {
@@ -165,7 +171,7 @@ nav .viafoura .vf-tray-trigger:focus {
   color: #fff !important;
 }
 .dark .viafoura .vf-livechat__header {
-  @apply border-neutral-600 !important;
+  border-color: #525252;
 }
 .dark .viafoura .vf-tray {
   color: #fff !important;
@@ -188,6 +194,18 @@ nav .viafoura .vf-tray-trigger:focus {
 .dark .viafoura .vf-nav-button:hover .vf-nav-label,
 .dark .viafoura .vf-label {
   color: #fff !important;
+}
+.dark .vf-tray-trigger.vf-tray-trigger--floating {
+  --text-on-primary-color: #2a262b !important;
+}
+.dark .vf-tray-trigger.vf-tray-trigger--floating svg {
+  fill: currentColor !important;
+}
+.dark .viafoura .vf-chip__primary--selected {
+  --text-on-primary-color: #2a262b !important;
+}
+.dark .viafoura .vf-chip__primary--selected svg {
+  fill: currentColor !important;
 }
 /* Temporal fixes */
 .dark
